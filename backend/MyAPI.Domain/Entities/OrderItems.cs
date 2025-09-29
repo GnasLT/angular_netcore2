@@ -9,6 +9,6 @@ public class OrderItem
     public decimal UnitPrice { get; set; }
 
     // Navigation
-    public Order Order { get; set; } = default!;
+    public Orders Order { get; set; } = default!;
     public Product Product { get; set; } = default!;
 }

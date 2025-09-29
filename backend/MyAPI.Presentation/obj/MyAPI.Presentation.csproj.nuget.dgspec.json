@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj": {}
+    "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj": {}
   },
   "projects": {
-    "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
+    "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+        "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
         "projectName": "MyAPI.Application",
-        "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
-        "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\obj\\",
+        "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+        "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+        "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
-                "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
+              "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
+                "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
               }
             }
           }
@@ -64,28 +62,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
+    "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj",
+        "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj",
         "projectName": "MyAPI.Domain",
-        "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj",
-        "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\obj\\",
+        "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+        "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -124,36 +120,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
+    "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj",
+        "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj",
         "projectName": "MyAPI.Infrastructure",
-        "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\obj\\",
+        "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+        "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
-                "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
+              "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
+                "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
               }
             }
           }
@@ -180,6 +174,14 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.9, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             }
           },
           "imports": [
@@ -198,39 +200,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj": {
+    "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
+        "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
         "projectName": "MyAPI.Presentation",
-        "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
-        "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\obj\\",
+        "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
+        "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+        "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
-                "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj"
+              "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
+                "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj"
               },
-              "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
-                "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj"
+              "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
+                "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj"
               }
             }
           }
@@ -264,6 +264,10 @@
               "target": "Package",
               "version": "[9.0.9, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -288,7 +292,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

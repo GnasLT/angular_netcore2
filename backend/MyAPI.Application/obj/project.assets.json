@@ -27,34 +27,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\": {}
+    "C:\\Users\\huynhsang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+      "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
       "projectName": "MyAPI.Application",
-      "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
-      "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\obj\\",
+      "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+      "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+      "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
-              "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
+            "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
+              "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
             }
           }
         }
@@ -89,7 +87,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

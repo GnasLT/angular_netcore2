@@ -1,4 +1,10 @@
-using MyAPI.Infrastructure.Persitence;
+
+using MyAPI.Infrastructure.Persistence;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.EntityFrameworkCore;
+using MyAPI.Application.Abstraction;
+using MyAPI.Application.Service;
+using MyAPI.Domain.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +14,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-var app = builder.Build();
+
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("PostgreConnection")));
+
+var connectionString = builder.Configuration.GetConnectionString("PostgreConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    options.UseNpgsql(connectionString);
+});
+
+builder.Services.AddScoped<IAuthenService, AuthService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

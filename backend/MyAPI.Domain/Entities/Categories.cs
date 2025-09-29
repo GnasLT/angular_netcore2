@@ -1,7 +1,7 @@
 namespace MyAPI.Domain.Entities;
 
 
-public class Category
+public class Categories
 {
     public int Id { get; set; }
     public string CategoryName { get; set; } = default!;

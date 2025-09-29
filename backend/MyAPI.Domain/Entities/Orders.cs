@@ -1,6 +1,6 @@
 namespace MyAPI.Domain.Entities;
 
-public class Order
+public class Orders
 {
     public int Id { get; set; }
     public Guid UserId { get; set; }   // Customer
@@ -10,7 +10,7 @@ public class Order
     public string Status { get; set; } = "Pending";
 
     // Navigation
-    public User Customer { get; set; } = default!;
-    public User? Staff { get; set; }
+    public Users Customer { get; set; } = default!;
+    public Users? Staff { get; set; }
     public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }

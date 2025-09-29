@@ -12,6 +12,6 @@ public class Product
     public bool IsActive { get; set; }
 
     // Navigation
-    public Category? Category { get; set; }
+    public Categories? Category { get; set; }
     public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }

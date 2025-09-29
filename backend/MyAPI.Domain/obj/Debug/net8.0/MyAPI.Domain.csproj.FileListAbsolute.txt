@@ -9,3 +9,15 @@ D:\Work\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.dll
 D:\Work\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\refint\MyAPI.Domain.dll
 D:\Work\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.pdb
 D:\Work\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\ref\MyAPI.Domain.dll
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\bin\Debug\net8.0\MyAPI.Domain.deps.json
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\bin\Debug\net8.0\MyAPI.Domain.dll
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\bin\Debug\net8.0\MyAPI.Domain.pdb
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.AssemblyInfoInputs.cache
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.AssemblyInfo.cs
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.csproj.CoreCompileInputs.cache
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.sourcelink.json
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.dll
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\refint\MyAPI.Domain.dll
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\MyAPI.Domain.pdb
+D:\icondemo2\angular_netcore2\backend\MyAPI.Domain\obj\Debug\net8.0\ref\MyAPI.Domain.dll

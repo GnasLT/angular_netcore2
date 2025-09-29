@@ -1,6 +1,6 @@
 namespace MyAPI.Domain.Entities;
 
-public class Session
+public class Sessions
 {
     public Guid Id { get; set; }
     public Guid UserId { get; set; }
@@ -8,7 +8,7 @@ public class Session
     public DateTime ExpiresAt { get; set; }
     public string? IpAddress { get; set; }
     public string? UserAgent { get; set; }
-
+    
     // Navigation
-    public User User { get; set; } = default!;
+    public Users User { get; set; } = default!;
 }

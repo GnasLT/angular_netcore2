@@ -1023,6 +1023,40 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "Npgsql/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[9.0.1, 10.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.1, 10.0.0)",
+          "Npgsql": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -1731,7 +1765,9 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.9",
-          "MyAPI.Domain": "1.0.0"
+          "MyAPI.Domain": "1.0.0",
+          "Npgsql": "9.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
         },
         "compile": {
           "bin/placeholder/MyAPI.Infrastructure.dll": {}
@@ -3892,6 +3928,38 @@
         "readme.md"
       ]
     },
+    "Npgsql/9.0.3": {
+      "sha512": "tPvY61CxOAWxNsKLEBg+oR646X4Bc8UmyQ/tJszL/7mEmIXQnnBhVJZrZEEUv0Bstu0mEsHZD5At3EO8zQRAYw==",
+      "type": "package",
+      "path": "npgsql/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "npgsql.9.0.3.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4": {
+      "sha512": "mw5vcY2IEc7L+IeGrxpp/J5OSnCcjkjAgJYCm/eD52wpZze8zsSifdqV7zXslSMmfJG2iIUGZyo3KuDtEFKwMQ==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/9.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -5190,41 +5258,40 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9",
       "MyAPI.Application >= 1.0.0",
       "MyAPI.Infrastructure >= 1.0.0",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\": {}
+    "C:\\Users\\huynhsang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
+      "projectUniqueName": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
       "projectName": "MyAPI.Presentation",
-      "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
-      "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Presentation\\obj\\",
+      "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\MyAPI.Presentation.csproj",
+      "packagesPath": "C:\\Users\\huynhsang\\.nuget\\packages\\",
+      "outputPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\huynhsang\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
-              "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj"
+            "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj": {
+              "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj"
             },
-            "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
-              "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj"
+            "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj": {
+              "projectPath": "D:\\icondemo2\\angular_netcore2\\backend\\MyAPI.Infrastructure\\MyAPI.Infrastructure.csproj"
             }
           }
         }
@@ -5258,6 +5325,10 @@
             "target": "Package",
             "version": "[9.0.9, )"
           },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[9.0.4, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
@@ -5282,7 +5353,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
