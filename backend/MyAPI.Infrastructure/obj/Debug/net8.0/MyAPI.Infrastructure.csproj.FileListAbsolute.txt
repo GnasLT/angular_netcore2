@@ -1,0 +1,15 @@
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\bin\Debug\net8.0\MyAPI.Infrastructure.deps.json
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\bin\Debug\net8.0\MyAPI.Infrastructure.dll
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\bin\Debug\net8.0\MyAPI.Infrastructure.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\bin\Debug\net8.0\MyAPI.Domain.dll
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\bin\Debug\net8.0\MyAPI.Domain.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.csproj.AssemblyReference.cache
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.AssemblyInfoInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.AssemblyInfo.cs
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.In.CB478EB0.Up2Date
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.dll
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\refint\MyAPI.Infrastructure.dll
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\MyAPI.Infrastructure.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Infrastructure\obj\Debug\net8.0\ref\MyAPI.Infrastructure.dll

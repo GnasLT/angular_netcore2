@@ -1,0 +1,7 @@
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.csproj.AssemblyReference.cache
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.AssemblyInfoInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.AssemblyInfo.cs
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.csproj.CoreCompileInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.MvcApplicationPartsAssemblyInfo.cs
+D:\Work\angular_netcore2\backend\MyAPI.Presentation\obj\Debug\net8.0\MyAPI.Presentation.MvcApplicationPartsAssemblyInfo.cache

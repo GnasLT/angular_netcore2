@@ -1,0 +1,15 @@
+D:\Work\angular_netcore2\backend\MyAPI.Application\bin\Debug\net8.0\MyAPI.Application.deps.json
+D:\Work\angular_netcore2\backend\MyAPI.Application\bin\Debug\net8.0\MyAPI.Application.dll
+D:\Work\angular_netcore2\backend\MyAPI.Application\bin\Debug\net8.0\MyAPI.Application.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Application\bin\Debug\net8.0\MyAPI.Domain.dll
+D:\Work\angular_netcore2\backend\MyAPI.Application\bin\Debug\net8.0\MyAPI.Domain.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.csproj.AssemblyReference.cache
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.AssemblyInfoInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.AssemblyInfo.cs
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.csproj.CoreCompileInputs.cache
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Ap.EE5633FE.Up2Date
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.dll
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\refint\MyAPI.Application.dll
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\MyAPI.Application.pdb
+D:\Work\angular_netcore2\backend\MyAPI.Application\obj\Debug\net8.0\ref\MyAPI.Application.dll

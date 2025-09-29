@@ -1,0 +1,96 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "MyAPI.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MyAPI.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyAPI.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyAPI.Domain/1.0.0": {
+      "type": "project",
+      "path": "../MyAPI.Domain/MyAPI.Domain.csproj",
+      "msbuildProject": "../MyAPI.Domain/MyAPI.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "MyAPI.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+      "projectName": "MyAPI.Application",
+      "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\MyAPI.Application.csproj",
+      "packagesPath": "C:\\Users\\ACER NITRO 5\\.nuget\\packages\\",
+      "outputPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\ACER NITRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj": {
+              "projectPath": "D:\\Work\\angular_netcore2\\backend\\MyAPI.Domain\\MyAPI.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
