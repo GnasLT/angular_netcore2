@@ -37,7 +37,6 @@ namespace MyAPI.Presentation.Controller
             return await Result<LoginResponse>.SuccessResult(result.Data, result.Message);
         }
 
-        
 
     }
 }
