@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 
 // builder.Services.AddDbContext<AppDbContext>(options =>
-//     options.UseSqlServer(builder.Configuration.GetConnectionString("PostgreConnection")));
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var connectionString = builder.Configuration.GetConnectionString("PostgreConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>

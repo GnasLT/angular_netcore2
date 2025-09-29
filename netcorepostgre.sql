@@ -1,69 +1,73 @@
-create database saledb;
-using saledb;
+create DATABASE saledb;
+use saledb;
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    full_name VARCHAR(100),
-    role VARCHAR(20) CHECK (role IN ('customer', 'staff', 'admin')) DEFAULT 'customer',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);  
-
-CREATE TABLE sessions (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- sessionid
-    user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    expires_at TIMESTAMP NOT NULL,
-    is_active BOOLEAN DEFAULT TRUE
+-- Bảng Users
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) UNIQUE NOT NULL,
+    PasswordHash NVARCHAR(MAX) NOT NULL,
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    FullName NVARCHAR(100),
+    Role NVARCHAR(20) NOT NULL DEFAULT 'customer'
+        CHECK (Role IN ('customer', 'seller', 'admin')),
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME()
 );
 
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    price NUMERIC(12,2) NOT NULL,
-    stock INT NOT NULL DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Bảng Sessions
+CREATE TABLE Sessions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(), -- sessionId
+    UserId INT NOT NULL FOREIGN KEY REFERENCES Users(Id) ON DELETE CASCADE,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+    ExpiresAt DATETIME2 NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1
 );
 
-CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Bảng Products
+CREATE TABLE Products (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(MAX),
+    Price DECIMAL(12,2) NOT NULL,
+    Stock INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME()
 );
 
-CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id) ON DELETE CASCADE,
-    product_id INT REFERENCES products(id),
-    quantity INT NOT NULL CHECK (quantity > 0),
-    price NUMERIC(12,2) NOT NULL
+-- Bảng Orders
+CREATE TABLE Orders (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    UserId INT NOT NULL FOREIGN KEY REFERENCES Users(Id),
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME()
 );
 
-INSERT INTO users (username, password_hash, email, full_name, role)
+-- Bảng OrderItems
+CREATE TABLE OrderItems (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    OrderId INT NOT NULL FOREIGN KEY REFERENCES Orders(Id) ON DELETE CASCADE,
+    ProductId INT NOT NULL FOREIGN KEY REFERENCES Products(Id),
+    Quantity INT NOT NULL CHECK (Quantity > 0),
+    Price DECIMAL(12,2) NOT NULL
+);
+
+INSERT INTO Users (Username, PasswordHash, Email, FullName, Role)
 VALUES
--- ('alice', '123456', 'alice@example.com', 'Alice Nguyen', 'customer'),
--- ('bob',   '123456', 'bob@example.com',   'Bob Tran',   'staff'),
--- ('admin', '123456', 'admin@example.com', 'System Admin', 'admin');
-('sang', '123456', 'sang@gmail.com', 'sang', 'admin'),
-('customer', '123456', 'khach@gmail.com', 'customer', 'customer');
-('seller', '123456', 'seller@gmail.com', 'seller', 'seller');
+(N'customer', N'123456', N'customer@example.com', N'customer Nguyen', N'customer'),
+(N'Seller',   N'123456', N'seller@example.com',   N'seller Tran',    N'seller'),
+(N'admin',    N'123456', N'admin@example.com',    N'System Admin',   N'admin');
 
-
-INSERT INTO products (name, description, price, stock)
+-- Insert Products
+INSERT INTO Products (Name, Description, Price, Stock)
 VALUES
-('iPhone 15', 'Apple smartphone 256GB', 29990000, 10),
-('Samsung Galaxy S24', 'Samsung flagship 256GB', 25990000, 15),
-('MacBook Air M2', 'Apple laptop M2 13 inch', 32990000, 5),
-('Logitech Mouse', 'Wireless mouse', 499000, 100);
+(N'iPhone 15',        N'Apple smartphone 256GB', 29990000, 10),
+(N'Samsung Galaxy S24', N'Samsung flagship 256GB', 25990000, 15),
+(N'MacBook Air M2',   N'Apple laptop M2 13 inch', 32990000, 5),
+(N'Logitech Mouse',   N'Wireless mouse',          499000, 100);
 
-INSERT INTO orders (user_id)
-VALUES
-(1)
+-- Insert Orders
+INSERT INTO Orders (UserId) VALUES (1);
+INSERT INTO Orders (UserId) VALUES (2);
 
-INSERT INTO order_items (order_id, product_id, quantity, price)
+-- Insert OrderItems
+INSERT INTO OrderItems (OrderId, ProductId, Quantity, Price)
 VALUES
 (1, 1, 1, 29990000), -- iPhone
 (1, 4, 1,   499000), -- Mouse
