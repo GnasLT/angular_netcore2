@@ -18,12 +18,14 @@ namespace MyAPI.Presentation.Controller;
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
 {
-    //private readonly IAuthenService _authenService;
+    private readonly IAuthenService _authenService;
 
+    
+    [SessionAuthorize("seller")]
     [HttpGet("/getall")]
-    public async Task<Result> GetAllProduct()
+    public async Task<IActionResult> GetAllProduct()
     {
-        //return 
+        return Ok(new {message = "bad request"});
     }
 
 }

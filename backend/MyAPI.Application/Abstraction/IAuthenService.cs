@@ -6,6 +6,6 @@ namespace MyAPI.Application.Abstraction;
 
 public interface IAuthenService
 {
-    Task<Result<LoginResponse>> LoginAsync(LoginRequest request);
-    Task<bool> ValidateSessionAsync(Guid sessionId);
+    Task<Result<LoginResponse>> LoginAsync(LoginRequest request,string ipAddress, string userAgent);
+    Task<LoginResponse> ValidateSessionAsync(Guid sessionId,string ip, string agent);
 }

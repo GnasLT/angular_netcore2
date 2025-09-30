@@ -1,21 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MyAPI.Domain.Entities;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace MyAPI.Infrastructure.Persistence;
 
-public class AppDbContext : DbContext
+public partial class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AppDbContext()
+    {
+    }
 
-        public DbSet<Users> Users => Set<Users>();
-        public DbSet<Sessions> Sessions => Set<Sessions>();
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
+    {
+    }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public virtual DbSet<Orders> Orders { get; set; }
+
+    public virtual DbSet<OrderItem> OrderItems { get; set; }
+
+    public virtual DbSet<Products> Products { get; set; }
+
+    public virtual DbSet<Sessions> Sessions { get; set; }
+
+    public virtual DbSet<Users> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Orders>(entity =>
         {
-            modelBuilder.Entity<Users>()
-                .HasMany(u => u.Sessions)
-                .WithOne(s => s.User)
-                .HasForeignKey(s => s.UserId);
-        }
+            entity.HasKey(e => e.Id).HasName("orders_pkey");
+
+            entity.ToTable("orders");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_at");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("orders_user_id_fkey");
+        });
+
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("order_items_pkey");
+
+            entity.ToTable("order_items");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.OrderId).HasColumnName("order_id");
+            entity.Property(e => e.Price)
+                .HasPrecision(12, 2)
+                .HasColumnName("price");
+            entity.Property(e => e.ProductId).HasColumnName("product_id");
+            entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("order_items_order_id_fkey");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("order_items_product_id_fkey");
+        });
+
+        modelBuilder.Entity<Products>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("products_pkey");
+
+            entity.ToTable("products");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+            entity.Property(e => e.Price)
+                .HasPrecision(12, 2)
+                .HasColumnName("price");
+            entity.Property(e => e.Stock)
+                .HasDefaultValue(0)
+                .HasColumnName("stock");
+        });
+
+        modelBuilder.Entity<Sessions>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("sessions_pkey");
+
+            entity.ToTable("sessions");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("gen_random_uuid()")
+                .HasColumnName("id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_at");
+            entity.Property(e => e.ExpiresAt)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("expires_at");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("is_active");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Sessions)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("sessions_user_id_fkey");
+        });
+
+        modelBuilder.Entity<Users>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("users_pkey");
+
+            entity.ToTable("users");
+
+            entity.HasIndex(e => e.Email, "users_email_key").IsUnique();
+
+            entity.HasIndex(e => e.Username, "users_username_key").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.FullName)
+                .HasMaxLength(100)
+                .HasColumnName("full_name");
+            entity.Property(e => e.PasswordHash).HasColumnName("password_hash");
+            entity.Property(e => e.Role)
+                .HasMaxLength(20)
+                .HasDefaultValueSql("'customer'::character varying")
+                .HasColumnName("role");
+            entity.Property(e => e.Username)
+                .HasMaxLength(50)
+                .HasColumnName("username");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

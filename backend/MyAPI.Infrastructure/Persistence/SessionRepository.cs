@@ -11,7 +11,7 @@ public class SessionRepository : ISessionRepository
         _context = context;
     } 
 
-    public async Task<Sessions> CreateSessionAsync(Guid userId, string? ipAddress = null, string? userAgent = null)
+    public async Task<Sessions> CreateSessionAsync(int userId, string? ipAddress = null, string? userAgent = null)
     {
         var session = new Sessions
         {
@@ -19,13 +19,12 @@ public class SessionRepository : ISessionRepository
             UserId = userId,
             CreatedAt = DateTime.UtcNow,
             ExpiresAt = DateTime.UtcNow.AddMinutes(20), 
-            IpAddress = ipAddress,
-            UserAgent = userAgent
+            ipaddress = ipAddress,
+            useragent = userAgent
         };
 
         await _context.Sessions.AddAsync(session);
         await _context.SaveChangesAsync();
-
         return session;
     }
 

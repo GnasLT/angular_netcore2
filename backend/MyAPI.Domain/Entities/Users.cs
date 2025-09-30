@@ -1,17 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+
 namespace MyAPI.Domain.Entities;
 
-public class Users
+public partial class Users
 {
-    public Guid Id { get; set; }
-    public string PasswordHash { get; set; } = default!;
-    public string? FullName { get; set; }
-    public string Email { get; set; } = default!;
-    public string? Phone { get; set; }
-    public string Role { get; set; } = default!;
-    public DateTime CreatedAt { get; set; }
+    public int Id { get; set; }
 
-    // Navigation
-    public ICollection<Sessions> Sessions { get; set; } = new List<Sessions>();
-    public ICollection<Orders> CustomerOrders { get; set; } = new List<Orders>();
-    public ICollection<Orders> StaffOrders { get; set; } = new List<Orders>();
+    public string Username { get; set; } = null!;
+
+    public string PasswordHash { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string? FullName { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public string Role { get; set; } = "customer";
+
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
+
+    public virtual ICollection<Sessions> Sessions { get; set; } = new List<Sessions>();
 }
