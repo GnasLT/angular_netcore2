@@ -5,11 +5,12 @@ namespace MyAPI.Infrastructure.Persistence;
 
 public class SessionRepository : ISessionRepository
 {
-     private readonly AppDbContext _context;  
+    private readonly AppDbContext _context;
 
-    public SessionRepository(AppDbContext context){
+    public SessionRepository(AppDbContext context)
+    {
         _context = context;
-    } 
+    }
 
     public async Task<Sessions> CreateSessionAsync(int userId, string? ipAddress = null, string? userAgent = null)
     {
@@ -18,7 +19,7 @@ public class SessionRepository : ISessionRepository
             Id = Guid.NewGuid(),
             UserId = userId,
             CreatedAt = DateTime.UtcNow,
-            ExpiresAt = DateTime.UtcNow.AddMinutes(20), 
+            ExpiresAt = DateTime.UtcNow.AddMinutes(20),
             ipaddress = ipAddress,
             useragent = userAgent
         };
@@ -28,10 +29,14 @@ public class SessionRepository : ISessionRepository
         return session;
     }
 
+    public async Task<Sessions?> GetByUserIdAsync(int userId)
+    {
+        return await _context.Sessions.Where(p => p.UserId == userId).FirstOrDefaultAsync();
+    }
     public async Task<Sessions?> GetByIdAsync(Guid sessionId)
     {
         return await _context.Sessions
-            .Include(s => s.User) 
+            .Include(s => s.User)
             .FirstOrDefaultAsync(s => s.Id == sessionId);
     }
 
@@ -43,13 +48,25 @@ public class SessionRepository : ISessionRepository
         return session.ExpiresAt > DateTime.UtcNow;
     }
 
-       public async Task DeleteSessionAsync(Guid sessionId)
+    public async Task DeleteSessionAsync(Guid sessionId)
     {
         var session = await _context.Sessions.FindAsync(sessionId);
         if (session != null)
         {
             _context.Sessions.Remove(session);
             await _context.SaveChangesAsync();
-        }   
+        }
     }
+
+    public async Task ExtendTime(Guid sessionId)
+    {
+        var session = await _context.Sessions.FindAsync(sessionId);
+        if (session != null)
+        {
+            session.ExpiresAt = DateTime.UtcNow.AddMinutes(30);
+            _context.Sessions.Update(session);
+            await _context.SaveChangesAsync();
+        }
+    }
+    
 }

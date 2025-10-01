@@ -22,12 +22,12 @@ namespace MyAPI.Presentation.Controller
             this._authenService = authenService;
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         public async Task<Result<LoginResponse>> Login([FromBody] LoginRequest userRequest)
         {
             var ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
             var userAgent = Request.Headers["User-Agent"].ToString();
-            Result<LoginResponse> result = await _authenService.LoginAsync(userRequest, ipAddress,userAgent);
+            Result<LoginResponse> result = await _authenService.LoginAsync(userRequest, ipAddress, userAgent);
             if (!result.Success)
             {
                 return await Result<LoginResponse>.FailureResult(result.Message);
@@ -40,6 +40,23 @@ namespace MyAPI.Presentation.Controller
             return await Result<LoginResponse>.SuccessResult(null, result.Message);
         }
 
+        [HttpPost("logout")]
+        public async Task<Result<object>> Logout()
+        {
+            if (!HttpContext.Request.Cookies.TryGetValue("MySession", out var sessionIdString))
+            {
+                return await Result<object>.FailureResult("You're still not logged in");
+            }
+            if (!Guid.TryParse(sessionIdString, out Guid sessionid))
+            {
+                return await Result<object>.FailureResult("Invalid session id");
+            }
+            var result = await _authenService.LogoutAsync(sessionid);
+            HttpContext.Response.Cookies.Delete("MySession");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            
+            return await Result<object>.SuccessResult(null, result.Message);
+        }
 
     }
 }

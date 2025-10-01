@@ -25,30 +25,51 @@ namespace MyAPI.Application.Service
             if (user.PasswordHash != request.Password)
                 return await Result<LoginResponse>.FailureResult("Invalid credentials");
 
-            // if 
-            Sessions session = await _sessionRepository.CreateSessionAsync(user.Id,ipAddress,userAgent);
+            Sessions check = await _sessionRepository.GetByUserIdAsync(user.Id);
             LoginResponse lresponse = new LoginResponse()
             {
-                SessionId = session.Id,
                 Email = user.Email,
                 Role = user.Role
             };
+            if (check == null || check.ExpiresAt < DateTime.UtcNow)
+            {
+                if (check != null && check.ExpiresAt < DateTime.UtcNow)
+                    await _sessionRepository.DeleteSessionAsync(check.Id);
+
+                check = await _sessionRepository.CreateSessionAsync(user.Id, ipAddress, userAgent);
+            }
+            lresponse.SessionId = check.Id;
             return await Result<LoginResponse>.SuccessResult(lresponse, "Login successful");
         }
 
-        public async Task<LoginResponse> ValidateSessionAsync(Guid sessionId,string ip, string agent)
+        public async Task<LoginResponse> ValidateSessionAsync(Guid sessionId, string ip, string agent)
         {
             var session = await _sessionRepository.GetByIdAsync(sessionId);
-            if (session == null || session.ExpiresAt < DateTime.UtcNow) return null;
+            if (session == null) return null;
+            if (session.ExpiresAt < DateTime.UtcNow)
+            {
+                await _sessionRepository.DeleteSessionAsync(session.Id);
+                return null;
+            } 
 
             if (session.ipaddress != ip || session.useragent != agent) return null;
 
+            await _sessionRepository.ExtendTime(session.Id);
             return new LoginResponse
             {
                 SessionId = session.Id,
                 Email = session.User.Email,
                 Role = session.User.Role
             };
+        }
+
+        public async Task<Result<object?>> LogoutAsync(Guid sessionId)
+        {
+            await _sessionRepository.DeleteSessionAsync(sessionId);
+
+
+
+            return await Result<object>.ReturnMessage(200, "Logout successfully");
         }
     }
 }

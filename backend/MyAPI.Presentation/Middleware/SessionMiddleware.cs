@@ -10,9 +10,8 @@ public class SessionMiddleware
 
     public async Task InvokeAsync(HttpContext context, IAuthenService authenService)
     {
-
-       if (context.Request.Cookies.TryGetValue("MySession", out var sessionIdString)
-        && Guid.TryParse(sessionIdString, out var sessionId))
+        if (context.Request.Cookies.TryGetValue("MySession", out var sessionIdString)
+         && Guid.TryParse(sessionIdString, out var sessionId))
         {
             var ip = context.Connection.RemoteIpAddress.ToString();
             var useragent = context.Request.Headers["User-Agent"].ToString();
@@ -21,8 +20,14 @@ public class SessionMiddleware
             {
                 context.Items["Users"] = user;
             }
+            else
+            {   
+                context.Response.Cookies.Delete("MySession");
+            }
         }
+
 
         await _next(context);
     }
+    
 }

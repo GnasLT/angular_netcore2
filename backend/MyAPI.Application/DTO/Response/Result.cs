@@ -7,7 +7,7 @@ public class Result<T>
 
     public required string Message { get; set; }
 
-    public short StatusCode{ get; set; }
+    public short? StatusCode { get; set; }
 
     public T? Data { get; set; }
 
@@ -26,6 +26,16 @@ public class Result<T>
         return Task.FromResult(new Result<T>
         {
             Success = false,
+            Message = message,
+            Data = default
+        });
+    }
+    
+    public static Task<Result<T>> ReturnMessage(short? statuscode,string message)
+    {
+        return Task.FromResult(new Result<T>
+        {
+            StatusCode = statuscode ?? 0,
             Message = message,
             Data = default
         });

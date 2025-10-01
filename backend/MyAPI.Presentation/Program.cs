@@ -15,8 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/api/login";     
-        options.LogoutPath = "/api/logout";
+        options.LoginPath = "/api/User/login";     
+        options.LogoutPath = "/api/User/logout";
         options.Cookie.HttpOnly = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always; 
         options.ExpireTimeSpan = TimeSpan.FromHours(1);
@@ -27,11 +27,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.AddSecurityDefinition("cookieAuth", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    c.AddSecurityDefinition("MySession", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
         In = Microsoft.OpenApi.Models.ParameterLocation.Cookie,
-        Name = ".AspNetCore.Cookies", // tên cookie thực tế của bạn
+        Name = "MySession", // tên cookie thực tế của bạn
         Description = "Cookie authentication"
     });
 
@@ -40,13 +40,13 @@ builder.Services.AddSwaggerGen(c =>
         {
             new Microsoft.OpenApi.Models.OpenApiSecurityScheme
             {
-                Name = "cookieAuth",
+                Name = "MySession",
                 In = Microsoft.OpenApi.Models.ParameterLocation.Cookie,
                 Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
                 Reference = new Microsoft.OpenApi.Models.OpenApiReference
                 {
                     Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                    Id = "cookieAuth"
+                    Id = "MySession"
                 }
             },
             new string[] { }
@@ -65,7 +65,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IAuthenService, AuthService>();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
 

@@ -9,13 +9,24 @@ public partial class Products
 
     public string Name { get; set; } = null!;
 
-    public string? Description { get; set; }
-
     public decimal Price { get; set; }
 
     public int Stock { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
-
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+    public Products(int id, string name, decimal price, int stock)
+    {
+        Id = id;
+        Name = name;
+        Price = price;
+        Stock = stock;
+    }
+
+     public void UpdateProduct(string name, decimal price, int stock)
+    {
+        Name = name ?? throw new InvalidOperationException("Name cannot be null");
+        Price = price;
+        Stock = stock;
+    }
 }
