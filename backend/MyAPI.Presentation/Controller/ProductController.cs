@@ -62,12 +62,23 @@ public class ProductController : ControllerBase
     [HttpDelete("delete/{id}")]
     public async Task<Result<object>> DeleteProduct(int id)
     {
-        
+
         var result = await _productservice.DeleteProduct(id);
         if (!result.Success)
             return await Result<object>.FailureResult(result.Message);
-    
+
         return await Result<object>.FailureResult(result.Message);
-        
     }
+
+    [SessionAuthorize("seller")]
+    [HttpPatch("IncreaseStock")]
+    public async Task<Result<object>> IncreaseStock([FromBody] ProductStock stock)
+    {
+        var result = await _productservice.IncreaseStock(stock);
+        if (!result.Success)
+            return await Result<object>.FailureResult(result.Message);
+
+        return await Result<object>.FailureResult(result.Message);
+    }
+
 }

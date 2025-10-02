@@ -23,7 +23,8 @@ public class ProductService : IProductService
         {
             Name = p.Name,
             Price = p.Price,
-            Stock = p.Stock
+            Stock = p.Stock,
+            Categories = p.categoryid
         }).ToList();
         return dtoList;
     }
@@ -42,7 +43,8 @@ public class ProductService : IProductService
                 {
                     Name = item.Name,
                     Price = item.Price,
-                    Stock = item.Stock
+                    Stock = item.Stock,
+                    Categories = item.Categories
                 });
             }
             else
@@ -56,30 +58,29 @@ public class ProductService : IProductService
     public async Task<Result<ProductReponseDTO>> UpdateProduct(ProductRequestDTO productRequest)
     {
         ProductReponseDTO reponseDTO = new ProductReponseDTO();
-            reponseDTO.OrderDate = productRequest.OrderDate;
-            foreach (var item in productRequest.Items)
+        reponseDTO.OrderDate = productRequest.OrderDate;
+        foreach (var item in productRequest.Items)
+        {
+            Products temp = await _productrepository.GetByIdAsync(item.Id);
+            if (temp != null)
             {
-                Products temp = await _productrepository.GetByIdAsync(item.Id);
-                if (temp != null)
+                temp.UpdateProduct(item.Name, item.Price, item.Stock);
+                _productrepository.UpdateAsync(temp);
+                reponseDTO.Items.Add(new ProductItemsResponseDTO
                 {
-                    temp.UpdateProduct(item.Name, item.Price, item.Stock);
-                    _productrepository.UpdateAsync(temp);
-                    reponseDTO.Items.Add(new ProductItemsResponseDTO
-                    {
-                        Name = item.Name,
-                        Price =  item.Price,
-                        Stock = item.Stock
-                    });
-                }
-                else
-                {
-                    return await Result<ProductReponseDTO>.FailureResult("Product ID does not exist");
-                }
+                    Name = item.Name,
+                    Price = item.Price,
+                    Stock = item.Stock,
+                    Categories = item.Categories
+                });
             }
-
-
-            return await Result<ProductReponseDTO>.SuccessResult(reponseDTO, "Update product successfully");
+            else
+            {
+                return await Result<ProductReponseDTO>.FailureResult("Product ID does not exist");
+            }
         }
+        return await Result<ProductReponseDTO>.SuccessResult(reponseDTO, "Update product successfully");
+    }
 
     public async Task<Result<object>> DeleteProduct(int productId)
     {
@@ -87,12 +88,26 @@ public class ProductService : IProductService
         if (temp != null)
         {
             await _productrepository.DeleteAsync(productId);
-            return await Result<object>.SuccessResult(null, "Deleted the product"); 
+            return await Result<object>.SuccessResult(null, "Deleted the product");
         }
         else
         {
             return await Result<object>.FailureResult("Can't find the product");
         }
-    
     }
+
+    public async Task<Result<object>> IncreaseStock(ProductStock stock)
+    {
+        Products product = await _productrepository.GetByIdAsync(stock.Id);
+        if (product != null)
+        {
+            product.IncreaseStock(stock.Stock);
+            return await Result<object>.SuccessResult(null, "Stock is increased");
+        } 
+        return await Result<object>.FailureResult("Can't find the product");
+
+    }
+
+   
+    
 }

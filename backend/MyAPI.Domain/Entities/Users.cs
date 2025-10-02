@@ -19,6 +19,22 @@ public partial class Users
 
     public string Role { get; set; } = "customer";
 
+
+    public Users()
+    {
+        
+    }
+    public Users(int id, string email, string password, string fullname, DateTime time)
+    {
+        Id = id;
+        Email = email;
+        PasswordHash = password;
+        FullName = fullname;
+        Role = default;
+        CreatedAt = time;
+        Username = fullname;
+    }
+
     public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 
     public virtual ICollection<Sessions> Sessions { get; set; } = new List<Sessions>();

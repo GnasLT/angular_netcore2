@@ -10,4 +10,5 @@ public interface ISessionRepository
     Task<bool> ValidateSessionAsync(Guid sessionId);
     Task DeleteSessionAsync(Guid sessionId);
     Task ExtendTime(Guid sessionId);
+
 }

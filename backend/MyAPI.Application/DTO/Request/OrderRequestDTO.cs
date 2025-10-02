@@ -6,7 +6,7 @@ namespace MyAPI.Application.DTO.Request
     {
         public DateTime OrderDate { get; set; }
 
-        public IEnumerable<OrderItemDTO> Items { get; set; }
+        public ICollection<OrderItemDTO> Items { get; set; }
     }
 
     public class OrderItemDTO
@@ -14,5 +14,13 @@ namespace MyAPI.Application.DTO.Request
         public int ProductId { get; set; }
 
         public int Quantity { get; set; }
+
+        public OrderItemDTO() { }
+
+        public OrderItemDTO(int productid, int quantity)
+        {
+            ProductId = productid;
+            Quantity = quantity;
+        }
     }
 }

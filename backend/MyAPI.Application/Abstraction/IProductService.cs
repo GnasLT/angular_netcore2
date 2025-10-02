@@ -6,13 +6,15 @@ using MyAPI.Domain.Entities;
 
 namespace MyAPI.Application.Abstraction;
 
- public interface IProductService
+public interface IProductService
 {
     public Task<IEnumerable<ProductItems>> GetAllProducts();
 
     public Task<Result<ProductReponseDTO>> AddProduct(ProductRequestDTO productRequest);
 
     public Task<Result<ProductReponseDTO>> UpdateProduct(ProductRequestDTO productRequest);
-    
+
     public Task<Result<object>> DeleteProduct(int productId);
+
+    public Task<Result<object>> IncreaseStock(ProductStock stock);
 }

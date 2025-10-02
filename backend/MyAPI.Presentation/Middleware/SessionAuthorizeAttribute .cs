@@ -21,7 +21,8 @@ public class SessionAuthorizeAttribute : Attribute, IAuthorizationFilter
             return;
         }
 
-        if (_role != null && user.Role != _role)
+       if (!string.IsNullOrEmpty(_role) &&
+            !string.Equals(user.Role, _role, StringComparison.OrdinalIgnoreCase))
         {
             context.Result = new ForbidResult();
         }

@@ -26,6 +26,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Users> Users { get; set; }
 
+    public virtual DbSet<Category> Category { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Orders>(entity =>
@@ -48,11 +50,10 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<OrderItem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("order_items_pkey");
-
             entity.ToTable("order_items");
+            modelBuilder.Entity<OrderItem>()
+                .HasKey(oi => new { oi.OrderId, oi.ProductId });
 
-            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Price)
                 .HasPrecision(12, 2)
@@ -70,6 +71,19 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("order_items_product_id_fkey");
         });
 
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.HasKey(e => e.id).HasName("categories_pkey");
+            entity.ToTable("categories");
+
+            entity.Property(e => e.id).HasColumnName("id");
+
+            entity.Property(e => e.name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+
+            
+         });
         modelBuilder.Entity<Products>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("products_pkey");
@@ -86,6 +100,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Stock)
                 .HasDefaultValue(0)
                 .HasColumnName("stock");
+            entity.Property(e => e.categoryid)
+                .HasDefaultValue(1)
+                .HasColumnName("categoryid");
         });
 
         modelBuilder.Entity<Sessions>(entity =>

@@ -53,10 +53,11 @@ public class UserRepository : IUserRepository
         }
     }
 
-    public async Task SaveChangesAsync()
+    public async Task<int> Count()
     {
-        await _context.SaveChangesAsync();
+        return _context.Users.Count();
     }
 
+    
 
 }
