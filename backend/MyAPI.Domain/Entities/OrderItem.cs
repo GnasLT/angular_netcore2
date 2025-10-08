@@ -22,6 +22,7 @@ public partial class OrderItem
         ProductId = productId;
         Quantity = quantity;
     }
+    
 
     private OrderItem() { }
 }

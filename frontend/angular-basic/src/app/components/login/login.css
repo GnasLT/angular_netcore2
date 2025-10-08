@@ -1,0 +1,101 @@
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* --- Social Login Buttons --- */
+.social-login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Khoảng cách giữa các icon */
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 50%; /* Hình tròn */
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.social-btn img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.social-btn:hover {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng hover nhẹ */
+}
+
+/* --- Separator (Dải phân cách) --- */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.separator hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0 10px;
+}
+
+/* --- Form Inputs and Button --- */
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.main-login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Màu thương hiệu */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.main-login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* --- Links --- */
+.links {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.divider {
+    margin: 0 10px;
+    color: #aaa;
+}

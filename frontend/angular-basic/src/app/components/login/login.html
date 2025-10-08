@@ -1,0 +1,34 @@
+<div class="login-container">
+    <h2>Đăng nhập vào ShopEasy</h2>
+
+    <div class="social-login-buttons">
+        <button class="social-btn google-btn" >
+            <img src="../../../assets/google-icon.png" alt="Google Icon">
+        </button>
+        <button class="social-btn facebook-btn" >
+            <img src="../../../assets/fbicon.jpg" alt="Facebook Icon">
+        </button>
+        <button class="social-btn apple-btn" >
+            <img src="../../../assets/appleicon.jpg" alt="Apple Icon">
+        </button>
+    </div>
+
+    <div class="separator">
+        <hr>
+        <span>HOẶC</span>
+        <hr>
+    </div>
+
+    <form class="login-form" (ngSubmit)="onSubmit()">
+        <input type="email" name="email" [(ngModel)]="email" placeholder="Địa chỉ Email" required>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Mật khẩu" required>
+        
+        <button type="submit" class="main-login-btn">Đăng nhập</button>
+    </form>
+
+    <div class="links">
+        <a routerLink="/forgot-password">Quên mật khẩu?</a>
+        <span class="divider">|</span>
+        <a routerLink="/register">Chưa có tài khoản? Đăng ký ngay</a>
+    </div>
+</div>

@@ -24,7 +24,7 @@ public class OrderController : ControllerBase
         _orderService = orderService;
     }
 
-    [SessionAuthorize("seller")]
+    [SessionAuthorize("customer")]
     [HttpPost("Create")]
     public async Task<Result<object>> Create([FromBody] OrderRequestDTO orderdto)
     {
@@ -33,6 +33,33 @@ public class OrderController : ControllerBase
         var result = await _orderService.CreateOrder(orderdto, user.SessionId);
         if (!result.Success)
             return await Result<object>.FailureResult(result.Message);
-        return await Result<object>.SuccessResult(null,result.Message);
+        return await Result<object>.SuccessResult(null, result.Message);
+    }
+
+    [SessionAuthorize("seller")]
+    [HttpPut("Update")]
+    public async Task<Result<object>> Update([FromBody] OrderIDRequest order)
+    {
+        var result = await _orderService.UpdateOrder(order);
+        if (!result.Success)
+            return await Result<object>.FailureResult(result.Message);
+        return await Result<object>.SuccessResult(null, result.Message);
+    }
+
+    [SessionAuthorize("admin")]
+    [HttpDelete("Delete/{id}")]
+    public async Task<Result<object>> Delete(int id)
+    {
+        var result = await _orderService.DeleteOrder(id);
+        if (!result.Success)
+            return await Result<object>.FailureResult(result.Message);
+        return await Result<object>.SuccessResult(null, result.Message);
+    }
+    
+    [SessionAuthorize("seller")]
+    [HttpGet("getall")]
+    public async Task<IEnumerable<Orders>> GetAllOrder()
+    {
+        return await _orderService.GetAllOrder();
     }
 }

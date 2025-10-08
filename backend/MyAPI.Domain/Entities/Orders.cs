@@ -37,7 +37,21 @@ public partial class Orders
     {
         if (items.Quantity <= 0)
             throw new ArgumentException("Quantity must be greater than 0.");
+        
         OrderItems.Add(items);
+
+    }
+
+    public void AddQuantity(OrderItem items)
+    {
+        if (items.Quantity <= 0)
+            throw new ArgumentException("Quantity must be greater than 0.");
+
+        var check = OrderItems.FirstOrDefault(x => x.ProductId == items.ProductId);
+        if (check != null)
+            check.Quantity += items.Quantity;
+        
+
     }
 
     public void RemoveItem(int productid)
