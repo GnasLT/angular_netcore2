@@ -19,9 +19,9 @@
         <hr>
     </div>
 
-    <form class="login-form" (ngSubmit)="onSubmit()">
-        <input type="email" name="email" [(ngModel)]="email" placeholder="Địa chỉ Email" required>
-        <input type="password" name="password" [(ngModel)]="password" placeholder="Mật khẩu" required>
+    <form class="login-form" (ngSubmit)="onLogin(email.value, password.value)">
+        <input type="email" #email name="email" [(ngModel)]="email" placeholder="Địa chỉ Email" required>
+        <input type="password" #password name="password" [(ngModel)]="password" placeholder="Mật khẩu" required>
         
         <button type="submit" class="main-login-btn">Đăng nhập</button>
     </form>

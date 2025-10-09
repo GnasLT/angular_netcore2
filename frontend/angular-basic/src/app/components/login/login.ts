@@ -1,32 +1,38 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService, LoginRequest } from '../../service/authen/authen'
-import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import * as AuthActions from '../../store/auth/auth.action';
+import { Store } from '@ngrx/store';
+import { selectLoading, selectError, selectIsAuthenticated } from '../../store/auth/auth.selector';
+import { LoginRequest } from '../../model/Login';
+import { AsyncPipe, NgIf } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AsyncPipe],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class Login {
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private store: Store, private router: Router) {}
+  
+  loading$!: Observable<boolean>;
+  error$!: Observable<string>;
+  isAuthenticated$!: Observable<boolean>;
 
-  onSubmit(): void {
-    const request: LoginRequest = {
-      email: this.email,
-      password: this.password
-  };
-    this.authService.login(request).subscribe({
-      next: (res) => console.log('Login success:', res),
-      error: (err) => console.error('Login failed:', err)
-    });
+   ngOnInit() {
+    this.loading$ = this.store.select(selectLoading);
+    this.error$ = this.store.select(selectError);
+    this.isAuthenticated$ = this.store.select(selectIsAuthenticated);
+  }
+
+    onLogin(email: string, password: string) {
+    const data: LoginRequest = { email, password };
+    this.store.dispatch(AuthActions.login({ data }));
   }
 }
