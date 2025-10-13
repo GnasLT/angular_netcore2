@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginRequest } from '../../model/Login';
+import {path} from '../path';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5088/api/UserAction'; 
+  private apiUrl = `${path}/UserAction`; 
 
   constructor(private http: HttpClient) {}
 
@@ -19,12 +20,12 @@ export class AuthService {
     });
   }
 
-//   // Lấy thông tin user đang đăng nhập (nếu cookie còn)
-//   getCurrentUser(): Observable<any> {
-//     return this.http.get(`${this.apiUrl}/me`, {
-//       withCredentials: true   
-//     });
-//   }
+  // Lấy thông tin user đang đăng nhập (nếu cookie còn)
+  getme(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getme`, {
+      withCredentials: true   
+    });
+  }
 
 
   logout(): Observable<any> {

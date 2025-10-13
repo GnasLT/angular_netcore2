@@ -9,4 +9,5 @@ public interface IAuthenService
     Task<Result<LoginResponse>> LoginAsync(LoginRequest request, string ipAddress, string userAgent);
     Task<LoginResponse> ValidateSessionAsync(Guid sessionId, string ip, string agent);
     Task<Result<object?>> LogoutAsync(Guid sessionId);
+    Task<string> Getme(Guid sessionId);
 }

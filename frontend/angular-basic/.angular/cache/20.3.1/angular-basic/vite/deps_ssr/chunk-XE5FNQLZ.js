@@ -1,17 +1,18 @@
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   withHttpTransferCache
-} from "./chunk-5BWRRQVG.js";
+} from "./chunk-OYEA5PLE.js";
 import {
   CommonModule,
   DomAdapter,
   PLATFORM_BROWSER_ID,
   getDOM,
   setRootDomAdapter
-} from "./chunk-UOKJ275A.js";
+} from "./chunk-DEVLROXS.js";
 import {
   XhrFactory,
   parseCookieValue
-} from "./chunk-S7CFNWHI.js";
+} from "./chunk-KXAFGDSC.js";
 import {
   ANIMATIONS_DISABLED,
   APP_ID,
@@ -47,9 +48,6 @@ import {
   ViewEncapsulation,
   XSS_SECURITY_URL,
   ZONELESS_ENABLED,
-  __name,
-  __publicField,
-  __spreadValues,
   _global,
   _sanitizeHtml,
   _sanitizeUrl,
@@ -78,7 +76,13 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-F5JFE4SO.js";
+} from "./chunk-ECVEU7WN.js";
+import {
+  __name,
+  __publicField,
+  __spreadProps,
+  __spreadValues
+} from "./chunk-XCKGGG5T.js";
 
 // node_modules/@angular/platform-browser/fesm2022/dom_renderer.mjs
 var EVENT_MANAGER_PLUGINS = new InjectionToken(ngDevMode ? "EventManagerPlugins" : "");
@@ -307,7 +311,7 @@ var _SharedStylesHost = class _SharedStylesHost {
     if (this.nonce) {
       element.setAttribute("nonce", this.nonce);
     }
-    if (false) {
+    if (true) {
       element.setAttribute(APP_ID_ATTRIBUTE_NAME, this.appId);
     }
     return host.appendChild(element);
@@ -433,14 +437,14 @@ var _DomRendererFactory2 = class _DomRendererFactory2 {
     this.animationDisabled = animationDisabled;
     this.maxAnimationTimeout = maxAnimationTimeout;
     this.tracingService = tracingService;
-    this.platformIsServer = false;
+    this.platformIsServer = true;
     this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.platformIsServer, this.tracingService, this.registry = getAnimationElementRemovalRegistry(), this.maxAnimationTimeout);
   }
   createRenderer(element, type) {
     if (!element || !type) {
       return this.defaultRenderer;
     }
-    if (false) {
+    if (type.encapsulation === ViewEncapsulation.ShadowDom) {
       type = __spreadProps(__spreadValues({}, type), {
         encapsulation: ViewEncapsulation.Emulated
       });
@@ -707,7 +711,7 @@ var _DefaultDomRenderer2 = class _DefaultDomRenderer2 {
       if (event === "__ngUnwrap__") {
         return eventHandler;
       }
-      const allowDefaultBehavior = false ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
+      const allowDefaultBehavior = true ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
       if (allowDefaultBehavior === false) {
         event.preventDefault();
       }
@@ -814,7 +818,7 @@ var _NoneEncapsulationDomRenderer = class _NoneEncapsulationDomRenderer extends 
     if (!this.removeStylesOnCompDestroy) {
       return;
     }
-    if (!this._animationDisabled && this.registry.elements) {
+    if (false) {
       this.ngZone.runOutsideAngular(() => {
         setTimeout(() => {
           this.sharedStylesHost.removeStyles(this.styles, this.styleUrls);
@@ -2154,4 +2158,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-BIQGR3SE.js.map
+//# sourceMappingURL=chunk-XE5FNQLZ.js.map

@@ -23,7 +23,7 @@
         <input type="email" #email name="email" [(ngModel)]="email" placeholder="Địa chỉ Email" required>
         <input type="password" #password name="password" [(ngModel)]="password" placeholder="Mật khẩu" required>
         
-        <button type="submit" class="main-login-btn">Đăng nhập</button>
+        <button type="submit" class="main-login-btn" [disabled]="loading$ | async">Đăng nhập</button>
     </form>
 
     <div class="links">

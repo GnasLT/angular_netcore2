@@ -1,36 +1,651 @@
-var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b ||= {})
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
+import {
+  require_argsOrArgArray,
+  require_audit,
+  require_auditTime,
+  require_buffer,
+  require_bufferCount,
+  require_bufferTime,
+  require_bufferToggle,
+  require_bufferWhen,
+  require_catchError,
+  require_cjs,
+  require_combineAll,
+  require_combineLatest,
+  require_combineLatestAll,
+  require_combineLatestWith,
+  require_concat,
+  require_concatAll,
+  require_concatMap,
+  require_concatMapTo,
+  require_concatWith,
+  require_connect,
+  require_count,
+  require_debounce,
+  require_debounceTime,
+  require_defaultIfEmpty,
+  require_delay,
+  require_delayWhen,
+  require_dematerialize,
+  require_distinct,
+  require_distinctUntilChanged,
+  require_distinctUntilKeyChanged,
+  require_elementAt,
+  require_endWith,
+  require_every,
+  require_exhaust,
+  require_exhaustAll,
+  require_exhaustMap,
+  require_expand,
+  require_filter,
+  require_finalize,
+  require_find,
+  require_findIndex,
+  require_first,
+  require_flatMap,
+  require_groupBy,
+  require_ignoreElements,
+  require_isEmpty,
+  require_last,
+  require_map,
+  require_mapTo,
+  require_materialize,
+  require_max,
+  require_merge,
+  require_mergeAll,
+  require_mergeMap,
+  require_mergeMapTo,
+  require_mergeScan,
+  require_mergeWith,
+  require_min,
+  require_multicast,
+  require_not,
+  require_observeOn,
+  require_onErrorResumeNextWith,
+  require_pairwise,
+  require_pluck,
+  require_publish,
+  require_publishBehavior,
+  require_publishLast,
+  require_publishReplay,
+  require_raceWith,
+  require_reduce,
+  require_refCount,
+  require_repeat,
+  require_repeatWhen,
+  require_retry,
+  require_retryWhen,
+  require_sample,
+  require_sampleTime,
+  require_scan,
+  require_sequenceEqual,
+  require_share,
+  require_shareReplay,
+  require_single,
+  require_skip,
+  require_skipLast,
+  require_skipUntil,
+  require_skipWhile,
+  require_startWith,
+  require_subscribeOn,
+  require_switchAll,
+  require_switchMap,
+  require_switchMapTo,
+  require_switchScan,
+  require_take,
+  require_takeLast,
+  require_takeUntil,
+  require_takeWhile,
+  require_tap,
+  require_throttle,
+  require_throttleTime,
+  require_throwIfEmpty,
+  require_timeInterval,
+  require_timeout,
+  require_timeoutWith,
+  require_timestamp,
+  require_toArray,
+  require_window,
+  require_windowCount,
+  require_windowTime,
+  require_windowToggle,
+  require_windowWhen,
+  require_withLatestFrom,
+  require_zip,
+  require_zipAll,
+  require_zipWith
+} from "./chunk-UUOZ4H2G.js";
+import {
+  __commonJS,
+  __name,
+  __publicField,
+  __spreadProps,
+  __spreadValues,
+  __toESM
+} from "./chunk-XCKGGG5T.js";
+
+// node_modules/rxjs/dist/cjs/internal/operators/partition.js
+var require_partition = __commonJS({
+  "node_modules/rxjs/dist/cjs/internal/operators/partition.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.partition = void 0;
+    var not_1 = require_not();
+    var filter_1 = require_filter();
+    function partition(predicate, thisArg) {
+      return function(source) {
+        return [filter_1.filter(predicate, thisArg)(source), filter_1.filter(not_1.not(predicate, thisArg))(source)];
+      };
     }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var __objRest = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
-        target[prop] = source[prop];
+    __name(partition, "partition");
+    exports.partition = partition;
+  }
+});
+
+// node_modules/rxjs/dist/cjs/internal/operators/race.js
+var require_race = __commonJS({
+  "node_modules/rxjs/dist/cjs/internal/operators/race.js"(exports) {
+    "use strict";
+    var __read = exports && exports.__read || function(o, n) {
+      var m = typeof Symbol === "function" && o[Symbol.iterator];
+      if (!m) return o;
+      var i = m.call(o), r, ar = [], e;
+      try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+      } catch (error) {
+        e = { error };
+      } finally {
+        try {
+          if (r && !r.done && (m = i["return"])) m.call(i);
+        } finally {
+          if (e) throw e.error;
+        }
+      }
+      return ar;
+    };
+    var __spreadArray = exports && exports.__spreadArray || function(to, from) {
+      for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+      return to;
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.race = void 0;
+    var argsOrArgArray_1 = require_argsOrArgArray();
+    var raceWith_1 = require_raceWith();
+    function race() {
+      var args = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+      }
+      return raceWith_1.raceWith.apply(void 0, __spreadArray([], __read(argsOrArgArray_1.argsOrArgArray(args))));
     }
-  return target;
-};
-var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+    __name(race, "race");
+    exports.race = race;
+  }
+});
+
+// node_modules/rxjs/dist/cjs/operators/index.js
+var require_operators = __commonJS({
+  "node_modules/rxjs/dist/cjs/operators/index.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.mergeAll = exports.merge = exports.max = exports.materialize = exports.mapTo = exports.map = exports.last = exports.isEmpty = exports.ignoreElements = exports.groupBy = exports.first = exports.findIndex = exports.find = exports.finalize = exports.filter = exports.expand = exports.exhaustMap = exports.exhaustAll = exports.exhaust = exports.every = exports.endWith = exports.elementAt = exports.distinctUntilKeyChanged = exports.distinctUntilChanged = exports.distinct = exports.dematerialize = exports.delayWhen = exports.delay = exports.defaultIfEmpty = exports.debounceTime = exports.debounce = exports.count = exports.connect = exports.concatWith = exports.concatMapTo = exports.concatMap = exports.concatAll = exports.concat = exports.combineLatestWith = exports.combineLatest = exports.combineLatestAll = exports.combineAll = exports.catchError = exports.bufferWhen = exports.bufferToggle = exports.bufferTime = exports.bufferCount = exports.buffer = exports.auditTime = exports.audit = void 0;
+    exports.timeInterval = exports.throwIfEmpty = exports.throttleTime = exports.throttle = exports.tap = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.switchScan = exports.switchMapTo = exports.switchMap = exports.switchAll = exports.subscribeOn = exports.startWith = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.single = exports.shareReplay = exports.share = exports.sequenceEqual = exports.scan = exports.sampleTime = exports.sample = exports.refCount = exports.retryWhen = exports.retry = exports.repeatWhen = exports.repeat = exports.reduce = exports.raceWith = exports.race = exports.publishReplay = exports.publishLast = exports.publishBehavior = exports.publish = exports.pluck = exports.partition = exports.pairwise = exports.onErrorResumeNext = exports.observeOn = exports.multicast = exports.min = exports.mergeWith = exports.mergeScan = exports.mergeMapTo = exports.mergeMap = exports.flatMap = void 0;
+    exports.zipWith = exports.zipAll = exports.zip = exports.withLatestFrom = exports.windowWhen = exports.windowToggle = exports.windowTime = exports.windowCount = exports.window = exports.toArray = exports.timestamp = exports.timeoutWith = exports.timeout = void 0;
+    var audit_1 = require_audit();
+    Object.defineProperty(exports, "audit", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return audit_1.audit;
+    }, "get") });
+    var auditTime_1 = require_auditTime();
+    Object.defineProperty(exports, "auditTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return auditTime_1.auditTime;
+    }, "get") });
+    var buffer_1 = require_buffer();
+    Object.defineProperty(exports, "buffer", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return buffer_1.buffer;
+    }, "get") });
+    var bufferCount_1 = require_bufferCount();
+    Object.defineProperty(exports, "bufferCount", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return bufferCount_1.bufferCount;
+    }, "get") });
+    var bufferTime_1 = require_bufferTime();
+    Object.defineProperty(exports, "bufferTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return bufferTime_1.bufferTime;
+    }, "get") });
+    var bufferToggle_1 = require_bufferToggle();
+    Object.defineProperty(exports, "bufferToggle", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return bufferToggle_1.bufferToggle;
+    }, "get") });
+    var bufferWhen_1 = require_bufferWhen();
+    Object.defineProperty(exports, "bufferWhen", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return bufferWhen_1.bufferWhen;
+    }, "get") });
+    var catchError_1 = require_catchError();
+    Object.defineProperty(exports, "catchError", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return catchError_1.catchError;
+    }, "get") });
+    var combineAll_1 = require_combineAll();
+    Object.defineProperty(exports, "combineAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return combineAll_1.combineAll;
+    }, "get") });
+    var combineLatestAll_1 = require_combineLatestAll();
+    Object.defineProperty(exports, "combineLatestAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return combineLatestAll_1.combineLatestAll;
+    }, "get") });
+    var combineLatest_1 = require_combineLatest();
+    Object.defineProperty(exports, "combineLatest", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return combineLatest_1.combineLatest;
+    }, "get") });
+    var combineLatestWith_1 = require_combineLatestWith();
+    Object.defineProperty(exports, "combineLatestWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return combineLatestWith_1.combineLatestWith;
+    }, "get") });
+    var concat_1 = require_concat();
+    Object.defineProperty(exports, "concat", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return concat_1.concat;
+    }, "get") });
+    var concatAll_1 = require_concatAll();
+    Object.defineProperty(exports, "concatAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return concatAll_1.concatAll;
+    }, "get") });
+    var concatMap_1 = require_concatMap();
+    Object.defineProperty(exports, "concatMap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return concatMap_1.concatMap;
+    }, "get") });
+    var concatMapTo_1 = require_concatMapTo();
+    Object.defineProperty(exports, "concatMapTo", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return concatMapTo_1.concatMapTo;
+    }, "get") });
+    var concatWith_1 = require_concatWith();
+    Object.defineProperty(exports, "concatWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return concatWith_1.concatWith;
+    }, "get") });
+    var connect_1 = require_connect();
+    Object.defineProperty(exports, "connect", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return connect_1.connect;
+    }, "get") });
+    var count_1 = require_count();
+    Object.defineProperty(exports, "count", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return count_1.count;
+    }, "get") });
+    var debounce_1 = require_debounce();
+    Object.defineProperty(exports, "debounce", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return debounce_1.debounce;
+    }, "get") });
+    var debounceTime_1 = require_debounceTime();
+    Object.defineProperty(exports, "debounceTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return debounceTime_1.debounceTime;
+    }, "get") });
+    var defaultIfEmpty_1 = require_defaultIfEmpty();
+    Object.defineProperty(exports, "defaultIfEmpty", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return defaultIfEmpty_1.defaultIfEmpty;
+    }, "get") });
+    var delay_1 = require_delay();
+    Object.defineProperty(exports, "delay", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return delay_1.delay;
+    }, "get") });
+    var delayWhen_1 = require_delayWhen();
+    Object.defineProperty(exports, "delayWhen", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return delayWhen_1.delayWhen;
+    }, "get") });
+    var dematerialize_1 = require_dematerialize();
+    Object.defineProperty(exports, "dematerialize", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return dematerialize_1.dematerialize;
+    }, "get") });
+    var distinct_1 = require_distinct();
+    Object.defineProperty(exports, "distinct", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return distinct_1.distinct;
+    }, "get") });
+    var distinctUntilChanged_1 = require_distinctUntilChanged();
+    Object.defineProperty(exports, "distinctUntilChanged", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return distinctUntilChanged_1.distinctUntilChanged;
+    }, "get") });
+    var distinctUntilKeyChanged_1 = require_distinctUntilKeyChanged();
+    Object.defineProperty(exports, "distinctUntilKeyChanged", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return distinctUntilKeyChanged_1.distinctUntilKeyChanged;
+    }, "get") });
+    var elementAt_1 = require_elementAt();
+    Object.defineProperty(exports, "elementAt", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return elementAt_1.elementAt;
+    }, "get") });
+    var endWith_1 = require_endWith();
+    Object.defineProperty(exports, "endWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return endWith_1.endWith;
+    }, "get") });
+    var every_1 = require_every();
+    Object.defineProperty(exports, "every", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return every_1.every;
+    }, "get") });
+    var exhaust_1 = require_exhaust();
+    Object.defineProperty(exports, "exhaust", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return exhaust_1.exhaust;
+    }, "get") });
+    var exhaustAll_1 = require_exhaustAll();
+    Object.defineProperty(exports, "exhaustAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return exhaustAll_1.exhaustAll;
+    }, "get") });
+    var exhaustMap_1 = require_exhaustMap();
+    Object.defineProperty(exports, "exhaustMap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return exhaustMap_1.exhaustMap;
+    }, "get") });
+    var expand_1 = require_expand();
+    Object.defineProperty(exports, "expand", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return expand_1.expand;
+    }, "get") });
+    var filter_1 = require_filter();
+    Object.defineProperty(exports, "filter", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return filter_1.filter;
+    }, "get") });
+    var finalize_1 = require_finalize();
+    Object.defineProperty(exports, "finalize", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return finalize_1.finalize;
+    }, "get") });
+    var find_1 = require_find();
+    Object.defineProperty(exports, "find", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return find_1.find;
+    }, "get") });
+    var findIndex_1 = require_findIndex();
+    Object.defineProperty(exports, "findIndex", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return findIndex_1.findIndex;
+    }, "get") });
+    var first_1 = require_first();
+    Object.defineProperty(exports, "first", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return first_1.first;
+    }, "get") });
+    var groupBy_1 = require_groupBy();
+    Object.defineProperty(exports, "groupBy", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return groupBy_1.groupBy;
+    }, "get") });
+    var ignoreElements_1 = require_ignoreElements();
+    Object.defineProperty(exports, "ignoreElements", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return ignoreElements_1.ignoreElements;
+    }, "get") });
+    var isEmpty_1 = require_isEmpty();
+    Object.defineProperty(exports, "isEmpty", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return isEmpty_1.isEmpty;
+    }, "get") });
+    var last_1 = require_last();
+    Object.defineProperty(exports, "last", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return last_1.last;
+    }, "get") });
+    var map_1 = require_map();
+    Object.defineProperty(exports, "map", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return map_1.map;
+    }, "get") });
+    var mapTo_1 = require_mapTo();
+    Object.defineProperty(exports, "mapTo", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mapTo_1.mapTo;
+    }, "get") });
+    var materialize_1 = require_materialize();
+    Object.defineProperty(exports, "materialize", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return materialize_1.materialize;
+    }, "get") });
+    var max_1 = require_max();
+    Object.defineProperty(exports, "max", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return max_1.max;
+    }, "get") });
+    var merge_1 = require_merge();
+    Object.defineProperty(exports, "merge", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return merge_1.merge;
+    }, "get") });
+    var mergeAll_1 = require_mergeAll();
+    Object.defineProperty(exports, "mergeAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mergeAll_1.mergeAll;
+    }, "get") });
+    var flatMap_1 = require_flatMap();
+    Object.defineProperty(exports, "flatMap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return flatMap_1.flatMap;
+    }, "get") });
+    var mergeMap_1 = require_mergeMap();
+    Object.defineProperty(exports, "mergeMap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mergeMap_1.mergeMap;
+    }, "get") });
+    var mergeMapTo_1 = require_mergeMapTo();
+    Object.defineProperty(exports, "mergeMapTo", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mergeMapTo_1.mergeMapTo;
+    }, "get") });
+    var mergeScan_1 = require_mergeScan();
+    Object.defineProperty(exports, "mergeScan", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mergeScan_1.mergeScan;
+    }, "get") });
+    var mergeWith_1 = require_mergeWith();
+    Object.defineProperty(exports, "mergeWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return mergeWith_1.mergeWith;
+    }, "get") });
+    var min_1 = require_min();
+    Object.defineProperty(exports, "min", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return min_1.min;
+    }, "get") });
+    var multicast_1 = require_multicast();
+    Object.defineProperty(exports, "multicast", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return multicast_1.multicast;
+    }, "get") });
+    var observeOn_1 = require_observeOn();
+    Object.defineProperty(exports, "observeOn", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return observeOn_1.observeOn;
+    }, "get") });
+    var onErrorResumeNextWith_1 = require_onErrorResumeNextWith();
+    Object.defineProperty(exports, "onErrorResumeNext", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return onErrorResumeNextWith_1.onErrorResumeNext;
+    }, "get") });
+    var pairwise_1 = require_pairwise();
+    Object.defineProperty(exports, "pairwise", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return pairwise_1.pairwise;
+    }, "get") });
+    var partition_1 = require_partition();
+    Object.defineProperty(exports, "partition", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return partition_1.partition;
+    }, "get") });
+    var pluck_1 = require_pluck();
+    Object.defineProperty(exports, "pluck", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return pluck_1.pluck;
+    }, "get") });
+    var publish_1 = require_publish();
+    Object.defineProperty(exports, "publish", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return publish_1.publish;
+    }, "get") });
+    var publishBehavior_1 = require_publishBehavior();
+    Object.defineProperty(exports, "publishBehavior", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return publishBehavior_1.publishBehavior;
+    }, "get") });
+    var publishLast_1 = require_publishLast();
+    Object.defineProperty(exports, "publishLast", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return publishLast_1.publishLast;
+    }, "get") });
+    var publishReplay_1 = require_publishReplay();
+    Object.defineProperty(exports, "publishReplay", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return publishReplay_1.publishReplay;
+    }, "get") });
+    var race_1 = require_race();
+    Object.defineProperty(exports, "race", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return race_1.race;
+    }, "get") });
+    var raceWith_1 = require_raceWith();
+    Object.defineProperty(exports, "raceWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return raceWith_1.raceWith;
+    }, "get") });
+    var reduce_1 = require_reduce();
+    Object.defineProperty(exports, "reduce", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return reduce_1.reduce;
+    }, "get") });
+    var repeat_1 = require_repeat();
+    Object.defineProperty(exports, "repeat", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return repeat_1.repeat;
+    }, "get") });
+    var repeatWhen_1 = require_repeatWhen();
+    Object.defineProperty(exports, "repeatWhen", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return repeatWhen_1.repeatWhen;
+    }, "get") });
+    var retry_1 = require_retry();
+    Object.defineProperty(exports, "retry", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return retry_1.retry;
+    }, "get") });
+    var retryWhen_1 = require_retryWhen();
+    Object.defineProperty(exports, "retryWhen", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return retryWhen_1.retryWhen;
+    }, "get") });
+    var refCount_1 = require_refCount();
+    Object.defineProperty(exports, "refCount", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return refCount_1.refCount;
+    }, "get") });
+    var sample_1 = require_sample();
+    Object.defineProperty(exports, "sample", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return sample_1.sample;
+    }, "get") });
+    var sampleTime_1 = require_sampleTime();
+    Object.defineProperty(exports, "sampleTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return sampleTime_1.sampleTime;
+    }, "get") });
+    var scan_1 = require_scan();
+    Object.defineProperty(exports, "scan", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return scan_1.scan;
+    }, "get") });
+    var sequenceEqual_1 = require_sequenceEqual();
+    Object.defineProperty(exports, "sequenceEqual", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return sequenceEqual_1.sequenceEqual;
+    }, "get") });
+    var share_1 = require_share();
+    Object.defineProperty(exports, "share", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return share_1.share;
+    }, "get") });
+    var shareReplay_1 = require_shareReplay();
+    Object.defineProperty(exports, "shareReplay", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return shareReplay_1.shareReplay;
+    }, "get") });
+    var single_1 = require_single();
+    Object.defineProperty(exports, "single", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return single_1.single;
+    }, "get") });
+    var skip_1 = require_skip();
+    Object.defineProperty(exports, "skip", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return skip_1.skip;
+    }, "get") });
+    var skipLast_1 = require_skipLast();
+    Object.defineProperty(exports, "skipLast", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return skipLast_1.skipLast;
+    }, "get") });
+    var skipUntil_1 = require_skipUntil();
+    Object.defineProperty(exports, "skipUntil", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return skipUntil_1.skipUntil;
+    }, "get") });
+    var skipWhile_1 = require_skipWhile();
+    Object.defineProperty(exports, "skipWhile", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return skipWhile_1.skipWhile;
+    }, "get") });
+    var startWith_1 = require_startWith();
+    Object.defineProperty(exports, "startWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return startWith_1.startWith;
+    }, "get") });
+    var subscribeOn_1 = require_subscribeOn();
+    Object.defineProperty(exports, "subscribeOn", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return subscribeOn_1.subscribeOn;
+    }, "get") });
+    var switchAll_1 = require_switchAll();
+    Object.defineProperty(exports, "switchAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return switchAll_1.switchAll;
+    }, "get") });
+    var switchMap_1 = require_switchMap();
+    Object.defineProperty(exports, "switchMap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return switchMap_1.switchMap;
+    }, "get") });
+    var switchMapTo_1 = require_switchMapTo();
+    Object.defineProperty(exports, "switchMapTo", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return switchMapTo_1.switchMapTo;
+    }, "get") });
+    var switchScan_1 = require_switchScan();
+    Object.defineProperty(exports, "switchScan", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return switchScan_1.switchScan;
+    }, "get") });
+    var take_1 = require_take();
+    Object.defineProperty(exports, "take", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return take_1.take;
+    }, "get") });
+    var takeLast_1 = require_takeLast();
+    Object.defineProperty(exports, "takeLast", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return takeLast_1.takeLast;
+    }, "get") });
+    var takeUntil_1 = require_takeUntil();
+    Object.defineProperty(exports, "takeUntil", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return takeUntil_1.takeUntil;
+    }, "get") });
+    var takeWhile_1 = require_takeWhile();
+    Object.defineProperty(exports, "takeWhile", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return takeWhile_1.takeWhile;
+    }, "get") });
+    var tap_1 = require_tap();
+    Object.defineProperty(exports, "tap", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return tap_1.tap;
+    }, "get") });
+    var throttle_1 = require_throttle();
+    Object.defineProperty(exports, "throttle", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return throttle_1.throttle;
+    }, "get") });
+    var throttleTime_1 = require_throttleTime();
+    Object.defineProperty(exports, "throttleTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return throttleTime_1.throttleTime;
+    }, "get") });
+    var throwIfEmpty_1 = require_throwIfEmpty();
+    Object.defineProperty(exports, "throwIfEmpty", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return throwIfEmpty_1.throwIfEmpty;
+    }, "get") });
+    var timeInterval_1 = require_timeInterval();
+    Object.defineProperty(exports, "timeInterval", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return timeInterval_1.timeInterval;
+    }, "get") });
+    var timeout_1 = require_timeout();
+    Object.defineProperty(exports, "timeout", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return timeout_1.timeout;
+    }, "get") });
+    var timeoutWith_1 = require_timeoutWith();
+    Object.defineProperty(exports, "timeoutWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return timeoutWith_1.timeoutWith;
+    }, "get") });
+    var timestamp_1 = require_timestamp();
+    Object.defineProperty(exports, "timestamp", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return timestamp_1.timestamp;
+    }, "get") });
+    var toArray_1 = require_toArray();
+    Object.defineProperty(exports, "toArray", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return toArray_1.toArray;
+    }, "get") });
+    var window_1 = require_window();
+    Object.defineProperty(exports, "window", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return window_1.window;
+    }, "get") });
+    var windowCount_1 = require_windowCount();
+    Object.defineProperty(exports, "windowCount", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return windowCount_1.windowCount;
+    }, "get") });
+    var windowTime_1 = require_windowTime();
+    Object.defineProperty(exports, "windowTime", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return windowTime_1.windowTime;
+    }, "get") });
+    var windowToggle_1 = require_windowToggle();
+    Object.defineProperty(exports, "windowToggle", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return windowToggle_1.windowToggle;
+    }, "get") });
+    var windowWhen_1 = require_windowWhen();
+    Object.defineProperty(exports, "windowWhen", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return windowWhen_1.windowWhen;
+    }, "get") });
+    var withLatestFrom_1 = require_withLatestFrom();
+    Object.defineProperty(exports, "withLatestFrom", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return withLatestFrom_1.withLatestFrom;
+    }, "get") });
+    var zip_1 = require_zip();
+    Object.defineProperty(exports, "zip", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return zip_1.zip;
+    }, "get") });
+    var zipAll_1 = require_zipAll();
+    Object.defineProperty(exports, "zipAll", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return zipAll_1.zipAll;
+    }, "get") });
+    var zipWith_1 = require_zipWith();
+    Object.defineProperty(exports, "zipWith", { enumerable: true, get: /* @__PURE__ */ __name(function() {
+      return zipWith_1.zipWith;
+    }, "get") });
+  }
+});
 
 // node_modules/@angular/core/fesm2022/not_found.mjs
 var _currentInjector = void 0;
@@ -414,9 +1029,9 @@ function createSignal(initialValue, equal) {
     getter.toString = () => `[Signal${debugName}: ${node.value}]`;
   }
   runPostProducerCreatedFn(node);
-  const set2 = /* @__PURE__ */ __name((newValue) => signalSetFn(node, newValue), "set");
+  const set = /* @__PURE__ */ __name((newValue) => signalSetFn(node, newValue), "set");
   const update = /* @__PURE__ */ __name((updateFn) => signalUpdateFn(node, updateFn), "update");
-  return [getter, set2, update];
+  return [getter, set, update];
 }
 __name(createSignal, "createSignal");
 function signalGetFn(node) {
@@ -456,3292 +1071,8 @@ function signalValueChanged(node) {
 }
 __name(signalValueChanged, "signalValueChanged");
 
-// node_modules/tslib/tslib.es6.mjs
-var extendStatics = /* @__PURE__ */ __name(function(d, b) {
-  extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
-    d2.__proto__ = b2;
-  } || function(d2, b2) {
-    for (var p in b2) if (Object.prototype.hasOwnProperty.call(b2, p)) d2[p] = b2[p];
-  };
-  return extendStatics(d, b);
-}, "extendStatics");
-function __extends(d, b) {
-  if (typeof b !== "function" && b !== null)
-    throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-  extendStatics(d, b);
-  function __() {
-    this.constructor = d;
-  }
-  __name(__, "__");
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-__name(__extends, "__extends");
-function __awaiter(thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function(resolve) {
-      resolve(value);
-    });
-  }
-  __name(adopt, "adopt");
-  return new (P || (P = Promise))(function(resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    __name(fulfilled, "fulfilled");
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    __name(rejected, "rejected");
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-    __name(step, "step");
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-}
-__name(__awaiter, "__awaiter");
-function __generator(thisArg, body) {
-  var _ = { label: 0, sent: /* @__PURE__ */ __name(function() {
-    if (t[0] & 1) throw t[1];
-    return t[1];
-  }, "sent"), trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-  return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() {
-    return this;
-  }), g;
-  function verb(n) {
-    return function(v) {
-      return step([n, v]);
-    };
-  }
-  __name(verb, "verb");
-  function step(op) {
-    if (f) throw new TypeError("Generator is already executing.");
-    while (g && (g = 0, op[0] && (_ = 0)), _) try {
-      if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-      if (y = 0, t) op = [op[0] & 2, t.value];
-      switch (op[0]) {
-        case 0:
-        case 1:
-          t = op;
-          break;
-        case 4:
-          _.label++;
-          return { value: op[1], done: false };
-        case 5:
-          _.label++;
-          y = op[1];
-          op = [0];
-          continue;
-        case 7:
-          op = _.ops.pop();
-          _.trys.pop();
-          continue;
-        default:
-          if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-            _ = 0;
-            continue;
-          }
-          if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-            _.label = op[1];
-            break;
-          }
-          if (op[0] === 6 && _.label < t[1]) {
-            _.label = t[1];
-            t = op;
-            break;
-          }
-          if (t && _.label < t[2]) {
-            _.label = t[2];
-            _.ops.push(op);
-            break;
-          }
-          if (t[2]) _.ops.pop();
-          _.trys.pop();
-          continue;
-      }
-      op = body.call(thisArg, _);
-    } catch (e) {
-      op = [6, e];
-      y = 0;
-    } finally {
-      f = t = 0;
-    }
-    if (op[0] & 5) throw op[1];
-    return { value: op[0] ? op[1] : void 0, done: true };
-  }
-  __name(step, "step");
-}
-__name(__generator, "__generator");
-function __values(o) {
-  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-  if (m) return m.call(o);
-  if (o && typeof o.length === "number") return {
-    next: /* @__PURE__ */ __name(function() {
-      if (o && i >= o.length) o = void 0;
-      return { value: o && o[i++], done: !o };
-    }, "next")
-  };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-__name(__values, "__values");
-function __read(o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o), r, ar = [], e;
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-  } catch (error) {
-    e = { error };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-  return ar;
-}
-__name(__read, "__read");
-function __spreadArray(to, from2, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from2.length, ar; i < l; i++) {
-    if (ar || !(i in from2)) {
-      if (!ar) ar = Array.prototype.slice.call(from2, 0, i);
-      ar[i] = from2[i];
-    }
-  }
-  return to.concat(ar || Array.prototype.slice.call(from2));
-}
-__name(__spreadArray, "__spreadArray");
-function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
-}
-__name(__await, "__await");
-function __asyncGenerator(thisArg, _arguments, generator) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var g = generator.apply(thisArg, _arguments || []), i, q = [];
-  return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
-    return this;
-  }, i;
-  function awaitReturn(f) {
-    return function(v) {
-      return Promise.resolve(v).then(f, reject);
-    };
-  }
-  __name(awaitReturn, "awaitReturn");
-  function verb(n, f) {
-    if (g[n]) {
-      i[n] = function(v) {
-        return new Promise(function(a, b) {
-          q.push([n, v, a, b]) > 1 || resume(n, v);
-        });
-      };
-      if (f) i[n] = f(i[n]);
-    }
-  }
-  __name(verb, "verb");
-  function resume(n, v) {
-    try {
-      step(g[n](v));
-    } catch (e) {
-      settle(q[0][3], e);
-    }
-  }
-  __name(resume, "resume");
-  function step(r) {
-    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
-  }
-  __name(step, "step");
-  function fulfill(value) {
-    resume("next", value);
-  }
-  __name(fulfill, "fulfill");
-  function reject(value) {
-    resume("throw", value);
-  }
-  __name(reject, "reject");
-  function settle(f, v) {
-    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
-  }
-  __name(settle, "settle");
-}
-__name(__asyncGenerator, "__asyncGenerator");
-function __asyncValues(o) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var m = o[Symbol.asyncIterator], i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
-    return this;
-  }, i);
-  function verb(n) {
-    i[n] = o[n] && function(v) {
-      return new Promise(function(resolve, reject) {
-        v = o[n](v), settle(resolve, reject, v.done, v.value);
-      });
-    };
-  }
-  __name(verb, "verb");
-  function settle(resolve, reject, d, v) {
-    Promise.resolve(v).then(function(v2) {
-      resolve({ value: v2, done: d });
-    }, reject);
-  }
-  __name(settle, "settle");
-}
-__name(__asyncValues, "__asyncValues");
-
-// node_modules/rxjs/dist/esm5/internal/util/isFunction.js
-function isFunction(value) {
-  return typeof value === "function";
-}
-__name(isFunction, "isFunction");
-
-// node_modules/rxjs/dist/esm5/internal/util/createErrorClass.js
-function createErrorClass(createImpl) {
-  var _super = /* @__PURE__ */ __name(function(instance) {
-    Error.call(instance);
-    instance.stack = new Error().stack;
-  }, "_super");
-  var ctorFunc = createImpl(_super);
-  ctorFunc.prototype = Object.create(Error.prototype);
-  ctorFunc.prototype.constructor = ctorFunc;
-  return ctorFunc;
-}
-__name(createErrorClass, "createErrorClass");
-
-// node_modules/rxjs/dist/esm5/internal/util/UnsubscriptionError.js
-var UnsubscriptionError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function UnsubscriptionErrorImpl(errors) {
-    _super(this);
-    this.message = errors ? errors.length + " errors occurred during unsubscription:\n" + errors.map(function(err, i) {
-      return i + 1 + ") " + err.toString();
-    }).join("\n  ") : "";
-    this.name = "UnsubscriptionError";
-    this.errors = errors;
-  }, "UnsubscriptionErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/util/arrRemove.js
-function arrRemove(arr, item) {
-  if (arr) {
-    var index = arr.indexOf(item);
-    0 <= index && arr.splice(index, 1);
-  }
-}
-__name(arrRemove, "arrRemove");
-
-// node_modules/rxjs/dist/esm5/internal/Subscription.js
-var Subscription = (function() {
-  function Subscription2(initialTeardown) {
-    this.initialTeardown = initialTeardown;
-    this.closed = false;
-    this._parentage = null;
-    this._finalizers = null;
-  }
-  __name(Subscription2, "Subscription");
-  Subscription2.prototype.unsubscribe = function() {
-    var e_1, _a7, e_2, _b;
-    var errors;
-    if (!this.closed) {
-      this.closed = true;
-      var _parentage = this._parentage;
-      if (_parentage) {
-        this._parentage = null;
-        if (Array.isArray(_parentage)) {
-          try {
-            for (var _parentage_1 = __values(_parentage), _parentage_1_1 = _parentage_1.next(); !_parentage_1_1.done; _parentage_1_1 = _parentage_1.next()) {
-              var parent_1 = _parentage_1_1.value;
-              parent_1.remove(this);
-            }
-          } catch (e_1_1) {
-            e_1 = { error: e_1_1 };
-          } finally {
-            try {
-              if (_parentage_1_1 && !_parentage_1_1.done && (_a7 = _parentage_1.return)) _a7.call(_parentage_1);
-            } finally {
-              if (e_1) throw e_1.error;
-            }
-          }
-        } else {
-          _parentage.remove(this);
-        }
-      }
-      var initialFinalizer = this.initialTeardown;
-      if (isFunction(initialFinalizer)) {
-        try {
-          initialFinalizer();
-        } catch (e) {
-          errors = e instanceof UnsubscriptionError ? e.errors : [e];
-        }
-      }
-      var _finalizers = this._finalizers;
-      if (_finalizers) {
-        this._finalizers = null;
-        try {
-          for (var _finalizers_1 = __values(_finalizers), _finalizers_1_1 = _finalizers_1.next(); !_finalizers_1_1.done; _finalizers_1_1 = _finalizers_1.next()) {
-            var finalizer = _finalizers_1_1.value;
-            try {
-              execFinalizer(finalizer);
-            } catch (err) {
-              errors = errors !== null && errors !== void 0 ? errors : [];
-              if (err instanceof UnsubscriptionError) {
-                errors = __spreadArray(__spreadArray([], __read(errors)), __read(err.errors));
-              } else {
-                errors.push(err);
-              }
-            }
-          }
-        } catch (e_2_1) {
-          e_2 = { error: e_2_1 };
-        } finally {
-          try {
-            if (_finalizers_1_1 && !_finalizers_1_1.done && (_b = _finalizers_1.return)) _b.call(_finalizers_1);
-          } finally {
-            if (e_2) throw e_2.error;
-          }
-        }
-      }
-      if (errors) {
-        throw new UnsubscriptionError(errors);
-      }
-    }
-  };
-  Subscription2.prototype.add = function(teardown) {
-    var _a7;
-    if (teardown && teardown !== this) {
-      if (this.closed) {
-        execFinalizer(teardown);
-      } else {
-        if (teardown instanceof Subscription2) {
-          if (teardown.closed || teardown._hasParent(this)) {
-            return;
-          }
-          teardown._addParent(this);
-        }
-        (this._finalizers = (_a7 = this._finalizers) !== null && _a7 !== void 0 ? _a7 : []).push(teardown);
-      }
-    }
-  };
-  Subscription2.prototype._hasParent = function(parent) {
-    var _parentage = this._parentage;
-    return _parentage === parent || Array.isArray(_parentage) && _parentage.includes(parent);
-  };
-  Subscription2.prototype._addParent = function(parent) {
-    var _parentage = this._parentage;
-    this._parentage = Array.isArray(_parentage) ? (_parentage.push(parent), _parentage) : _parentage ? [_parentage, parent] : parent;
-  };
-  Subscription2.prototype._removeParent = function(parent) {
-    var _parentage = this._parentage;
-    if (_parentage === parent) {
-      this._parentage = null;
-    } else if (Array.isArray(_parentage)) {
-      arrRemove(_parentage, parent);
-    }
-  };
-  Subscription2.prototype.remove = function(teardown) {
-    var _finalizers = this._finalizers;
-    _finalizers && arrRemove(_finalizers, teardown);
-    if (teardown instanceof Subscription2) {
-      teardown._removeParent(this);
-    }
-  };
-  Subscription2.EMPTY = (function() {
-    var empty2 = new Subscription2();
-    empty2.closed = true;
-    return empty2;
-  })();
-  return Subscription2;
-})();
-var EMPTY_SUBSCRIPTION = Subscription.EMPTY;
-function isSubscription(value) {
-  return value instanceof Subscription || value && "closed" in value && isFunction(value.remove) && isFunction(value.add) && isFunction(value.unsubscribe);
-}
-__name(isSubscription, "isSubscription");
-function execFinalizer(finalizer) {
-  if (isFunction(finalizer)) {
-    finalizer();
-  } else {
-    finalizer.unsubscribe();
-  }
-}
-__name(execFinalizer, "execFinalizer");
-
-// node_modules/rxjs/dist/esm5/internal/config.js
-var config = {
-  onUnhandledError: null,
-  onStoppedNotification: null,
-  Promise: void 0,
-  useDeprecatedSynchronousErrorHandling: false,
-  useDeprecatedNextContext: false
-};
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/timeoutProvider.js
-var timeoutProvider = {
-  setTimeout: /* @__PURE__ */ __name(function(handler, timeout2) {
-    var args = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-      args[_i - 2] = arguments[_i];
-    }
-    var delegate = timeoutProvider.delegate;
-    if (delegate === null || delegate === void 0 ? void 0 : delegate.setTimeout) {
-      return delegate.setTimeout.apply(delegate, __spreadArray([handler, timeout2], __read(args)));
-    }
-    return setTimeout.apply(void 0, __spreadArray([handler, timeout2], __read(args)));
-  }, "setTimeout"),
-  clearTimeout: /* @__PURE__ */ __name(function(handle) {
-    var delegate = timeoutProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearTimeout) || clearTimeout)(handle);
-  }, "clearTimeout"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/util/reportUnhandledError.js
-function reportUnhandledError(err) {
-  timeoutProvider.setTimeout(function() {
-    var onUnhandledError = config.onUnhandledError;
-    if (onUnhandledError) {
-      onUnhandledError(err);
-    } else {
-      throw err;
-    }
-  });
-}
-__name(reportUnhandledError, "reportUnhandledError");
-
-// node_modules/rxjs/dist/esm5/internal/util/noop.js
-function noop() {
-}
-__name(noop, "noop");
-
-// node_modules/rxjs/dist/esm5/internal/NotificationFactories.js
-var COMPLETE_NOTIFICATION = (function() {
-  return createNotification("C", void 0, void 0);
-})();
-function errorNotification(error) {
-  return createNotification("E", void 0, error);
-}
-__name(errorNotification, "errorNotification");
-function nextNotification(value) {
-  return createNotification("N", value, void 0);
-}
-__name(nextNotification, "nextNotification");
-function createNotification(kind, value, error) {
-  return {
-    kind,
-    value,
-    error
-  };
-}
-__name(createNotification, "createNotification");
-
-// node_modules/rxjs/dist/esm5/internal/util/errorContext.js
-var context = null;
-function errorContext(cb) {
-  if (config.useDeprecatedSynchronousErrorHandling) {
-    var isRoot = !context;
-    if (isRoot) {
-      context = { errorThrown: false, error: null };
-    }
-    cb();
-    if (isRoot) {
-      var _a7 = context, errorThrown = _a7.errorThrown, error = _a7.error;
-      context = null;
-      if (errorThrown) {
-        throw error;
-      }
-    }
-  } else {
-    cb();
-  }
-}
-__name(errorContext, "errorContext");
-function captureError(err) {
-  if (config.useDeprecatedSynchronousErrorHandling && context) {
-    context.errorThrown = true;
-    context.error = err;
-  }
-}
-__name(captureError, "captureError");
-
-// node_modules/rxjs/dist/esm5/internal/Subscriber.js
-var Subscriber = (function(_super) {
-  __extends(Subscriber2, _super);
-  function Subscriber2(destination) {
-    var _this = _super.call(this) || this;
-    _this.isStopped = false;
-    if (destination) {
-      _this.destination = destination;
-      if (isSubscription(destination)) {
-        destination.add(_this);
-      }
-    } else {
-      _this.destination = EMPTY_OBSERVER;
-    }
-    return _this;
-  }
-  __name(Subscriber2, "Subscriber");
-  Subscriber2.create = function(next, error, complete) {
-    return new SafeSubscriber(next, error, complete);
-  };
-  Subscriber2.prototype.next = function(value) {
-    if (this.isStopped) {
-      handleStoppedNotification(nextNotification(value), this);
-    } else {
-      this._next(value);
-    }
-  };
-  Subscriber2.prototype.error = function(err) {
-    if (this.isStopped) {
-      handleStoppedNotification(errorNotification(err), this);
-    } else {
-      this.isStopped = true;
-      this._error(err);
-    }
-  };
-  Subscriber2.prototype.complete = function() {
-    if (this.isStopped) {
-      handleStoppedNotification(COMPLETE_NOTIFICATION, this);
-    } else {
-      this.isStopped = true;
-      this._complete();
-    }
-  };
-  Subscriber2.prototype.unsubscribe = function() {
-    if (!this.closed) {
-      this.isStopped = true;
-      _super.prototype.unsubscribe.call(this);
-      this.destination = null;
-    }
-  };
-  Subscriber2.prototype._next = function(value) {
-    this.destination.next(value);
-  };
-  Subscriber2.prototype._error = function(err) {
-    try {
-      this.destination.error(err);
-    } finally {
-      this.unsubscribe();
-    }
-  };
-  Subscriber2.prototype._complete = function() {
-    try {
-      this.destination.complete();
-    } finally {
-      this.unsubscribe();
-    }
-  };
-  return Subscriber2;
-})(Subscription);
-var _bind = Function.prototype.bind;
-function bind(fn, thisArg) {
-  return _bind.call(fn, thisArg);
-}
-__name(bind, "bind");
-var ConsumerObserver = (function() {
-  function ConsumerObserver2(partialObserver) {
-    this.partialObserver = partialObserver;
-  }
-  __name(ConsumerObserver2, "ConsumerObserver");
-  ConsumerObserver2.prototype.next = function(value) {
-    var partialObserver = this.partialObserver;
-    if (partialObserver.next) {
-      try {
-        partialObserver.next(value);
-      } catch (error) {
-        handleUnhandledError(error);
-      }
-    }
-  };
-  ConsumerObserver2.prototype.error = function(err) {
-    var partialObserver = this.partialObserver;
-    if (partialObserver.error) {
-      try {
-        partialObserver.error(err);
-      } catch (error) {
-        handleUnhandledError(error);
-      }
-    } else {
-      handleUnhandledError(err);
-    }
-  };
-  ConsumerObserver2.prototype.complete = function() {
-    var partialObserver = this.partialObserver;
-    if (partialObserver.complete) {
-      try {
-        partialObserver.complete();
-      } catch (error) {
-        handleUnhandledError(error);
-      }
-    }
-  };
-  return ConsumerObserver2;
-})();
-var SafeSubscriber = (function(_super) {
-  __extends(SafeSubscriber2, _super);
-  function SafeSubscriber2(observerOrNext, error, complete) {
-    var _this = _super.call(this) || this;
-    var partialObserver;
-    if (isFunction(observerOrNext) || !observerOrNext) {
-      partialObserver = {
-        next: observerOrNext !== null && observerOrNext !== void 0 ? observerOrNext : void 0,
-        error: error !== null && error !== void 0 ? error : void 0,
-        complete: complete !== null && complete !== void 0 ? complete : void 0
-      };
-    } else {
-      var context_1;
-      if (_this && config.useDeprecatedNextContext) {
-        context_1 = Object.create(observerOrNext);
-        context_1.unsubscribe = function() {
-          return _this.unsubscribe();
-        };
-        partialObserver = {
-          next: observerOrNext.next && bind(observerOrNext.next, context_1),
-          error: observerOrNext.error && bind(observerOrNext.error, context_1),
-          complete: observerOrNext.complete && bind(observerOrNext.complete, context_1)
-        };
-      } else {
-        partialObserver = observerOrNext;
-      }
-    }
-    _this.destination = new ConsumerObserver(partialObserver);
-    return _this;
-  }
-  __name(SafeSubscriber2, "SafeSubscriber");
-  return SafeSubscriber2;
-})(Subscriber);
-function handleUnhandledError(error) {
-  if (config.useDeprecatedSynchronousErrorHandling) {
-    captureError(error);
-  } else {
-    reportUnhandledError(error);
-  }
-}
-__name(handleUnhandledError, "handleUnhandledError");
-function defaultErrorHandler(err) {
-  throw err;
-}
-__name(defaultErrorHandler, "defaultErrorHandler");
-function handleStoppedNotification(notification, subscriber) {
-  var onStoppedNotification = config.onStoppedNotification;
-  onStoppedNotification && timeoutProvider.setTimeout(function() {
-    return onStoppedNotification(notification, subscriber);
-  });
-}
-__name(handleStoppedNotification, "handleStoppedNotification");
-var EMPTY_OBSERVER = {
-  closed: true,
-  next: noop,
-  error: defaultErrorHandler,
-  complete: noop
-};
-
-// node_modules/rxjs/dist/esm5/internal/symbol/observable.js
-var observable = (function() {
-  return typeof Symbol === "function" && Symbol.observable || "@@observable";
-})();
-
-// node_modules/rxjs/dist/esm5/internal/util/identity.js
-function identity(x) {
-  return x;
-}
-__name(identity, "identity");
-
-// node_modules/rxjs/dist/esm5/internal/util/pipe.js
-function pipe() {
-  var fns = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    fns[_i] = arguments[_i];
-  }
-  return pipeFromArray(fns);
-}
-__name(pipe, "pipe");
-function pipeFromArray(fns) {
-  if (fns.length === 0) {
-    return identity;
-  }
-  if (fns.length === 1) {
-    return fns[0];
-  }
-  return /* @__PURE__ */ __name(function piped(input2) {
-    return fns.reduce(function(prev, fn) {
-      return fn(prev);
-    }, input2);
-  }, "piped");
-}
-__name(pipeFromArray, "pipeFromArray");
-
-// node_modules/rxjs/dist/esm5/internal/Observable.js
-var Observable = (function() {
-  function Observable2(subscribe) {
-    if (subscribe) {
-      this._subscribe = subscribe;
-    }
-  }
-  __name(Observable2, "Observable");
-  Observable2.prototype.lift = function(operator) {
-    var observable2 = new Observable2();
-    observable2.source = this;
-    observable2.operator = operator;
-    return observable2;
-  };
-  Observable2.prototype.subscribe = function(observerOrNext, error, complete) {
-    var _this = this;
-    var subscriber = isSubscriber(observerOrNext) ? observerOrNext : new SafeSubscriber(observerOrNext, error, complete);
-    errorContext(function() {
-      var _a7 = _this, operator = _a7.operator, source = _a7.source;
-      subscriber.add(operator ? operator.call(subscriber, source) : source ? _this._subscribe(subscriber) : _this._trySubscribe(subscriber));
-    });
-    return subscriber;
-  };
-  Observable2.prototype._trySubscribe = function(sink) {
-    try {
-      return this._subscribe(sink);
-    } catch (err) {
-      sink.error(err);
-    }
-  };
-  Observable2.prototype.forEach = function(next, promiseCtor) {
-    var _this = this;
-    promiseCtor = getPromiseCtor(promiseCtor);
-    return new promiseCtor(function(resolve, reject) {
-      var subscriber = new SafeSubscriber({
-        next: /* @__PURE__ */ __name(function(value) {
-          try {
-            next(value);
-          } catch (err) {
-            reject(err);
-            subscriber.unsubscribe();
-          }
-        }, "next"),
-        error: reject,
-        complete: resolve
-      });
-      _this.subscribe(subscriber);
-    });
-  };
-  Observable2.prototype._subscribe = function(subscriber) {
-    var _a7;
-    return (_a7 = this.source) === null || _a7 === void 0 ? void 0 : _a7.subscribe(subscriber);
-  };
-  Observable2.prototype[observable] = function() {
-    return this;
-  };
-  Observable2.prototype.pipe = function() {
-    var operations = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      operations[_i] = arguments[_i];
-    }
-    return pipeFromArray(operations)(this);
-  };
-  Observable2.prototype.toPromise = function(promiseCtor) {
-    var _this = this;
-    promiseCtor = getPromiseCtor(promiseCtor);
-    return new promiseCtor(function(resolve, reject) {
-      var value;
-      _this.subscribe(function(x) {
-        return value = x;
-      }, function(err) {
-        return reject(err);
-      }, function() {
-        return resolve(value);
-      });
-    });
-  };
-  Observable2.create = function(subscribe) {
-    return new Observable2(subscribe);
-  };
-  return Observable2;
-})();
-function getPromiseCtor(promiseCtor) {
-  var _a7;
-  return (_a7 = promiseCtor !== null && promiseCtor !== void 0 ? promiseCtor : config.Promise) !== null && _a7 !== void 0 ? _a7 : Promise;
-}
-__name(getPromiseCtor, "getPromiseCtor");
-function isObserver(value) {
-  return value && isFunction(value.next) && isFunction(value.error) && isFunction(value.complete);
-}
-__name(isObserver, "isObserver");
-function isSubscriber(value) {
-  return value && value instanceof Subscriber || isObserver(value) && isSubscription(value);
-}
-__name(isSubscriber, "isSubscriber");
-
-// node_modules/rxjs/dist/esm5/internal/util/lift.js
-function hasLift(source) {
-  return isFunction(source === null || source === void 0 ? void 0 : source.lift);
-}
-__name(hasLift, "hasLift");
-function operate(init) {
-  return function(source) {
-    if (hasLift(source)) {
-      return source.lift(function(liftedSource) {
-        try {
-          return init(liftedSource, this);
-        } catch (err) {
-          this.error(err);
-        }
-      });
-    }
-    throw new TypeError("Unable to lift unknown Observable type");
-  };
-}
-__name(operate, "operate");
-
-// node_modules/rxjs/dist/esm5/internal/operators/OperatorSubscriber.js
-function createOperatorSubscriber(destination, onNext, onComplete, onError, onFinalize) {
-  return new OperatorSubscriber(destination, onNext, onComplete, onError, onFinalize);
-}
-__name(createOperatorSubscriber, "createOperatorSubscriber");
-var OperatorSubscriber = (function(_super) {
-  __extends(OperatorSubscriber2, _super);
-  function OperatorSubscriber2(destination, onNext, onComplete, onError, onFinalize, shouldUnsubscribe) {
-    var _this = _super.call(this, destination) || this;
-    _this.onFinalize = onFinalize;
-    _this.shouldUnsubscribe = shouldUnsubscribe;
-    _this._next = onNext ? function(value) {
-      try {
-        onNext(value);
-      } catch (err) {
-        destination.error(err);
-      }
-    } : _super.prototype._next;
-    _this._error = onError ? function(err) {
-      try {
-        onError(err);
-      } catch (err2) {
-        destination.error(err2);
-      } finally {
-        this.unsubscribe();
-      }
-    } : _super.prototype._error;
-    _this._complete = onComplete ? function() {
-      try {
-        onComplete();
-      } catch (err) {
-        destination.error(err);
-      } finally {
-        this.unsubscribe();
-      }
-    } : _super.prototype._complete;
-    return _this;
-  }
-  __name(OperatorSubscriber2, "OperatorSubscriber");
-  OperatorSubscriber2.prototype.unsubscribe = function() {
-    var _a7;
-    if (!this.shouldUnsubscribe || this.shouldUnsubscribe()) {
-      var closed_1 = this.closed;
-      _super.prototype.unsubscribe.call(this);
-      !closed_1 && ((_a7 = this.onFinalize) === null || _a7 === void 0 ? void 0 : _a7.call(this));
-    }
-  };
-  return OperatorSubscriber2;
-})(Subscriber);
-
-// node_modules/rxjs/dist/esm5/internal/operators/refCount.js
-function refCount() {
-  return operate(function(source, subscriber) {
-    var connection = null;
-    source._refCount++;
-    var refCounter = createOperatorSubscriber(subscriber, void 0, void 0, void 0, function() {
-      if (!source || source._refCount <= 0 || 0 < --source._refCount) {
-        connection = null;
-        return;
-      }
-      var sharedConnection = source._connection;
-      var conn = connection;
-      connection = null;
-      if (sharedConnection && (!conn || sharedConnection === conn)) {
-        sharedConnection.unsubscribe();
-      }
-      subscriber.unsubscribe();
-    });
-    source.subscribe(refCounter);
-    if (!refCounter.closed) {
-      connection = source.connect();
-    }
-  });
-}
-__name(refCount, "refCount");
-
-// node_modules/rxjs/dist/esm5/internal/observable/ConnectableObservable.js
-var ConnectableObservable = (function(_super) {
-  __extends(ConnectableObservable2, _super);
-  function ConnectableObservable2(source, subjectFactory) {
-    var _this = _super.call(this) || this;
-    _this.source = source;
-    _this.subjectFactory = subjectFactory;
-    _this._subject = null;
-    _this._refCount = 0;
-    _this._connection = null;
-    if (hasLift(source)) {
-      _this.lift = source.lift;
-    }
-    return _this;
-  }
-  __name(ConnectableObservable2, "ConnectableObservable");
-  ConnectableObservable2.prototype._subscribe = function(subscriber) {
-    return this.getSubject().subscribe(subscriber);
-  };
-  ConnectableObservable2.prototype.getSubject = function() {
-    var subject = this._subject;
-    if (!subject || subject.isStopped) {
-      this._subject = this.subjectFactory();
-    }
-    return this._subject;
-  };
-  ConnectableObservable2.prototype._teardown = function() {
-    this._refCount = 0;
-    var _connection = this._connection;
-    this._subject = this._connection = null;
-    _connection === null || _connection === void 0 ? void 0 : _connection.unsubscribe();
-  };
-  ConnectableObservable2.prototype.connect = function() {
-    var _this = this;
-    var connection = this._connection;
-    if (!connection) {
-      connection = this._connection = new Subscription();
-      var subject_1 = this.getSubject();
-      connection.add(this.source.subscribe(createOperatorSubscriber(subject_1, void 0, function() {
-        _this._teardown();
-        subject_1.complete();
-      }, function(err) {
-        _this._teardown();
-        subject_1.error(err);
-      }, function() {
-        return _this._teardown();
-      })));
-      if (connection.closed) {
-        this._connection = null;
-        connection = Subscription.EMPTY;
-      }
-    }
-    return connection;
-  };
-  ConnectableObservable2.prototype.refCount = function() {
-    return refCount()(this);
-  };
-  return ConnectableObservable2;
-})(Observable);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/performanceTimestampProvider.js
-var performanceTimestampProvider = {
-  now: /* @__PURE__ */ __name(function() {
-    return (performanceTimestampProvider.delegate || performance).now();
-  }, "now"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/animationFrameProvider.js
-var animationFrameProvider = {
-  schedule: /* @__PURE__ */ __name(function(callback) {
-    var request = requestAnimationFrame;
-    var cancel = cancelAnimationFrame;
-    var delegate = animationFrameProvider.delegate;
-    if (delegate) {
-      request = delegate.requestAnimationFrame;
-      cancel = delegate.cancelAnimationFrame;
-    }
-    var handle = request(function(timestamp2) {
-      cancel = void 0;
-      callback(timestamp2);
-    });
-    return new Subscription(function() {
-      return cancel === null || cancel === void 0 ? void 0 : cancel(handle);
-    });
-  }, "schedule"),
-  requestAnimationFrame: /* @__PURE__ */ __name(function() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      args[_i] = arguments[_i];
-    }
-    var delegate = animationFrameProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.requestAnimationFrame) || requestAnimationFrame).apply(void 0, __spreadArray([], __read(args)));
-  }, "requestAnimationFrame"),
-  cancelAnimationFrame: /* @__PURE__ */ __name(function() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      args[_i] = arguments[_i];
-    }
-    var delegate = animationFrameProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.cancelAnimationFrame) || cancelAnimationFrame).apply(void 0, __spreadArray([], __read(args)));
-  }, "cancelAnimationFrame"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/observable/dom/animationFrames.js
-function animationFramesFactory(timestampProvider) {
-  return new Observable(function(subscriber) {
-    var provider = timestampProvider || performanceTimestampProvider;
-    var start = provider.now();
-    var id = 0;
-    var run = /* @__PURE__ */ __name(function() {
-      if (!subscriber.closed) {
-        id = animationFrameProvider.requestAnimationFrame(function(timestamp2) {
-          id = 0;
-          var now = provider.now();
-          subscriber.next({
-            timestamp: timestampProvider ? now : timestamp2,
-            elapsed: now - start
-          });
-          run();
-        });
-      }
-    }, "run");
-    run();
-    return function() {
-      if (id) {
-        animationFrameProvider.cancelAnimationFrame(id);
-      }
-    };
-  });
-}
-__name(animationFramesFactory, "animationFramesFactory");
-var DEFAULT_ANIMATION_FRAMES = animationFramesFactory();
-
-// node_modules/rxjs/dist/esm5/internal/util/ObjectUnsubscribedError.js
-var ObjectUnsubscribedError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function ObjectUnsubscribedErrorImpl() {
-    _super(this);
-    this.name = "ObjectUnsubscribedError";
-    this.message = "object unsubscribed";
-  }, "ObjectUnsubscribedErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/Subject.js
-var Subject = (function(_super) {
-  __extends(Subject2, _super);
-  function Subject2() {
-    var _this = _super.call(this) || this;
-    _this.closed = false;
-    _this.currentObservers = null;
-    _this.observers = [];
-    _this.isStopped = false;
-    _this.hasError = false;
-    _this.thrownError = null;
-    return _this;
-  }
-  __name(Subject2, "Subject");
-  Subject2.prototype.lift = function(operator) {
-    var subject = new AnonymousSubject(this, this);
-    subject.operator = operator;
-    return subject;
-  };
-  Subject2.prototype._throwIfClosed = function() {
-    if (this.closed) {
-      throw new ObjectUnsubscribedError();
-    }
-  };
-  Subject2.prototype.next = function(value) {
-    var _this = this;
-    errorContext(function() {
-      var e_1, _a7;
-      _this._throwIfClosed();
-      if (!_this.isStopped) {
-        if (!_this.currentObservers) {
-          _this.currentObservers = Array.from(_this.observers);
-        }
-        try {
-          for (var _b = __values(_this.currentObservers), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var observer = _c.value;
-            observer.next(value);
-          }
-        } catch (e_1_1) {
-          e_1 = { error: e_1_1 };
-        } finally {
-          try {
-            if (_c && !_c.done && (_a7 = _b.return)) _a7.call(_b);
-          } finally {
-            if (e_1) throw e_1.error;
-          }
-        }
-      }
-    });
-  };
-  Subject2.prototype.error = function(err) {
-    var _this = this;
-    errorContext(function() {
-      _this._throwIfClosed();
-      if (!_this.isStopped) {
-        _this.hasError = _this.isStopped = true;
-        _this.thrownError = err;
-        var observers = _this.observers;
-        while (observers.length) {
-          observers.shift().error(err);
-        }
-      }
-    });
-  };
-  Subject2.prototype.complete = function() {
-    var _this = this;
-    errorContext(function() {
-      _this._throwIfClosed();
-      if (!_this.isStopped) {
-        _this.isStopped = true;
-        var observers = _this.observers;
-        while (observers.length) {
-          observers.shift().complete();
-        }
-      }
-    });
-  };
-  Subject2.prototype.unsubscribe = function() {
-    this.isStopped = this.closed = true;
-    this.observers = this.currentObservers = null;
-  };
-  Object.defineProperty(Subject2.prototype, "observed", {
-    get: /* @__PURE__ */ __name(function() {
-      var _a7;
-      return ((_a7 = this.observers) === null || _a7 === void 0 ? void 0 : _a7.length) > 0;
-    }, "get"),
-    enumerable: false,
-    configurable: true
-  });
-  Subject2.prototype._trySubscribe = function(subscriber) {
-    this._throwIfClosed();
-    return _super.prototype._trySubscribe.call(this, subscriber);
-  };
-  Subject2.prototype._subscribe = function(subscriber) {
-    this._throwIfClosed();
-    this._checkFinalizedStatuses(subscriber);
-    return this._innerSubscribe(subscriber);
-  };
-  Subject2.prototype._innerSubscribe = function(subscriber) {
-    var _this = this;
-    var _a7 = this, hasError = _a7.hasError, isStopped = _a7.isStopped, observers = _a7.observers;
-    if (hasError || isStopped) {
-      return EMPTY_SUBSCRIPTION;
-    }
-    this.currentObservers = null;
-    observers.push(subscriber);
-    return new Subscription(function() {
-      _this.currentObservers = null;
-      arrRemove(observers, subscriber);
-    });
-  };
-  Subject2.prototype._checkFinalizedStatuses = function(subscriber) {
-    var _a7 = this, hasError = _a7.hasError, thrownError = _a7.thrownError, isStopped = _a7.isStopped;
-    if (hasError) {
-      subscriber.error(thrownError);
-    } else if (isStopped) {
-      subscriber.complete();
-    }
-  };
-  Subject2.prototype.asObservable = function() {
-    var observable2 = new Observable();
-    observable2.source = this;
-    return observable2;
-  };
-  Subject2.create = function(destination, source) {
-    return new AnonymousSubject(destination, source);
-  };
-  return Subject2;
-})(Observable);
-var AnonymousSubject = (function(_super) {
-  __extends(AnonymousSubject2, _super);
-  function AnonymousSubject2(destination, source) {
-    var _this = _super.call(this) || this;
-    _this.destination = destination;
-    _this.source = source;
-    return _this;
-  }
-  __name(AnonymousSubject2, "AnonymousSubject");
-  AnonymousSubject2.prototype.next = function(value) {
-    var _a7, _b;
-    (_b = (_a7 = this.destination) === null || _a7 === void 0 ? void 0 : _a7.next) === null || _b === void 0 ? void 0 : _b.call(_a7, value);
-  };
-  AnonymousSubject2.prototype.error = function(err) {
-    var _a7, _b;
-    (_b = (_a7 = this.destination) === null || _a7 === void 0 ? void 0 : _a7.error) === null || _b === void 0 ? void 0 : _b.call(_a7, err);
-  };
-  AnonymousSubject2.prototype.complete = function() {
-    var _a7, _b;
-    (_b = (_a7 = this.destination) === null || _a7 === void 0 ? void 0 : _a7.complete) === null || _b === void 0 ? void 0 : _b.call(_a7);
-  };
-  AnonymousSubject2.prototype._subscribe = function(subscriber) {
-    var _a7, _b;
-    return (_b = (_a7 = this.source) === null || _a7 === void 0 ? void 0 : _a7.subscribe(subscriber)) !== null && _b !== void 0 ? _b : EMPTY_SUBSCRIPTION;
-  };
-  return AnonymousSubject2;
-})(Subject);
-
-// node_modules/rxjs/dist/esm5/internal/BehaviorSubject.js
-var BehaviorSubject = (function(_super) {
-  __extends(BehaviorSubject2, _super);
-  function BehaviorSubject2(_value) {
-    var _this = _super.call(this) || this;
-    _this._value = _value;
-    return _this;
-  }
-  __name(BehaviorSubject2, "BehaviorSubject");
-  Object.defineProperty(BehaviorSubject2.prototype, "value", {
-    get: /* @__PURE__ */ __name(function() {
-      return this.getValue();
-    }, "get"),
-    enumerable: false,
-    configurable: true
-  });
-  BehaviorSubject2.prototype._subscribe = function(subscriber) {
-    var subscription = _super.prototype._subscribe.call(this, subscriber);
-    !subscription.closed && subscriber.next(this._value);
-    return subscription;
-  };
-  BehaviorSubject2.prototype.getValue = function() {
-    var _a7 = this, hasError = _a7.hasError, thrownError = _a7.thrownError, _value = _a7._value;
-    if (hasError) {
-      throw thrownError;
-    }
-    this._throwIfClosed();
-    return _value;
-  };
-  BehaviorSubject2.prototype.next = function(value) {
-    _super.prototype.next.call(this, this._value = value);
-  };
-  return BehaviorSubject2;
-})(Subject);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/dateTimestampProvider.js
-var dateTimestampProvider = {
-  now: /* @__PURE__ */ __name(function() {
-    return (dateTimestampProvider.delegate || Date).now();
-  }, "now"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/ReplaySubject.js
-var ReplaySubject = (function(_super) {
-  __extends(ReplaySubject2, _super);
-  function ReplaySubject2(_bufferSize, _windowTime, _timestampProvider) {
-    if (_bufferSize === void 0) {
-      _bufferSize = Infinity;
-    }
-    if (_windowTime === void 0) {
-      _windowTime = Infinity;
-    }
-    if (_timestampProvider === void 0) {
-      _timestampProvider = dateTimestampProvider;
-    }
-    var _this = _super.call(this) || this;
-    _this._bufferSize = _bufferSize;
-    _this._windowTime = _windowTime;
-    _this._timestampProvider = _timestampProvider;
-    _this._buffer = [];
-    _this._infiniteTimeWindow = true;
-    _this._infiniteTimeWindow = _windowTime === Infinity;
-    _this._bufferSize = Math.max(1, _bufferSize);
-    _this._windowTime = Math.max(1, _windowTime);
-    return _this;
-  }
-  __name(ReplaySubject2, "ReplaySubject");
-  ReplaySubject2.prototype.next = function(value) {
-    var _a7 = this, isStopped = _a7.isStopped, _buffer = _a7._buffer, _infiniteTimeWindow = _a7._infiniteTimeWindow, _timestampProvider = _a7._timestampProvider, _windowTime = _a7._windowTime;
-    if (!isStopped) {
-      _buffer.push(value);
-      !_infiniteTimeWindow && _buffer.push(_timestampProvider.now() + _windowTime);
-    }
-    this._trimBuffer();
-    _super.prototype.next.call(this, value);
-  };
-  ReplaySubject2.prototype._subscribe = function(subscriber) {
-    this._throwIfClosed();
-    this._trimBuffer();
-    var subscription = this._innerSubscribe(subscriber);
-    var _a7 = this, _infiniteTimeWindow = _a7._infiniteTimeWindow, _buffer = _a7._buffer;
-    var copy = _buffer.slice();
-    for (var i = 0; i < copy.length && !subscriber.closed; i += _infiniteTimeWindow ? 1 : 2) {
-      subscriber.next(copy[i]);
-    }
-    this._checkFinalizedStatuses(subscriber);
-    return subscription;
-  };
-  ReplaySubject2.prototype._trimBuffer = function() {
-    var _a7 = this, _bufferSize = _a7._bufferSize, _timestampProvider = _a7._timestampProvider, _buffer = _a7._buffer, _infiniteTimeWindow = _a7._infiniteTimeWindow;
-    var adjustedBufferSize = (_infiniteTimeWindow ? 1 : 2) * _bufferSize;
-    _bufferSize < Infinity && adjustedBufferSize < _buffer.length && _buffer.splice(0, _buffer.length - adjustedBufferSize);
-    if (!_infiniteTimeWindow) {
-      var now = _timestampProvider.now();
-      var last3 = 0;
-      for (var i = 1; i < _buffer.length && _buffer[i] <= now; i += 2) {
-        last3 = i;
-      }
-      last3 && _buffer.splice(0, last3 + 1);
-    }
-  };
-  return ReplaySubject2;
-})(Subject);
-
-// node_modules/rxjs/dist/esm5/internal/AsyncSubject.js
-var AsyncSubject = (function(_super) {
-  __extends(AsyncSubject2, _super);
-  function AsyncSubject2() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-    _this._value = null;
-    _this._hasValue = false;
-    _this._isComplete = false;
-    return _this;
-  }
-  __name(AsyncSubject2, "AsyncSubject");
-  AsyncSubject2.prototype._checkFinalizedStatuses = function(subscriber) {
-    var _a7 = this, hasError = _a7.hasError, _hasValue = _a7._hasValue, _value = _a7._value, thrownError = _a7.thrownError, isStopped = _a7.isStopped, _isComplete = _a7._isComplete;
-    if (hasError) {
-      subscriber.error(thrownError);
-    } else if (isStopped || _isComplete) {
-      _hasValue && subscriber.next(_value);
-      subscriber.complete();
-    }
-  };
-  AsyncSubject2.prototype.next = function(value) {
-    if (!this.isStopped) {
-      this._value = value;
-      this._hasValue = true;
-    }
-  };
-  AsyncSubject2.prototype.complete = function() {
-    var _a7 = this, _hasValue = _a7._hasValue, _value = _a7._value, _isComplete = _a7._isComplete;
-    if (!_isComplete) {
-      this._isComplete = true;
-      _hasValue && _super.prototype.next.call(this, _value);
-      _super.prototype.complete.call(this);
-    }
-  };
-  return AsyncSubject2;
-})(Subject);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/Action.js
-var Action = (function(_super) {
-  __extends(Action2, _super);
-  function Action2(scheduler, work) {
-    return _super.call(this) || this;
-  }
-  __name(Action2, "Action");
-  Action2.prototype.schedule = function(state, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    return this;
-  };
-  return Action2;
-})(Subscription);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/intervalProvider.js
-var intervalProvider = {
-  setInterval: /* @__PURE__ */ __name(function(handler, timeout2) {
-    var args = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-      args[_i - 2] = arguments[_i];
-    }
-    var delegate = intervalProvider.delegate;
-    if (delegate === null || delegate === void 0 ? void 0 : delegate.setInterval) {
-      return delegate.setInterval.apply(delegate, __spreadArray([handler, timeout2], __read(args)));
-    }
-    return setInterval.apply(void 0, __spreadArray([handler, timeout2], __read(args)));
-  }, "setInterval"),
-  clearInterval: /* @__PURE__ */ __name(function(handle) {
-    var delegate = intervalProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearInterval) || clearInterval)(handle);
-  }, "clearInterval"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AsyncAction.js
-var AsyncAction = (function(_super) {
-  __extends(AsyncAction2, _super);
-  function AsyncAction2(scheduler, work) {
-    var _this = _super.call(this, scheduler, work) || this;
-    _this.scheduler = scheduler;
-    _this.work = work;
-    _this.pending = false;
-    return _this;
-  }
-  __name(AsyncAction2, "AsyncAction");
-  AsyncAction2.prototype.schedule = function(state, delay2) {
-    var _a7;
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (this.closed) {
-      return this;
-    }
-    this.state = state;
-    var id = this.id;
-    var scheduler = this.scheduler;
-    if (id != null) {
-      this.id = this.recycleAsyncId(scheduler, id, delay2);
-    }
-    this.pending = true;
-    this.delay = delay2;
-    this.id = (_a7 = this.id) !== null && _a7 !== void 0 ? _a7 : this.requestAsyncId(scheduler, this.id, delay2);
-    return this;
-  };
-  AsyncAction2.prototype.requestAsyncId = function(scheduler, _id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    return intervalProvider.setInterval(scheduler.flush.bind(scheduler, this), delay2);
-  };
-  AsyncAction2.prototype.recycleAsyncId = function(_scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 != null && this.delay === delay2 && this.pending === false) {
-      return id;
-    }
-    if (id != null) {
-      intervalProvider.clearInterval(id);
-    }
-    return void 0;
-  };
-  AsyncAction2.prototype.execute = function(state, delay2) {
-    if (this.closed) {
-      return new Error("executing a cancelled action");
-    }
-    this.pending = false;
-    var error = this._execute(state, delay2);
-    if (error) {
-      return error;
-    } else if (this.pending === false && this.id != null) {
-      this.id = this.recycleAsyncId(this.scheduler, this.id, null);
-    }
-  };
-  AsyncAction2.prototype._execute = function(state, _delay) {
-    var errored = false;
-    var errorValue;
-    try {
-      this.work(state);
-    } catch (e) {
-      errored = true;
-      errorValue = e ? e : new Error("Scheduled action threw falsy error");
-    }
-    if (errored) {
-      this.unsubscribe();
-      return errorValue;
-    }
-  };
-  AsyncAction2.prototype.unsubscribe = function() {
-    if (!this.closed) {
-      var _a7 = this, id = _a7.id, scheduler = _a7.scheduler;
-      var actions = scheduler.actions;
-      this.work = this.state = this.scheduler = null;
-      this.pending = false;
-      arrRemove(actions, this);
-      if (id != null) {
-        this.id = this.recycleAsyncId(scheduler, id, null);
-      }
-      this.delay = null;
-      _super.prototype.unsubscribe.call(this);
-    }
-  };
-  return AsyncAction2;
-})(Action);
-
-// node_modules/rxjs/dist/esm5/internal/util/Immediate.js
-var nextHandle = 1;
-var resolved;
-var activeHandles = {};
-function findAndClearHandle(handle) {
-  if (handle in activeHandles) {
-    delete activeHandles[handle];
-    return true;
-  }
-  return false;
-}
-__name(findAndClearHandle, "findAndClearHandle");
-var Immediate = {
-  setImmediate: /* @__PURE__ */ __name(function(cb) {
-    var handle = nextHandle++;
-    activeHandles[handle] = true;
-    if (!resolved) {
-      resolved = Promise.resolve();
-    }
-    resolved.then(function() {
-      return findAndClearHandle(handle) && cb();
-    });
-    return handle;
-  }, "setImmediate"),
-  clearImmediate: /* @__PURE__ */ __name(function(handle) {
-    findAndClearHandle(handle);
-  }, "clearImmediate")
-};
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/immediateProvider.js
-var setImmediate = Immediate.setImmediate;
-var clearImmediate = Immediate.clearImmediate;
-var immediateProvider = {
-  setImmediate: /* @__PURE__ */ __name(function() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      args[_i] = arguments[_i];
-    }
-    var delegate = immediateProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.setImmediate) || setImmediate).apply(void 0, __spreadArray([], __read(args)));
-  }, "setImmediate"),
-  clearImmediate: /* @__PURE__ */ __name(function(handle) {
-    var delegate = immediateProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearImmediate) || clearImmediate)(handle);
-  }, "clearImmediate"),
-  delegate: void 0
-};
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AsapAction.js
-var AsapAction = (function(_super) {
-  __extends(AsapAction2, _super);
-  function AsapAction2(scheduler, work) {
-    var _this = _super.call(this, scheduler, work) || this;
-    _this.scheduler = scheduler;
-    _this.work = work;
-    return _this;
-  }
-  __name(AsapAction2, "AsapAction");
-  AsapAction2.prototype.requestAsyncId = function(scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 !== null && delay2 > 0) {
-      return _super.prototype.requestAsyncId.call(this, scheduler, id, delay2);
-    }
-    scheduler.actions.push(this);
-    return scheduler._scheduled || (scheduler._scheduled = immediateProvider.setImmediate(scheduler.flush.bind(scheduler, void 0)));
-  };
-  AsapAction2.prototype.recycleAsyncId = function(scheduler, id, delay2) {
-    var _a7;
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 != null ? delay2 > 0 : this.delay > 0) {
-      return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay2);
-    }
-    var actions = scheduler.actions;
-    if (id != null && ((_a7 = actions[actions.length - 1]) === null || _a7 === void 0 ? void 0 : _a7.id) !== id) {
-      immediateProvider.clearImmediate(id);
-      if (scheduler._scheduled === id) {
-        scheduler._scheduled = void 0;
-      }
-    }
-    return void 0;
-  };
-  return AsapAction2;
-})(AsyncAction);
-
-// node_modules/rxjs/dist/esm5/internal/Scheduler.js
-var Scheduler = (function() {
-  function Scheduler2(schedulerActionCtor, now) {
-    if (now === void 0) {
-      now = Scheduler2.now;
-    }
-    this.schedulerActionCtor = schedulerActionCtor;
-    this.now = now;
-  }
-  __name(Scheduler2, "Scheduler");
-  Scheduler2.prototype.schedule = function(work, delay2, state) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    return new this.schedulerActionCtor(this, work).schedule(state, delay2);
-  };
-  Scheduler2.now = dateTimestampProvider.now;
-  return Scheduler2;
-})();
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AsyncScheduler.js
-var AsyncScheduler = (function(_super) {
-  __extends(AsyncScheduler2, _super);
-  function AsyncScheduler2(SchedulerAction, now) {
-    if (now === void 0) {
-      now = Scheduler.now;
-    }
-    var _this = _super.call(this, SchedulerAction, now) || this;
-    _this.actions = [];
-    _this._active = false;
-    return _this;
-  }
-  __name(AsyncScheduler2, "AsyncScheduler");
-  AsyncScheduler2.prototype.flush = function(action) {
-    var actions = this.actions;
-    if (this._active) {
-      actions.push(action);
-      return;
-    }
-    var error;
-    this._active = true;
-    do {
-      if (error = action.execute(action.state, action.delay)) {
-        break;
-      }
-    } while (action = actions.shift());
-    this._active = false;
-    if (error) {
-      while (action = actions.shift()) {
-        action.unsubscribe();
-      }
-      throw error;
-    }
-  };
-  return AsyncScheduler2;
-})(Scheduler);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AsapScheduler.js
-var AsapScheduler = (function(_super) {
-  __extends(AsapScheduler2, _super);
-  function AsapScheduler2() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-  __name(AsapScheduler2, "AsapScheduler");
-  AsapScheduler2.prototype.flush = function(action) {
-    this._active = true;
-    var flushId = this._scheduled;
-    this._scheduled = void 0;
-    var actions = this.actions;
-    var error;
-    action = action || actions.shift();
-    do {
-      if (error = action.execute(action.state, action.delay)) {
-        break;
-      }
-    } while ((action = actions[0]) && action.id === flushId && actions.shift());
-    this._active = false;
-    if (error) {
-      while ((action = actions[0]) && action.id === flushId && actions.shift()) {
-        action.unsubscribe();
-      }
-      throw error;
-    }
-  };
-  return AsapScheduler2;
-})(AsyncScheduler);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/asap.js
-var asapScheduler = new AsapScheduler(AsapAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/async.js
-var asyncScheduler = new AsyncScheduler(AsyncAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/QueueAction.js
-var QueueAction = (function(_super) {
-  __extends(QueueAction2, _super);
-  function QueueAction2(scheduler, work) {
-    var _this = _super.call(this, scheduler, work) || this;
-    _this.scheduler = scheduler;
-    _this.work = work;
-    return _this;
-  }
-  __name(QueueAction2, "QueueAction");
-  QueueAction2.prototype.schedule = function(state, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 > 0) {
-      return _super.prototype.schedule.call(this, state, delay2);
-    }
-    this.delay = delay2;
-    this.state = state;
-    this.scheduler.flush(this);
-    return this;
-  };
-  QueueAction2.prototype.execute = function(state, delay2) {
-    return delay2 > 0 || this.closed ? _super.prototype.execute.call(this, state, delay2) : this._execute(state, delay2);
-  };
-  QueueAction2.prototype.requestAsyncId = function(scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 != null && delay2 > 0 || delay2 == null && this.delay > 0) {
-      return _super.prototype.requestAsyncId.call(this, scheduler, id, delay2);
-    }
-    scheduler.flush(this);
-    return 0;
-  };
-  return QueueAction2;
-})(AsyncAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/QueueScheduler.js
-var QueueScheduler = (function(_super) {
-  __extends(QueueScheduler2, _super);
-  function QueueScheduler2() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-  __name(QueueScheduler2, "QueueScheduler");
-  return QueueScheduler2;
-})(AsyncScheduler);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/queue.js
-var queueScheduler = new QueueScheduler(QueueAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AnimationFrameAction.js
-var AnimationFrameAction = (function(_super) {
-  __extends(AnimationFrameAction2, _super);
-  function AnimationFrameAction2(scheduler, work) {
-    var _this = _super.call(this, scheduler, work) || this;
-    _this.scheduler = scheduler;
-    _this.work = work;
-    return _this;
-  }
-  __name(AnimationFrameAction2, "AnimationFrameAction");
-  AnimationFrameAction2.prototype.requestAsyncId = function(scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 !== null && delay2 > 0) {
-      return _super.prototype.requestAsyncId.call(this, scheduler, id, delay2);
-    }
-    scheduler.actions.push(this);
-    return scheduler._scheduled || (scheduler._scheduled = animationFrameProvider.requestAnimationFrame(function() {
-      return scheduler.flush(void 0);
-    }));
-  };
-  AnimationFrameAction2.prototype.recycleAsyncId = function(scheduler, id, delay2) {
-    var _a7;
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (delay2 != null ? delay2 > 0 : this.delay > 0) {
-      return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay2);
-    }
-    var actions = scheduler.actions;
-    if (id != null && id === scheduler._scheduled && ((_a7 = actions[actions.length - 1]) === null || _a7 === void 0 ? void 0 : _a7.id) !== id) {
-      animationFrameProvider.cancelAnimationFrame(id);
-      scheduler._scheduled = void 0;
-    }
-    return void 0;
-  };
-  return AnimationFrameAction2;
-})(AsyncAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/AnimationFrameScheduler.js
-var AnimationFrameScheduler = (function(_super) {
-  __extends(AnimationFrameScheduler2, _super);
-  function AnimationFrameScheduler2() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-  __name(AnimationFrameScheduler2, "AnimationFrameScheduler");
-  AnimationFrameScheduler2.prototype.flush = function(action) {
-    this._active = true;
-    var flushId;
-    if (action) {
-      flushId = action.id;
-    } else {
-      flushId = this._scheduled;
-      this._scheduled = void 0;
-    }
-    var actions = this.actions;
-    var error;
-    action = action || actions.shift();
-    do {
-      if (error = action.execute(action.state, action.delay)) {
-        break;
-      }
-    } while ((action = actions[0]) && action.id === flushId && actions.shift());
-    this._active = false;
-    if (error) {
-      while ((action = actions[0]) && action.id === flushId && actions.shift()) {
-        action.unsubscribe();
-      }
-      throw error;
-    }
-  };
-  return AnimationFrameScheduler2;
-})(AsyncScheduler);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/animationFrame.js
-var animationFrameScheduler = new AnimationFrameScheduler(AnimationFrameAction);
-
-// node_modules/rxjs/dist/esm5/internal/scheduler/VirtualTimeScheduler.js
-var VirtualTimeScheduler = (function(_super) {
-  __extends(VirtualTimeScheduler2, _super);
-  function VirtualTimeScheduler2(schedulerActionCtor, maxFrames) {
-    if (schedulerActionCtor === void 0) {
-      schedulerActionCtor = VirtualAction;
-    }
-    if (maxFrames === void 0) {
-      maxFrames = Infinity;
-    }
-    var _this = _super.call(this, schedulerActionCtor, function() {
-      return _this.frame;
-    }) || this;
-    _this.maxFrames = maxFrames;
-    _this.frame = 0;
-    _this.index = -1;
-    return _this;
-  }
-  __name(VirtualTimeScheduler2, "VirtualTimeScheduler");
-  VirtualTimeScheduler2.prototype.flush = function() {
-    var _a7 = this, actions = _a7.actions, maxFrames = _a7.maxFrames;
-    var error;
-    var action;
-    while ((action = actions[0]) && action.delay <= maxFrames) {
-      actions.shift();
-      this.frame = action.delay;
-      if (error = action.execute(action.state, action.delay)) {
-        break;
-      }
-    }
-    if (error) {
-      while (action = actions.shift()) {
-        action.unsubscribe();
-      }
-      throw error;
-    }
-  };
-  VirtualTimeScheduler2.frameTimeFactor = 10;
-  return VirtualTimeScheduler2;
-})(AsyncScheduler);
-var VirtualAction = (function(_super) {
-  __extends(VirtualAction2, _super);
-  function VirtualAction2(scheduler, work, index) {
-    if (index === void 0) {
-      index = scheduler.index += 1;
-    }
-    var _this = _super.call(this, scheduler, work) || this;
-    _this.scheduler = scheduler;
-    _this.work = work;
-    _this.index = index;
-    _this.active = true;
-    _this.index = scheduler.index = index;
-    return _this;
-  }
-  __name(VirtualAction2, "VirtualAction");
-  VirtualAction2.prototype.schedule = function(state, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    if (Number.isFinite(delay2)) {
-      if (!this.id) {
-        return _super.prototype.schedule.call(this, state, delay2);
-      }
-      this.active = false;
-      var action = new VirtualAction2(this.scheduler, this.work);
-      this.add(action);
-      return action.schedule(state, delay2);
-    } else {
-      return Subscription.EMPTY;
-    }
-  };
-  VirtualAction2.prototype.requestAsyncId = function(scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    this.delay = scheduler.frame + delay2;
-    var actions = scheduler.actions;
-    actions.push(this);
-    actions.sort(VirtualAction2.sortActions);
-    return 1;
-  };
-  VirtualAction2.prototype.recycleAsyncId = function(scheduler, id, delay2) {
-    if (delay2 === void 0) {
-      delay2 = 0;
-    }
-    return void 0;
-  };
-  VirtualAction2.prototype._execute = function(state, delay2) {
-    if (this.active === true) {
-      return _super.prototype._execute.call(this, state, delay2);
-    }
-  };
-  VirtualAction2.sortActions = function(a, b) {
-    if (a.delay === b.delay) {
-      if (a.index === b.index) {
-        return 0;
-      } else if (a.index > b.index) {
-        return 1;
-      } else {
-        return -1;
-      }
-    } else if (a.delay > b.delay) {
-      return 1;
-    } else {
-      return -1;
-    }
-  };
-  return VirtualAction2;
-})(AsyncAction);
-
-// node_modules/rxjs/dist/esm5/internal/observable/empty.js
-var EMPTY = new Observable(function(subscriber) {
-  return subscriber.complete();
-});
-
-// node_modules/rxjs/dist/esm5/internal/util/isScheduler.js
-function isScheduler(value) {
-  return value && isFunction(value.schedule);
-}
-__name(isScheduler, "isScheduler");
-
-// node_modules/rxjs/dist/esm5/internal/util/args.js
-function last(arr) {
-  return arr[arr.length - 1];
-}
-__name(last, "last");
-function popResultSelector(args) {
-  return isFunction(last(args)) ? args.pop() : void 0;
-}
-__name(popResultSelector, "popResultSelector");
-function popScheduler(args) {
-  return isScheduler(last(args)) ? args.pop() : void 0;
-}
-__name(popScheduler, "popScheduler");
-function popNumber(args, defaultValue) {
-  return typeof last(args) === "number" ? args.pop() : defaultValue;
-}
-__name(popNumber, "popNumber");
-
-// node_modules/rxjs/dist/esm5/internal/util/isArrayLike.js
-var isArrayLike = /* @__PURE__ */ __name((function(x) {
-  return x && typeof x.length === "number" && typeof x !== "function";
-}), "isArrayLike");
-
-// node_modules/rxjs/dist/esm5/internal/util/isPromise.js
-function isPromise(value) {
-  return isFunction(value === null || value === void 0 ? void 0 : value.then);
-}
-__name(isPromise, "isPromise");
-
-// node_modules/rxjs/dist/esm5/internal/util/isInteropObservable.js
-function isInteropObservable(input2) {
-  return isFunction(input2[observable]);
-}
-__name(isInteropObservable, "isInteropObservable");
-
-// node_modules/rxjs/dist/esm5/internal/util/isAsyncIterable.js
-function isAsyncIterable(obj) {
-  return Symbol.asyncIterator && isFunction(obj === null || obj === void 0 ? void 0 : obj[Symbol.asyncIterator]);
-}
-__name(isAsyncIterable, "isAsyncIterable");
-
-// node_modules/rxjs/dist/esm5/internal/util/throwUnobservableError.js
-function createInvalidObservableTypeError(input2) {
-  return new TypeError("You provided " + (input2 !== null && typeof input2 === "object" ? "an invalid object" : "'" + input2 + "'") + " where a stream was expected. You can provide an Observable, Promise, ReadableStream, Array, AsyncIterable, or Iterable.");
-}
-__name(createInvalidObservableTypeError, "createInvalidObservableTypeError");
-
-// node_modules/rxjs/dist/esm5/internal/symbol/iterator.js
-function getSymbolIterator() {
-  if (typeof Symbol !== "function" || !Symbol.iterator) {
-    return "@@iterator";
-  }
-  return Symbol.iterator;
-}
-__name(getSymbolIterator, "getSymbolIterator");
-var iterator = getSymbolIterator();
-
-// node_modules/rxjs/dist/esm5/internal/util/isIterable.js
-function isIterable(input2) {
-  return isFunction(input2 === null || input2 === void 0 ? void 0 : input2[iterator]);
-}
-__name(isIterable, "isIterable");
-
-// node_modules/rxjs/dist/esm5/internal/util/isReadableStreamLike.js
-function readableStreamLikeToAsyncGenerator(readableStream) {
-  return __asyncGenerator(this, arguments, /* @__PURE__ */ __name(function readableStreamLikeToAsyncGenerator_1() {
-    var reader, _a7, value, done;
-    return __generator(this, function(_b) {
-      switch (_b.label) {
-        case 0:
-          reader = readableStream.getReader();
-          _b.label = 1;
-        case 1:
-          _b.trys.push([1, , 9, 10]);
-          _b.label = 2;
-        case 2:
-          if (false) return [3, 8];
-          return [4, __await(reader.read())];
-        case 3:
-          _a7 = _b.sent(), value = _a7.value, done = _a7.done;
-          if (!done) return [3, 5];
-          return [4, __await(void 0)];
-        case 4:
-          return [2, _b.sent()];
-        case 5:
-          return [4, __await(value)];
-        case 6:
-          return [4, _b.sent()];
-        case 7:
-          _b.sent();
-          return [3, 2];
-        case 8:
-          return [3, 10];
-        case 9:
-          reader.releaseLock();
-          return [7];
-        case 10:
-          return [2];
-      }
-    });
-  }, "readableStreamLikeToAsyncGenerator_1"));
-}
-__name(readableStreamLikeToAsyncGenerator, "readableStreamLikeToAsyncGenerator");
-function isReadableStreamLike(obj) {
-  return isFunction(obj === null || obj === void 0 ? void 0 : obj.getReader);
-}
-__name(isReadableStreamLike, "isReadableStreamLike");
-
-// node_modules/rxjs/dist/esm5/internal/observable/innerFrom.js
-function innerFrom(input2) {
-  if (input2 instanceof Observable) {
-    return input2;
-  }
-  if (input2 != null) {
-    if (isInteropObservable(input2)) {
-      return fromInteropObservable(input2);
-    }
-    if (isArrayLike(input2)) {
-      return fromArrayLike(input2);
-    }
-    if (isPromise(input2)) {
-      return fromPromise(input2);
-    }
-    if (isAsyncIterable(input2)) {
-      return fromAsyncIterable(input2);
-    }
-    if (isIterable(input2)) {
-      return fromIterable(input2);
-    }
-    if (isReadableStreamLike(input2)) {
-      return fromReadableStreamLike(input2);
-    }
-  }
-  throw createInvalidObservableTypeError(input2);
-}
-__name(innerFrom, "innerFrom");
-function fromInteropObservable(obj) {
-  return new Observable(function(subscriber) {
-    var obs = obj[observable]();
-    if (isFunction(obs.subscribe)) {
-      return obs.subscribe(subscriber);
-    }
-    throw new TypeError("Provided object does not correctly implement Symbol.observable");
-  });
-}
-__name(fromInteropObservable, "fromInteropObservable");
-function fromArrayLike(array) {
-  return new Observable(function(subscriber) {
-    for (var i = 0; i < array.length && !subscriber.closed; i++) {
-      subscriber.next(array[i]);
-    }
-    subscriber.complete();
-  });
-}
-__name(fromArrayLike, "fromArrayLike");
-function fromPromise(promise) {
-  return new Observable(function(subscriber) {
-    promise.then(function(value) {
-      if (!subscriber.closed) {
-        subscriber.next(value);
-        subscriber.complete();
-      }
-    }, function(err) {
-      return subscriber.error(err);
-    }).then(null, reportUnhandledError);
-  });
-}
-__name(fromPromise, "fromPromise");
-function fromIterable(iterable) {
-  return new Observable(function(subscriber) {
-    var e_1, _a7;
-    try {
-      for (var iterable_1 = __values(iterable), iterable_1_1 = iterable_1.next(); !iterable_1_1.done; iterable_1_1 = iterable_1.next()) {
-        var value = iterable_1_1.value;
-        subscriber.next(value);
-        if (subscriber.closed) {
-          return;
-        }
-      }
-    } catch (e_1_1) {
-      e_1 = { error: e_1_1 };
-    } finally {
-      try {
-        if (iterable_1_1 && !iterable_1_1.done && (_a7 = iterable_1.return)) _a7.call(iterable_1);
-      } finally {
-        if (e_1) throw e_1.error;
-      }
-    }
-    subscriber.complete();
-  });
-}
-__name(fromIterable, "fromIterable");
-function fromAsyncIterable(asyncIterable) {
-  return new Observable(function(subscriber) {
-    process(asyncIterable, subscriber).catch(function(err) {
-      return subscriber.error(err);
-    });
-  });
-}
-__name(fromAsyncIterable, "fromAsyncIterable");
-function fromReadableStreamLike(readableStream) {
-  return fromAsyncIterable(readableStreamLikeToAsyncGenerator(readableStream));
-}
-__name(fromReadableStreamLike, "fromReadableStreamLike");
-function process(asyncIterable, subscriber) {
-  var asyncIterable_1, asyncIterable_1_1;
-  var e_2, _a7;
-  return __awaiter(this, void 0, void 0, function() {
-    var value, e_2_1;
-    return __generator(this, function(_b) {
-      switch (_b.label) {
-        case 0:
-          _b.trys.push([0, 5, 6, 11]);
-          asyncIterable_1 = __asyncValues(asyncIterable);
-          _b.label = 1;
-        case 1:
-          return [4, asyncIterable_1.next()];
-        case 2:
-          if (!(asyncIterable_1_1 = _b.sent(), !asyncIterable_1_1.done)) return [3, 4];
-          value = asyncIterable_1_1.value;
-          subscriber.next(value);
-          if (subscriber.closed) {
-            return [2];
-          }
-          _b.label = 3;
-        case 3:
-          return [3, 1];
-        case 4:
-          return [3, 11];
-        case 5:
-          e_2_1 = _b.sent();
-          e_2 = { error: e_2_1 };
-          return [3, 11];
-        case 6:
-          _b.trys.push([6, , 9, 10]);
-          if (!(asyncIterable_1_1 && !asyncIterable_1_1.done && (_a7 = asyncIterable_1.return))) return [3, 8];
-          return [4, _a7.call(asyncIterable_1)];
-        case 7:
-          _b.sent();
-          _b.label = 8;
-        case 8:
-          return [3, 10];
-        case 9:
-          if (e_2) throw e_2.error;
-          return [7];
-        case 10:
-          return [7];
-        case 11:
-          subscriber.complete();
-          return [2];
-      }
-    });
-  });
-}
-__name(process, "process");
-
-// node_modules/rxjs/dist/esm5/internal/util/executeSchedule.js
-function executeSchedule(parentSubscription, scheduler, work, delay2, repeat2) {
-  if (delay2 === void 0) {
-    delay2 = 0;
-  }
-  if (repeat2 === void 0) {
-    repeat2 = false;
-  }
-  var scheduleSubscription = scheduler.schedule(function() {
-    work();
-    if (repeat2) {
-      parentSubscription.add(this.schedule(null, delay2));
-    } else {
-      this.unsubscribe();
-    }
-  }, delay2);
-  parentSubscription.add(scheduleSubscription);
-  if (!repeat2) {
-    return scheduleSubscription;
-  }
-}
-__name(executeSchedule, "executeSchedule");
-
-// node_modules/rxjs/dist/esm5/internal/operators/observeOn.js
-function observeOn(scheduler, delay2) {
-  if (delay2 === void 0) {
-    delay2 = 0;
-  }
-  return operate(function(source, subscriber) {
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      return executeSchedule(subscriber, scheduler, function() {
-        return subscriber.next(value);
-      }, delay2);
-    }, function() {
-      return executeSchedule(subscriber, scheduler, function() {
-        return subscriber.complete();
-      }, delay2);
-    }, function(err) {
-      return executeSchedule(subscriber, scheduler, function() {
-        return subscriber.error(err);
-      }, delay2);
-    }));
-  });
-}
-__name(observeOn, "observeOn");
-
-// node_modules/rxjs/dist/esm5/internal/operators/subscribeOn.js
-function subscribeOn(scheduler, delay2) {
-  if (delay2 === void 0) {
-    delay2 = 0;
-  }
-  return operate(function(source, subscriber) {
-    subscriber.add(scheduler.schedule(function() {
-      return source.subscribe(subscriber);
-    }, delay2));
-  });
-}
-__name(subscribeOn, "subscribeOn");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduleObservable.js
-function scheduleObservable(input2, scheduler) {
-  return innerFrom(input2).pipe(subscribeOn(scheduler), observeOn(scheduler));
-}
-__name(scheduleObservable, "scheduleObservable");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/schedulePromise.js
-function schedulePromise(input2, scheduler) {
-  return innerFrom(input2).pipe(subscribeOn(scheduler), observeOn(scheduler));
-}
-__name(schedulePromise, "schedulePromise");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduleArray.js
-function scheduleArray(input2, scheduler) {
-  return new Observable(function(subscriber) {
-    var i = 0;
-    return scheduler.schedule(function() {
-      if (i === input2.length) {
-        subscriber.complete();
-      } else {
-        subscriber.next(input2[i++]);
-        if (!subscriber.closed) {
-          this.schedule();
-        }
-      }
-    });
-  });
-}
-__name(scheduleArray, "scheduleArray");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduleIterable.js
-function scheduleIterable(input2, scheduler) {
-  return new Observable(function(subscriber) {
-    var iterator2;
-    executeSchedule(subscriber, scheduler, function() {
-      iterator2 = input2[iterator]();
-      executeSchedule(subscriber, scheduler, function() {
-        var _a7;
-        var value;
-        var done;
-        try {
-          _a7 = iterator2.next(), value = _a7.value, done = _a7.done;
-        } catch (err) {
-          subscriber.error(err);
-          return;
-        }
-        if (done) {
-          subscriber.complete();
-        } else {
-          subscriber.next(value);
-        }
-      }, 0, true);
-    });
-    return function() {
-      return isFunction(iterator2 === null || iterator2 === void 0 ? void 0 : iterator2.return) && iterator2.return();
-    };
-  });
-}
-__name(scheduleIterable, "scheduleIterable");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduleAsyncIterable.js
-function scheduleAsyncIterable(input2, scheduler) {
-  if (!input2) {
-    throw new Error("Iterable cannot be null");
-  }
-  return new Observable(function(subscriber) {
-    executeSchedule(subscriber, scheduler, function() {
-      var iterator2 = input2[Symbol.asyncIterator]();
-      executeSchedule(subscriber, scheduler, function() {
-        iterator2.next().then(function(result) {
-          if (result.done) {
-            subscriber.complete();
-          } else {
-            subscriber.next(result.value);
-          }
-        });
-      }, 0, true);
-    });
-  });
-}
-__name(scheduleAsyncIterable, "scheduleAsyncIterable");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduleReadableStreamLike.js
-function scheduleReadableStreamLike(input2, scheduler) {
-  return scheduleAsyncIterable(readableStreamLikeToAsyncGenerator(input2), scheduler);
-}
-__name(scheduleReadableStreamLike, "scheduleReadableStreamLike");
-
-// node_modules/rxjs/dist/esm5/internal/scheduled/scheduled.js
-function scheduled(input2, scheduler) {
-  if (input2 != null) {
-    if (isInteropObservable(input2)) {
-      return scheduleObservable(input2, scheduler);
-    }
-    if (isArrayLike(input2)) {
-      return scheduleArray(input2, scheduler);
-    }
-    if (isPromise(input2)) {
-      return schedulePromise(input2, scheduler);
-    }
-    if (isAsyncIterable(input2)) {
-      return scheduleAsyncIterable(input2, scheduler);
-    }
-    if (isIterable(input2)) {
-      return scheduleIterable(input2, scheduler);
-    }
-    if (isReadableStreamLike(input2)) {
-      return scheduleReadableStreamLike(input2, scheduler);
-    }
-  }
-  throw createInvalidObservableTypeError(input2);
-}
-__name(scheduled, "scheduled");
-
-// node_modules/rxjs/dist/esm5/internal/observable/from.js
-function from(input2, scheduler) {
-  return scheduler ? scheduled(input2, scheduler) : innerFrom(input2);
-}
-__name(from, "from");
-
-// node_modules/rxjs/dist/esm5/internal/observable/of.js
-function of() {
-  var args = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-  var scheduler = popScheduler(args);
-  return from(args, scheduler);
-}
-__name(of, "of");
-
-// node_modules/rxjs/dist/esm5/internal/observable/throwError.js
-function throwError(errorOrErrorFactory, scheduler) {
-  var errorFactory = isFunction(errorOrErrorFactory) ? errorOrErrorFactory : function() {
-    return errorOrErrorFactory;
-  };
-  var init = /* @__PURE__ */ __name(function(subscriber) {
-    return subscriber.error(errorFactory());
-  }, "init");
-  return new Observable(scheduler ? function(subscriber) {
-    return scheduler.schedule(init, 0, subscriber);
-  } : init);
-}
-__name(throwError, "throwError");
-
-// node_modules/rxjs/dist/esm5/internal/Notification.js
-var NotificationKind;
-(function(NotificationKind2) {
-  NotificationKind2["NEXT"] = "N";
-  NotificationKind2["ERROR"] = "E";
-  NotificationKind2["COMPLETE"] = "C";
-})(NotificationKind || (NotificationKind = {}));
-var Notification = (function() {
-  function Notification2(kind, value, error) {
-    this.kind = kind;
-    this.value = value;
-    this.error = error;
-    this.hasValue = kind === "N";
-  }
-  __name(Notification2, "Notification");
-  Notification2.prototype.observe = function(observer) {
-    return observeNotification(this, observer);
-  };
-  Notification2.prototype.do = function(nextHandler, errorHandler, completeHandler) {
-    var _a7 = this, kind = _a7.kind, value = _a7.value, error = _a7.error;
-    return kind === "N" ? nextHandler === null || nextHandler === void 0 ? void 0 : nextHandler(value) : kind === "E" ? errorHandler === null || errorHandler === void 0 ? void 0 : errorHandler(error) : completeHandler === null || completeHandler === void 0 ? void 0 : completeHandler();
-  };
-  Notification2.prototype.accept = function(nextOrObserver, error, complete) {
-    var _a7;
-    return isFunction((_a7 = nextOrObserver) === null || _a7 === void 0 ? void 0 : _a7.next) ? this.observe(nextOrObserver) : this.do(nextOrObserver, error, complete);
-  };
-  Notification2.prototype.toObservable = function() {
-    var _a7 = this, kind = _a7.kind, value = _a7.value, error = _a7.error;
-    var result = kind === "N" ? of(value) : kind === "E" ? throwError(function() {
-      return error;
-    }) : kind === "C" ? EMPTY : 0;
-    if (!result) {
-      throw new TypeError("Unexpected notification kind " + kind);
-    }
-    return result;
-  };
-  Notification2.createNext = function(value) {
-    return new Notification2("N", value);
-  };
-  Notification2.createError = function(err) {
-    return new Notification2("E", void 0, err);
-  };
-  Notification2.createComplete = function() {
-    return Notification2.completeNotification;
-  };
-  Notification2.completeNotification = new Notification2("C");
-  return Notification2;
-})();
-function observeNotification(notification, observer) {
-  var _a7, _b, _c;
-  var _d = notification, kind = _d.kind, value = _d.value, error = _d.error;
-  if (typeof kind !== "string") {
-    throw new TypeError('Invalid notification, missing "kind"');
-  }
-  kind === "N" ? (_a7 = observer.next) === null || _a7 === void 0 ? void 0 : _a7.call(observer, value) : kind === "E" ? (_b = observer.error) === null || _b === void 0 ? void 0 : _b.call(observer, error) : (_c = observer.complete) === null || _c === void 0 ? void 0 : _c.call(observer);
-}
-__name(observeNotification, "observeNotification");
-
-// node_modules/rxjs/dist/esm5/internal/util/isObservable.js
-function isObservable(obj) {
-  return !!obj && (obj instanceof Observable || isFunction(obj.lift) && isFunction(obj.subscribe));
-}
-__name(isObservable, "isObservable");
-
-// node_modules/rxjs/dist/esm5/internal/util/EmptyError.js
-var EmptyError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function EmptyErrorImpl() {
-    _super(this);
-    this.name = "EmptyError";
-    this.message = "no elements in sequence";
-  }, "EmptyErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/util/ArgumentOutOfRangeError.js
-var ArgumentOutOfRangeError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function ArgumentOutOfRangeErrorImpl() {
-    _super(this);
-    this.name = "ArgumentOutOfRangeError";
-    this.message = "argument out of range";
-  }, "ArgumentOutOfRangeErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/util/NotFoundError.js
-var NotFoundError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function NotFoundErrorImpl(message) {
-    _super(this);
-    this.name = "NotFoundError";
-    this.message = message;
-  }, "NotFoundErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/util/SequenceError.js
-var SequenceError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function SequenceErrorImpl(message) {
-    _super(this);
-    this.name = "SequenceError";
-    this.message = message;
-  }, "SequenceErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/operators/timeout.js
-var TimeoutError = createErrorClass(function(_super) {
-  return /* @__PURE__ */ __name(function TimeoutErrorImpl(info) {
-    if (info === void 0) {
-      info = null;
-    }
-    _super(this);
-    this.message = "Timeout has occurred";
-    this.name = "TimeoutError";
-    this.info = info;
-  }, "TimeoutErrorImpl");
-});
-
-// node_modules/rxjs/dist/esm5/internal/operators/map.js
-function map(project, thisArg) {
-  return operate(function(source, subscriber) {
-    var index = 0;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      subscriber.next(project.call(thisArg, value, index++));
-    }));
-  });
-}
-__name(map, "map");
-
-// node_modules/rxjs/dist/esm5/internal/util/mapOneOrManyArgs.js
-var isArray = Array.isArray;
-function callOrApply(fn, args) {
-  return isArray(args) ? fn.apply(void 0, __spreadArray([], __read(args))) : fn(args);
-}
-__name(callOrApply, "callOrApply");
-function mapOneOrManyArgs(fn) {
-  return map(function(args) {
-    return callOrApply(fn, args);
-  });
-}
-__name(mapOneOrManyArgs, "mapOneOrManyArgs");
-
-// node_modules/rxjs/dist/esm5/internal/util/argsArgArrayOrObject.js
-var isArray2 = Array.isArray;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectProto = Object.prototype;
-var getKeys = Object.keys;
-function argsArgArrayOrObject(args) {
-  if (args.length === 1) {
-    var first_1 = args[0];
-    if (isArray2(first_1)) {
-      return { args: first_1, keys: null };
-    }
-    if (isPOJO(first_1)) {
-      var keys = getKeys(first_1);
-      return {
-        args: keys.map(function(key) {
-          return first_1[key];
-        }),
-        keys
-      };
-    }
-  }
-  return { args, keys: null };
-}
-__name(argsArgArrayOrObject, "argsArgArrayOrObject");
-function isPOJO(obj) {
-  return obj && typeof obj === "object" && getPrototypeOf(obj) === objectProto;
-}
-__name(isPOJO, "isPOJO");
-
-// node_modules/rxjs/dist/esm5/internal/util/createObject.js
-function createObject(keys, values) {
-  return keys.reduce(function(result, key, i) {
-    return result[key] = values[i], result;
-  }, {});
-}
-__name(createObject, "createObject");
-
-// node_modules/rxjs/dist/esm5/internal/observable/combineLatest.js
-function combineLatest() {
-  var args = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-  var scheduler = popScheduler(args);
-  var resultSelector = popResultSelector(args);
-  var _a7 = argsArgArrayOrObject(args), observables = _a7.args, keys = _a7.keys;
-  if (observables.length === 0) {
-    return from([], scheduler);
-  }
-  var result = new Observable(combineLatestInit(observables, scheduler, keys ? function(values) {
-    return createObject(keys, values);
-  } : identity));
-  return resultSelector ? result.pipe(mapOneOrManyArgs(resultSelector)) : result;
-}
-__name(combineLatest, "combineLatest");
-function combineLatestInit(observables, scheduler, valueTransform) {
-  if (valueTransform === void 0) {
-    valueTransform = identity;
-  }
-  return function(subscriber) {
-    maybeSchedule(scheduler, function() {
-      var length = observables.length;
-      var values = new Array(length);
-      var active = length;
-      var remainingFirstValues = length;
-      var _loop_1 = /* @__PURE__ */ __name(function(i2) {
-        maybeSchedule(scheduler, function() {
-          var source = from(observables[i2], scheduler);
-          var hasFirstValue = false;
-          source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-            values[i2] = value;
-            if (!hasFirstValue) {
-              hasFirstValue = true;
-              remainingFirstValues--;
-            }
-            if (!remainingFirstValues) {
-              subscriber.next(valueTransform(values.slice()));
-            }
-          }, function() {
-            if (!--active) {
-              subscriber.complete();
-            }
-          }));
-        }, subscriber);
-      }, "_loop_1");
-      for (var i = 0; i < length; i++) {
-        _loop_1(i);
-      }
-    }, subscriber);
-  };
-}
-__name(combineLatestInit, "combineLatestInit");
-function maybeSchedule(scheduler, execute, subscription) {
-  if (scheduler) {
-    executeSchedule(subscription, scheduler, execute);
-  } else {
-    execute();
-  }
-}
-__name(maybeSchedule, "maybeSchedule");
-
-// node_modules/rxjs/dist/esm5/internal/operators/mergeInternals.js
-function mergeInternals(source, subscriber, project, concurrent, onBeforeNext, expand2, innerSubScheduler, additionalFinalizer) {
-  var buffer2 = [];
-  var active = 0;
-  var index = 0;
-  var isComplete = false;
-  var checkComplete = /* @__PURE__ */ __name(function() {
-    if (isComplete && !buffer2.length && !active) {
-      subscriber.complete();
-    }
-  }, "checkComplete");
-  var outerNext = /* @__PURE__ */ __name(function(value) {
-    return active < concurrent ? doInnerSub(value) : buffer2.push(value);
-  }, "outerNext");
-  var doInnerSub = /* @__PURE__ */ __name(function(value) {
-    expand2 && subscriber.next(value);
-    active++;
-    var innerComplete = false;
-    innerFrom(project(value, index++)).subscribe(createOperatorSubscriber(subscriber, function(innerValue) {
-      onBeforeNext === null || onBeforeNext === void 0 ? void 0 : onBeforeNext(innerValue);
-      if (expand2) {
-        outerNext(innerValue);
-      } else {
-        subscriber.next(innerValue);
-      }
-    }, function() {
-      innerComplete = true;
-    }, void 0, function() {
-      if (innerComplete) {
-        try {
-          active--;
-          var _loop_1 = /* @__PURE__ */ __name(function() {
-            var bufferedValue = buffer2.shift();
-            if (innerSubScheduler) {
-              executeSchedule(subscriber, innerSubScheduler, function() {
-                return doInnerSub(bufferedValue);
-              });
-            } else {
-              doInnerSub(bufferedValue);
-            }
-          }, "_loop_1");
-          while (buffer2.length && active < concurrent) {
-            _loop_1();
-          }
-          checkComplete();
-        } catch (err) {
-          subscriber.error(err);
-        }
-      }
-    }));
-  }, "doInnerSub");
-  source.subscribe(createOperatorSubscriber(subscriber, outerNext, function() {
-    isComplete = true;
-    checkComplete();
-  }));
-  return function() {
-    additionalFinalizer === null || additionalFinalizer === void 0 ? void 0 : additionalFinalizer();
-  };
-}
-__name(mergeInternals, "mergeInternals");
-
-// node_modules/rxjs/dist/esm5/internal/operators/mergeMap.js
-function mergeMap(project, resultSelector, concurrent) {
-  if (concurrent === void 0) {
-    concurrent = Infinity;
-  }
-  if (isFunction(resultSelector)) {
-    return mergeMap(function(a, i) {
-      return map(function(b, ii) {
-        return resultSelector(a, b, i, ii);
-      })(innerFrom(project(a, i)));
-    }, concurrent);
-  } else if (typeof resultSelector === "number") {
-    concurrent = resultSelector;
-  }
-  return operate(function(source, subscriber) {
-    return mergeInternals(source, subscriber, project, concurrent);
-  });
-}
-__name(mergeMap, "mergeMap");
-
-// node_modules/rxjs/dist/esm5/internal/operators/mergeAll.js
-function mergeAll(concurrent) {
-  if (concurrent === void 0) {
-    concurrent = Infinity;
-  }
-  return mergeMap(identity, concurrent);
-}
-__name(mergeAll, "mergeAll");
-
-// node_modules/rxjs/dist/esm5/internal/operators/concatAll.js
-function concatAll() {
-  return mergeAll(1);
-}
-__name(concatAll, "concatAll");
-
-// node_modules/rxjs/dist/esm5/internal/observable/concat.js
-function concat() {
-  var args = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-  return concatAll()(from(args, popScheduler(args)));
-}
-__name(concat, "concat");
-
-// node_modules/rxjs/dist/esm5/internal/observable/defer.js
-function defer(observableFactory) {
-  return new Observable(function(subscriber) {
-    innerFrom(observableFactory()).subscribe(subscriber);
-  });
-}
-__name(defer, "defer");
-
-// node_modules/rxjs/dist/esm5/internal/observable/forkJoin.js
-function forkJoin() {
-  var args = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-  var resultSelector = popResultSelector(args);
-  var _a7 = argsArgArrayOrObject(args), sources = _a7.args, keys = _a7.keys;
-  var result = new Observable(function(subscriber) {
-    var length = sources.length;
-    if (!length) {
-      subscriber.complete();
-      return;
-    }
-    var values = new Array(length);
-    var remainingCompletions = length;
-    var remainingEmissions = length;
-    var _loop_1 = /* @__PURE__ */ __name(function(sourceIndex2) {
-      var hasValue = false;
-      innerFrom(sources[sourceIndex2]).subscribe(createOperatorSubscriber(subscriber, function(value) {
-        if (!hasValue) {
-          hasValue = true;
-          remainingEmissions--;
-        }
-        values[sourceIndex2] = value;
-      }, function() {
-        return remainingCompletions--;
-      }, void 0, function() {
-        if (!remainingCompletions || !hasValue) {
-          if (!remainingEmissions) {
-            subscriber.next(keys ? createObject(keys, values) : values);
-          }
-          subscriber.complete();
-        }
-      }));
-    }, "_loop_1");
-    for (var sourceIndex = 0; sourceIndex < length; sourceIndex++) {
-      _loop_1(sourceIndex);
-    }
-  });
-  return resultSelector ? result.pipe(mapOneOrManyArgs(resultSelector)) : result;
-}
-__name(forkJoin, "forkJoin");
-
-// node_modules/rxjs/dist/esm5/internal/observable/merge.js
-function merge() {
-  var args = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-  var scheduler = popScheduler(args);
-  var concurrent = popNumber(args, Infinity);
-  var sources = args;
-  return !sources.length ? EMPTY : sources.length === 1 ? innerFrom(sources[0]) : mergeAll(concurrent)(from(sources, scheduler));
-}
-__name(merge, "merge");
-
-// node_modules/rxjs/dist/esm5/internal/observable/never.js
-var NEVER = new Observable(noop);
-
-// node_modules/rxjs/dist/esm5/internal/util/argsOrArgArray.js
-var isArray3 = Array.isArray;
-
-// node_modules/rxjs/dist/esm5/internal/operators/filter.js
-function filter(predicate, thisArg) {
-  return operate(function(source, subscriber) {
-    var index = 0;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      return predicate.call(thisArg, value, index++) && subscriber.next(value);
-    }));
-  });
-}
-__name(filter, "filter");
-
-// node_modules/rxjs/dist/esm5/internal/operators/catchError.js
-function catchError(selector) {
-  return operate(function(source, subscriber) {
-    var innerSub = null;
-    var syncUnsub = false;
-    var handledResult;
-    innerSub = source.subscribe(createOperatorSubscriber(subscriber, void 0, void 0, function(err) {
-      handledResult = innerFrom(selector(err, catchError(selector)(source)));
-      if (innerSub) {
-        innerSub.unsubscribe();
-        innerSub = null;
-        handledResult.subscribe(subscriber);
-      } else {
-        syncUnsub = true;
-      }
-    }));
-    if (syncUnsub) {
-      innerSub.unsubscribe();
-      innerSub = null;
-      handledResult.subscribe(subscriber);
-    }
-  });
-}
-__name(catchError, "catchError");
-
-// node_modules/rxjs/dist/esm5/internal/operators/scanInternals.js
-function scanInternals(accumulator, seed, hasSeed, emitOnNext, emitBeforeComplete) {
-  return function(source, subscriber) {
-    var hasState = hasSeed;
-    var state = seed;
-    var index = 0;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      var i = index++;
-      state = hasState ? accumulator(state, value, i) : (hasState = true, value);
-      emitOnNext && subscriber.next(state);
-    }, emitBeforeComplete && (function() {
-      hasState && subscriber.next(state);
-      subscriber.complete();
-    })));
-  };
-}
-__name(scanInternals, "scanInternals");
-
-// node_modules/rxjs/dist/esm5/internal/operators/concatMap.js
-function concatMap(project, resultSelector) {
-  return isFunction(resultSelector) ? mergeMap(project, resultSelector, 1) : mergeMap(project, 1);
-}
-__name(concatMap, "concatMap");
-
-// node_modules/rxjs/dist/esm5/internal/operators/defaultIfEmpty.js
-function defaultIfEmpty(defaultValue) {
-  return operate(function(source, subscriber) {
-    var hasValue = false;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      hasValue = true;
-      subscriber.next(value);
-    }, function() {
-      if (!hasValue) {
-        subscriber.next(defaultValue);
-      }
-      subscriber.complete();
-    }));
-  });
-}
-__name(defaultIfEmpty, "defaultIfEmpty");
-
-// node_modules/rxjs/dist/esm5/internal/operators/take.js
-function take(count2) {
-  return count2 <= 0 ? function() {
-    return EMPTY;
-  } : operate(function(source, subscriber) {
-    var seen = 0;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      if (++seen <= count2) {
-        subscriber.next(value);
-        if (count2 <= seen) {
-          subscriber.complete();
-        }
-      }
-    }));
-  });
-}
-__name(take, "take");
-
-// node_modules/rxjs/dist/esm5/internal/operators/ignoreElements.js
-function ignoreElements() {
-  return operate(function(source, subscriber) {
-    source.subscribe(createOperatorSubscriber(subscriber, noop));
-  });
-}
-__name(ignoreElements, "ignoreElements");
-
-// node_modules/rxjs/dist/esm5/internal/operators/dematerialize.js
-function dematerialize() {
-  return operate(function(source, subscriber) {
-    source.subscribe(createOperatorSubscriber(subscriber, function(notification) {
-      return observeNotification(notification, subscriber);
-    }));
-  });
-}
-__name(dematerialize, "dematerialize");
-
-// node_modules/rxjs/dist/esm5/internal/operators/distinctUntilChanged.js
-function distinctUntilChanged(comparator, keySelector) {
-  if (keySelector === void 0) {
-    keySelector = identity;
-  }
-  comparator = comparator !== null && comparator !== void 0 ? comparator : defaultCompare;
-  return operate(function(source, subscriber) {
-    var previousKey;
-    var first2 = true;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      var currentKey = keySelector(value);
-      if (first2 || !comparator(previousKey, currentKey)) {
-        first2 = false;
-        previousKey = currentKey;
-        subscriber.next(value);
-      }
-    }));
-  });
-}
-__name(distinctUntilChanged, "distinctUntilChanged");
-function defaultCompare(a, b) {
-  return a === b;
-}
-__name(defaultCompare, "defaultCompare");
-
-// node_modules/rxjs/dist/esm5/internal/operators/throwIfEmpty.js
-function throwIfEmpty(errorFactory) {
-  if (errorFactory === void 0) {
-    errorFactory = defaultErrorFactory;
-  }
-  return operate(function(source, subscriber) {
-    var hasValue = false;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      hasValue = true;
-      subscriber.next(value);
-    }, function() {
-      return hasValue ? subscriber.complete() : subscriber.error(errorFactory());
-    }));
-  });
-}
-__name(throwIfEmpty, "throwIfEmpty");
-function defaultErrorFactory() {
-  return new EmptyError();
-}
-__name(defaultErrorFactory, "defaultErrorFactory");
-
-// node_modules/rxjs/dist/esm5/internal/operators/exhaustMap.js
-function exhaustMap(project, resultSelector) {
-  if (resultSelector) {
-    return function(source) {
-      return source.pipe(exhaustMap(function(a, i) {
-        return innerFrom(project(a, i)).pipe(map(function(b, ii) {
-          return resultSelector(a, b, i, ii);
-        }));
-      }));
-    };
-  }
-  return operate(function(source, subscriber) {
-    var index = 0;
-    var innerSub = null;
-    var isComplete = false;
-    source.subscribe(createOperatorSubscriber(subscriber, function(outerValue) {
-      if (!innerSub) {
-        innerSub = createOperatorSubscriber(subscriber, void 0, function() {
-          innerSub = null;
-          isComplete && subscriber.complete();
-        });
-        innerFrom(project(outerValue, index++)).subscribe(innerSub);
-      }
-    }, function() {
-      isComplete = true;
-      !innerSub && subscriber.complete();
-    }));
-  });
-}
-__name(exhaustMap, "exhaustMap");
-
-// node_modules/rxjs/dist/esm5/internal/operators/finalize.js
-function finalize(callback) {
-  return operate(function(source, subscriber) {
-    try {
-      source.subscribe(subscriber);
-    } finally {
-      subscriber.add(callback);
-    }
-  });
-}
-__name(finalize, "finalize");
-
-// node_modules/rxjs/dist/esm5/internal/operators/first.js
-function first(predicate, defaultValue) {
-  var hasDefaultValue = arguments.length >= 2;
-  return function(source) {
-    return source.pipe(predicate ? filter(function(v, i) {
-      return predicate(v, i, source);
-    }) : identity, take(1), hasDefaultValue ? defaultIfEmpty(defaultValue) : throwIfEmpty(function() {
-      return new EmptyError();
-    }));
-  };
-}
-__name(first, "first");
-
-// node_modules/rxjs/dist/esm5/internal/operators/groupBy.js
-function groupBy(keySelector, elementOrOptions, duration, connector) {
-  return operate(function(source, subscriber) {
-    var element;
-    if (!elementOrOptions || typeof elementOrOptions === "function") {
-      element = elementOrOptions;
-    } else {
-      duration = elementOrOptions.duration, element = elementOrOptions.element, connector = elementOrOptions.connector;
-    }
-    var groups = /* @__PURE__ */ new Map();
-    var notify = /* @__PURE__ */ __name(function(cb) {
-      groups.forEach(cb);
-      cb(subscriber);
-    }, "notify");
-    var handleError = /* @__PURE__ */ __name(function(err) {
-      return notify(function(consumer) {
-        return consumer.error(err);
-      });
-    }, "handleError");
-    var activeGroups = 0;
-    var teardownAttempted = false;
-    var groupBySourceSubscriber = new OperatorSubscriber(subscriber, function(value) {
-      try {
-        var key_1 = keySelector(value);
-        var group_1 = groups.get(key_1);
-        if (!group_1) {
-          groups.set(key_1, group_1 = connector ? connector() : new Subject());
-          var grouped = createGroupedObservable(key_1, group_1);
-          subscriber.next(grouped);
-          if (duration) {
-            var durationSubscriber_1 = createOperatorSubscriber(group_1, function() {
-              group_1.complete();
-              durationSubscriber_1 === null || durationSubscriber_1 === void 0 ? void 0 : durationSubscriber_1.unsubscribe();
-            }, void 0, void 0, function() {
-              return groups.delete(key_1);
-            });
-            groupBySourceSubscriber.add(innerFrom(duration(grouped)).subscribe(durationSubscriber_1));
-          }
-        }
-        group_1.next(element ? element(value) : value);
-      } catch (err) {
-        handleError(err);
-      }
-    }, function() {
-      return notify(function(consumer) {
-        return consumer.complete();
-      });
-    }, handleError, function() {
-      return groups.clear();
-    }, function() {
-      teardownAttempted = true;
-      return activeGroups === 0;
-    });
-    source.subscribe(groupBySourceSubscriber);
-    function createGroupedObservable(key, groupSubject) {
-      var result = new Observable(function(groupSubscriber) {
-        activeGroups++;
-        var innerSub = groupSubject.subscribe(groupSubscriber);
-        return function() {
-          innerSub.unsubscribe();
-          --activeGroups === 0 && teardownAttempted && groupBySourceSubscriber.unsubscribe();
-        };
-      });
-      result.key = key;
-      return result;
-    }
-    __name(createGroupedObservable, "createGroupedObservable");
-  });
-}
-__name(groupBy, "groupBy");
-
-// node_modules/rxjs/dist/esm5/internal/operators/takeLast.js
-function takeLast(count2) {
-  return count2 <= 0 ? function() {
-    return EMPTY;
-  } : operate(function(source, subscriber) {
-    var buffer2 = [];
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      buffer2.push(value);
-      count2 < buffer2.length && buffer2.shift();
-    }, function() {
-      var e_1, _a7;
-      try {
-        for (var buffer_1 = __values(buffer2), buffer_1_1 = buffer_1.next(); !buffer_1_1.done; buffer_1_1 = buffer_1.next()) {
-          var value = buffer_1_1.value;
-          subscriber.next(value);
-        }
-      } catch (e_1_1) {
-        e_1 = { error: e_1_1 };
-      } finally {
-        try {
-          if (buffer_1_1 && !buffer_1_1.done && (_a7 = buffer_1.return)) _a7.call(buffer_1);
-        } finally {
-          if (e_1) throw e_1.error;
-        }
-      }
-      subscriber.complete();
-    }, void 0, function() {
-      buffer2 = null;
-    }));
-  });
-}
-__name(takeLast, "takeLast");
-
-// node_modules/rxjs/dist/esm5/internal/operators/last.js
-function last2(predicate, defaultValue) {
-  var hasDefaultValue = arguments.length >= 2;
-  return function(source) {
-    return source.pipe(predicate ? filter(function(v, i) {
-      return predicate(v, i, source);
-    }) : identity, takeLast(1), hasDefaultValue ? defaultIfEmpty(defaultValue) : throwIfEmpty(function() {
-      return new EmptyError();
-    }));
-  };
-}
-__name(last2, "last");
-
-// node_modules/rxjs/dist/esm5/internal/operators/materialize.js
-function materialize() {
-  return operate(function(source, subscriber) {
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      subscriber.next(Notification.createNext(value));
-    }, function() {
-      subscriber.next(Notification.createComplete());
-      subscriber.complete();
-    }, function(err) {
-      subscriber.next(Notification.createError(err));
-      subscriber.complete();
-    }));
-  });
-}
-__name(materialize, "materialize");
-
-// node_modules/rxjs/dist/esm5/internal/operators/pluck.js
-function pluck() {
-  var properties = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    properties[_i] = arguments[_i];
-  }
-  var length = properties.length;
-  if (length === 0) {
-    throw new Error("list of properties cannot be empty.");
-  }
-  return map(function(x) {
-    var currentProp = x;
-    for (var i = 0; i < length; i++) {
-      var p = currentProp === null || currentProp === void 0 ? void 0 : currentProp[properties[i]];
-      if (typeof p !== "undefined") {
-        currentProp = p;
-      } else {
-        return void 0;
-      }
-    }
-    return currentProp;
-  });
-}
-__name(pluck, "pluck");
-
-// node_modules/rxjs/dist/esm5/internal/operators/scan.js
-function scan(accumulator, seed) {
-  return operate(scanInternals(accumulator, seed, arguments.length >= 2, true));
-}
-__name(scan, "scan");
-
-// node_modules/rxjs/dist/esm5/internal/operators/startWith.js
-function startWith() {
-  var values = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    values[_i] = arguments[_i];
-  }
-  var scheduler = popScheduler(values);
-  return operate(function(source, subscriber) {
-    (scheduler ? concat(values, source, scheduler) : concat(values, source)).subscribe(subscriber);
-  });
-}
-__name(startWith, "startWith");
-
-// node_modules/rxjs/dist/esm5/internal/operators/switchMap.js
-function switchMap(project, resultSelector) {
-  return operate(function(source, subscriber) {
-    var innerSubscriber = null;
-    var index = 0;
-    var isComplete = false;
-    var checkComplete = /* @__PURE__ */ __name(function() {
-      return isComplete && !innerSubscriber && subscriber.complete();
-    }, "checkComplete");
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      innerSubscriber === null || innerSubscriber === void 0 ? void 0 : innerSubscriber.unsubscribe();
-      var innerIndex = 0;
-      var outerIndex = index++;
-      innerFrom(project(value, outerIndex)).subscribe(innerSubscriber = createOperatorSubscriber(subscriber, function(innerValue) {
-        return subscriber.next(resultSelector ? resultSelector(value, innerValue, outerIndex, innerIndex++) : innerValue);
-      }, function() {
-        innerSubscriber = null;
-        checkComplete();
-      }));
-    }, function() {
-      isComplete = true;
-      checkComplete();
-    }));
-  });
-}
-__name(switchMap, "switchMap");
-
-// node_modules/rxjs/dist/esm5/internal/operators/takeUntil.js
-function takeUntil(notifier) {
-  return operate(function(source, subscriber) {
-    innerFrom(notifier).subscribe(createOperatorSubscriber(subscriber, function() {
-      return subscriber.complete();
-    }, noop));
-    !subscriber.closed && source.subscribe(subscriber);
-  });
-}
-__name(takeUntil, "takeUntil");
-
-// node_modules/rxjs/dist/esm5/internal/operators/tap.js
-function tap(observerOrNext, error, complete) {
-  var tapObserver = isFunction(observerOrNext) || error || complete ? { next: observerOrNext, error, complete } : observerOrNext;
-  return tapObserver ? operate(function(source, subscriber) {
-    var _a7;
-    (_a7 = tapObserver.subscribe) === null || _a7 === void 0 ? void 0 : _a7.call(tapObserver);
-    var isUnsub = true;
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      var _a8;
-      (_a8 = tapObserver.next) === null || _a8 === void 0 ? void 0 : _a8.call(tapObserver, value);
-      subscriber.next(value);
-    }, function() {
-      var _a8;
-      isUnsub = false;
-      (_a8 = tapObserver.complete) === null || _a8 === void 0 ? void 0 : _a8.call(tapObserver);
-      subscriber.complete();
-    }, function(err) {
-      var _a8;
-      isUnsub = false;
-      (_a8 = tapObserver.error) === null || _a8 === void 0 ? void 0 : _a8.call(tapObserver, err);
-      subscriber.error(err);
-    }, function() {
-      var _a8, _b;
-      if (isUnsub) {
-        (_a8 = tapObserver.unsubscribe) === null || _a8 === void 0 ? void 0 : _a8.call(tapObserver);
-      }
-      (_b = tapObserver.finalize) === null || _b === void 0 ? void 0 : _b.call(tapObserver);
-    }));
-  }) : identity;
-}
-__name(tap, "tap");
-
-// node_modules/rxjs/dist/esm5/internal/operators/withLatestFrom.js
-function withLatestFrom() {
-  var inputs = [];
-  for (var _i = 0; _i < arguments.length; _i++) {
-    inputs[_i] = arguments[_i];
-  }
-  var project = popResultSelector(inputs);
-  return operate(function(source, subscriber) {
-    var len = inputs.length;
-    var otherValues = new Array(len);
-    var hasValue = inputs.map(function() {
-      return false;
-    });
-    var ready = false;
-    var _loop_1 = /* @__PURE__ */ __name(function(i2) {
-      innerFrom(inputs[i2]).subscribe(createOperatorSubscriber(subscriber, function(value) {
-        otherValues[i2] = value;
-        if (!ready && !hasValue[i2]) {
-          hasValue[i2] = true;
-          (ready = hasValue.every(identity)) && (hasValue = null);
-        }
-      }, noop));
-    }, "_loop_1");
-    for (var i = 0; i < len; i++) {
-      _loop_1(i);
-    }
-    source.subscribe(createOperatorSubscriber(subscriber, function(value) {
-      if (ready) {
-        var values = __spreadArray([value], __read(otherValues));
-        subscriber.next(project ? project.apply(void 0, __spreadArray([], __read(values))) : values);
-      }
-    }));
-  });
-}
-__name(withLatestFrom, "withLatestFrom");
+// node_modules/@angular/core/fesm2022/root_effect_scheduler.mjs
+var import_rxjs = __toESM(require_cjs(), 1);
 
 // node_modules/@angular/core/fesm2022/effect.mjs
 function createLinkedSignal(sourceFn, computationFn, equalityFn) {
@@ -4011,7 +1342,7 @@ function isForwardRef(fn) {
 __name(isForwardRef, "isForwardRef");
 function assertNumber(actual, msg) {
   if (!(typeof actual === "number")) {
-    throwError2(msg, typeof actual, "number", "===");
+    throwError(msg, typeof actual, "number", "===");
   }
 }
 __name(assertNumber, "assertNumber");
@@ -4023,89 +1354,89 @@ function assertNumberInRange(actual, minInclusive, maxInclusive) {
 __name(assertNumberInRange, "assertNumberInRange");
 function assertString(actual, msg) {
   if (!(typeof actual === "string")) {
-    throwError2(msg, actual === null ? "null" : typeof actual, "string", "===");
+    throwError(msg, actual === null ? "null" : typeof actual, "string", "===");
   }
 }
 __name(assertString, "assertString");
 function assertFunction(actual, msg) {
   if (!(typeof actual === "function")) {
-    throwError2(msg, actual === null ? "null" : typeof actual, "function", "===");
+    throwError(msg, actual === null ? "null" : typeof actual, "function", "===");
   }
 }
 __name(assertFunction, "assertFunction");
 function assertEqual(actual, expected, msg) {
   if (!(actual == expected)) {
-    throwError2(msg, actual, expected, "==");
+    throwError(msg, actual, expected, "==");
   }
 }
 __name(assertEqual, "assertEqual");
 function assertNotEqual(actual, expected, msg) {
   if (!(actual != expected)) {
-    throwError2(msg, actual, expected, "!=");
+    throwError(msg, actual, expected, "!=");
   }
 }
 __name(assertNotEqual, "assertNotEqual");
 function assertSame(actual, expected, msg) {
   if (!(actual === expected)) {
-    throwError2(msg, actual, expected, "===");
+    throwError(msg, actual, expected, "===");
   }
 }
 __name(assertSame, "assertSame");
 function assertNotSame(actual, expected, msg) {
   if (!(actual !== expected)) {
-    throwError2(msg, actual, expected, "!==");
+    throwError(msg, actual, expected, "!==");
   }
 }
 __name(assertNotSame, "assertNotSame");
 function assertLessThan(actual, expected, msg) {
   if (!(actual < expected)) {
-    throwError2(msg, actual, expected, "<");
+    throwError(msg, actual, expected, "<");
   }
 }
 __name(assertLessThan, "assertLessThan");
 function assertLessThanOrEqual(actual, expected, msg) {
   if (!(actual <= expected)) {
-    throwError2(msg, actual, expected, "<=");
+    throwError(msg, actual, expected, "<=");
   }
 }
 __name(assertLessThanOrEqual, "assertLessThanOrEqual");
 function assertGreaterThan(actual, expected, msg) {
   if (!(actual > expected)) {
-    throwError2(msg, actual, expected, ">");
+    throwError(msg, actual, expected, ">");
   }
 }
 __name(assertGreaterThan, "assertGreaterThan");
 function assertGreaterThanOrEqual(actual, expected, msg) {
   if (!(actual >= expected)) {
-    throwError2(msg, actual, expected, ">=");
+    throwError(msg, actual, expected, ">=");
   }
 }
 __name(assertGreaterThanOrEqual, "assertGreaterThanOrEqual");
 function assertNotDefined(actual, msg) {
   if (actual != null) {
-    throwError2(msg, actual, null, "==");
+    throwError(msg, actual, null, "==");
   }
 }
 __name(assertNotDefined, "assertNotDefined");
 function assertDefined(actual, msg) {
   if (actual == null) {
-    throwError2(msg, actual, null, "!=");
+    throwError(msg, actual, null, "!=");
   }
 }
 __name(assertDefined, "assertDefined");
-function throwError2(msg, actual, expected, comparison) {
+function throwError(msg, actual, expected, comparison) {
   throw new Error(`ASSERTION ERROR: ${msg}` + (comparison == null ? "" : ` [Expected=> ${expected} ${comparison} ${actual} <=Actual]`));
 }
-__name(throwError2, "throwError");
+__name(throwError, "throwError");
 function assertDomNode(node) {
   if (!(node instanceof Node)) {
-    throwError2(`The provided value must be an instance of a DOM Node but got ${stringify(node)}`);
+    throwError(`The provided value must be an instance of a DOM Node but got ${stringify(node)}`);
   }
 }
 __name(assertDomNode, "assertDomNode");
 function assertElement(node) {
   if (!(node instanceof Element)) {
-    throwError2(`The provided value must be an element but got ${stringify(node)}`);
+    throwError(`The provided value must be an element but got ${stringify(node)}`);
   }
 }
 __name(assertElement, "assertElement");
@@ -4113,19 +1444,19 @@ function assertIndexInRange(arr, index) {
   assertDefined(arr, "Array must be defined.");
   const maxLen = arr.length;
   if (index < 0 || index >= maxLen) {
-    throwError2(`Index expected to be less than ${maxLen} but got ${index}`);
+    throwError(`Index expected to be less than ${maxLen} but got ${index}`);
   }
 }
 __name(assertIndexInRange, "assertIndexInRange");
 function assertOneOf(value, ...validValues) {
   if (validValues.indexOf(value) !== -1)
     return true;
-  throwError2(`Expected value to be one of ${JSON.stringify(validValues)} but was ${JSON.stringify(value)}.`);
+  throwError(`Expected value to be one of ${JSON.stringify(validValues)} but was ${JSON.stringify(value)}.`);
 }
 __name(assertOneOf, "assertOneOf");
 function assertNotReactive(fn) {
   if (getActiveConsumer() !== null) {
-    throwError2(`${fn}() should never be called in a reactive context.`);
+    throwError(`${fn}() should never be called in a reactive context.`);
   }
 }
 __name(assertNotReactive, "assertNotReactive");
@@ -4211,14 +1542,14 @@ __name(_InjectionToken, "InjectionToken");
 var InjectionToken = _InjectionToken;
 var _injectorProfilerContext;
 function getInjectorProfilerContext() {
-  !ngDevMode && throwError2("getInjectorProfilerContext should never be called in production mode");
+  !ngDevMode && throwError("getInjectorProfilerContext should never be called in production mode");
   return _injectorProfilerContext;
 }
 __name(getInjectorProfilerContext, "getInjectorProfilerContext");
-function setInjectorProfilerContext(context2) {
-  !ngDevMode && throwError2("setInjectorProfilerContext should never be called in production mode");
+function setInjectorProfilerContext(context) {
+  !ngDevMode && throwError("setInjectorProfilerContext should never be called in production mode");
   const previous = _injectorProfilerContext;
-  _injectorProfilerContext = context2;
+  _injectorProfilerContext = context;
   return previous;
 }
 __name(setInjectorProfilerContext, "setInjectorProfilerContext");
@@ -4233,7 +1564,7 @@ function removeProfiler(profiler2) {
 }
 __name(removeProfiler, "removeProfiler");
 function setInjectorProfiler(injectorProfiler2) {
-  !ngDevMode && throwError2("setInjectorProfiler should never be called in production mode");
+  !ngDevMode && throwError("setInjectorProfiler should never be called in production mode");
   if (injectorProfiler2 !== null) {
     if (!injectorProfilerCallbacks.includes(injectorProfiler2)) {
       injectorProfilerCallbacks.push(injectorProfiler2);
@@ -4246,7 +1577,7 @@ function setInjectorProfiler(injectorProfiler2) {
 }
 __name(setInjectorProfiler, "setInjectorProfiler");
 function injectorProfiler(event) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   for (let i = 0; i < injectorProfilerCallbacks.length; i++) {
     const injectorProfilerCallback = injectorProfilerCallbacks[i];
     injectorProfilerCallback(event);
@@ -4254,7 +1585,7 @@ function injectorProfiler(event) {
 }
 __name(injectorProfiler, "injectorProfiler");
 function emitProviderConfiguredEvent(eventProvider, isViewProvider = false) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   let token;
   if (typeof eventProvider === "function") {
     token = eventProvider;
@@ -4275,7 +1606,7 @@ function emitProviderConfiguredEvent(eventProvider, isViewProvider = false) {
 }
 __name(emitProviderConfiguredEvent, "emitProviderConfiguredEvent");
 function emitInjectorToCreateInstanceEvent(token) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   injectorProfiler({
     type: 4,
     context: getInjectorProfilerContext(),
@@ -4284,7 +1615,7 @@ function emitInjectorToCreateInstanceEvent(token) {
 }
 __name(emitInjectorToCreateInstanceEvent, "emitInjectorToCreateInstanceEvent");
 function emitInstanceCreatedByInjectorEvent(instance) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   injectorProfiler({
     type: 1,
     context: getInjectorProfilerContext(),
@@ -4293,7 +1624,7 @@ function emitInstanceCreatedByInjectorEvent(instance) {
 }
 __name(emitInstanceCreatedByInjectorEvent, "emitInstanceCreatedByInjectorEvent");
 function emitInjectEvent(token, value, flags) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   injectorProfiler({
     type: 0,
     context: getInjectorProfilerContext(),
@@ -4302,7 +1633,7 @@ function emitInjectEvent(token, value, flags) {
 }
 __name(emitInjectEvent, "emitInjectEvent");
 function emitEffectCreatedEvent(effect2) {
-  !ngDevMode && throwError2("Injector profiler should never be called in production mode");
+  !ngDevMode && throwError("Injector profiler should never be called in production mode");
   injectorProfiler({
     type: 3,
     context: getInjectorProfilerContext(),
@@ -4311,7 +1642,7 @@ function emitEffectCreatedEvent(effect2) {
 }
 __name(emitEffectCreatedEvent, "emitEffectCreatedEvent");
 function runInInjectorProfilerContext(injector, token, callback) {
-  !ngDevMode && throwError2("runInInjectorProfilerContext should never be called in production mode");
+  !ngDevMode && throwError("runInInjectorProfilerContext should never be called in production mode");
   const prevInjectContext = setInjectorProfilerContext({ injector, token });
   try {
     callback();
@@ -4636,13 +1967,13 @@ function newArray(size, value) {
   return list;
 }
 __name(newArray, "newArray");
-function arraySplice(array, index, count2) {
-  const length = array.length - count2;
+function arraySplice(array, index, count) {
+  const length = array.length - count;
   while (index < length) {
-    array[index] = array[index + count2];
+    array[index] = array[index + count];
     index++;
   }
-  while (count2--) {
+  while (count--) {
     array.pop();
   }
 }
@@ -5479,32 +2810,32 @@ function assertTNodeForTView(tNode, tView) {
       return;
     }
   }
-  throwError2("This TNode does not belong to this TView.");
+  throwError("This TNode does not belong to this TView.");
 }
 __name(assertTNodeForTView, "assertTNodeForTView");
 function assertTNode(tNode) {
   assertDefined(tNode, "TNode must be defined");
   if (!(tNode && typeof tNode === "object" && tNode.hasOwnProperty("directiveStylingLast"))) {
-    throwError2("Not of type TNode, got: " + tNode);
+    throwError("Not of type TNode, got: " + tNode);
   }
 }
 __name(assertTNode, "assertTNode");
 function assertTIcu(tIcu) {
   assertDefined(tIcu, "Expected TIcu to be defined");
   if (!(typeof tIcu.currentCaseLViewIndex === "number")) {
-    throwError2("Object is not of TIcu type.");
+    throwError("Object is not of TIcu type.");
   }
 }
 __name(assertTIcu, "assertTIcu");
 function assertComponentType(actual, msg = "Type passed in is not ComponentType, it does not have 'ɵcmp' property.") {
   if (!getComponentDef(actual)) {
-    throwError2(msg);
+    throwError(msg);
   }
 }
 __name(assertComponentType, "assertComponentType");
 function assertNgModuleType(actual, msg = "Type passed in is not NgModuleType, it does not have 'ɵmod' property.") {
   if (!getNgModuleDef(actual)) {
-    throwError2(msg);
+    throwError(msg);
   }
 }
 __name(assertNgModuleType, "assertNgModuleType");
@@ -5537,7 +2868,7 @@ function assertFirstUpdatePass(tView, errMessage) {
 __name(assertFirstUpdatePass, "assertFirstUpdatePass");
 function assertDirectiveDef(obj) {
   if (obj.type === void 0 || obj.selectors == void 0 || obj.inputs === void 0) {
-    throwError2(`Expected a DirectiveDef/ComponentDef and this object does not seem to have the expected shape.`);
+    throwError(`Expected a DirectiveDef/ComponentDef and this object does not seem to have the expected shape.`);
   }
 }
 __name(assertDirectiveDef, "assertDirectiveDef");
@@ -5552,7 +2883,7 @@ function assertIndexInExpandoRange(lView, index) {
 __name(assertIndexInExpandoRange, "assertIndexInExpandoRange");
 function assertBetween(lower, upper, index) {
   if (!(lower <= index && index < upper)) {
-    throwError2(`Index out of range (expecting ${lower} <= ${index} < ${upper})`);
+    throwError(`Index out of range (expecting ${lower} <= ${index} < ${upper})`);
   }
 }
 __name(assertBetween, "assertBetween");
@@ -5765,10 +3096,10 @@ function getOrCreateTViewCleanup(tView) {
   return tView.cleanup ??= [];
 }
 __name(getOrCreateTViewCleanup, "getOrCreateTViewCleanup");
-function storeCleanupWithContext(tView, lView, context2, cleanupFn) {
+function storeCleanupWithContext(tView, lView, context, cleanupFn) {
   const lCleanup = getOrCreateLViewCleanup(lView);
-  ngDevMode && assertDefined(context2, "Cleanup context is mandatory when registering framework-level destroy hooks");
-  lCleanup.push(context2);
+  ngDevMode && assertDefined(context, "Cleanup context is mandatory when registering framework-level destroy hooks");
+  lCleanup.push(context);
   if (tView.firstCreatePass) {
     getOrCreateTViewCleanup(tView).push(cleanupFn, lCleanup.length - 1);
   } else {
@@ -5889,17 +3220,17 @@ function getContextLView() {
 }
 __name(getContextLView, "getContextLView");
 function isInCheckNoChangesMode() {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   return _checkNoChangesMode !== CheckNoChangesMode.Off;
 }
 __name(isInCheckNoChangesMode, "isInCheckNoChangesMode");
 function isExhaustiveCheckNoChanges() {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   return _checkNoChangesMode === CheckNoChangesMode.Exhaustive;
 }
 __name(isExhaustiveCheckNoChanges, "isExhaustiveCheckNoChanges");
 function setIsInCheckNoChangesMode(mode) {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   _checkNoChangesMode = mode;
 }
 __name(setIsInCheckNoChangesMode, "setIsInCheckNoChangesMode");
@@ -5934,10 +3265,10 @@ function nextBindingIndex() {
   return instructionState.lFrame.bindingIndex++;
 }
 __name(nextBindingIndex, "nextBindingIndex");
-function incrementBindingIndex(count2) {
+function incrementBindingIndex(count) {
   const lFrame = instructionState.lFrame;
   const index = lFrame.bindingIndex;
-  lFrame.bindingIndex = lFrame.bindingIndex + count2;
+  lFrame.bindingIndex = lFrame.bindingIndex + count;
   return index;
 }
 __name(incrementBindingIndex, "incrementBindingIndex");
@@ -6276,11 +3607,11 @@ var errorHandlerEnvironmentInitializer = {
 var globalErrorListeners = new InjectionToken(ngDevMode ? "GlobalErrorListeners" : "", {
   providedIn: "root",
   factory: /* @__PURE__ */ __name(() => {
-    if (false) {
+    if (true) {
       return;
     }
-    const window3 = inject2(DOCUMENT).defaultView;
-    if (!window3) {
+    const window2 = inject2(DOCUMENT).defaultView;
+    if (!window2) {
       return;
     }
     const errorHandler = inject2(INTERNAL_APPLICATION_ERROR_HANDLER);
@@ -6297,8 +3628,8 @@ var globalErrorListeners = new InjectionToken(ngDevMode ? "GlobalErrorListeners"
       e.preventDefault();
     }, "errorListener");
     const setupEventListeners = /* @__PURE__ */ __name(() => {
-      window3.addEventListener("unhandledrejection", rejectionListener);
-      window3.addEventListener("error", errorListener);
+      window2.addEventListener("unhandledrejection", rejectionListener);
+      window2.addEventListener("error", errorListener);
     }, "setupEventListeners");
     if (typeof Zone !== "undefined") {
       Zone.root.run(setupEventListeners);
@@ -6306,8 +3637,8 @@ var globalErrorListeners = new InjectionToken(ngDevMode ? "GlobalErrorListeners"
       setupEventListeners();
     }
     inject2(DestroyRef).onDestroy(() => {
-      window3.removeEventListener("error", errorListener);
-      window3.removeEventListener("unhandledrejection", rejectionListener);
+      window2.removeEventListener("error", errorListener);
+      window2.removeEventListener("unhandledrejection", rejectionListener);
     });
   }, "factory")
 });
@@ -6326,10 +3657,10 @@ function ɵunwrapWritableSignal(value) {
 }
 __name(ɵunwrapWritableSignal, "ɵunwrapWritableSignal");
 function signal(initialValue, options) {
-  const [get2, set2, update] = createSignal(initialValue, options?.equal);
-  const signalFn = get2;
+  const [get, set, update] = createSignal(initialValue, options?.equal);
+  const signalFn = get;
   const node = signalFn[SIGNAL];
-  signalFn.set = set2;
+  signalFn.set = set;
   signalFn.update = update;
   signalFn.asReadonly = signalAsReadonlyFn.bind(signalFn);
   if (ngDevMode) {
@@ -6390,7 +3721,7 @@ var _PendingTasksInternal = class _PendingTasksInternal {
   taskId = 0;
   pendingTasks = /* @__PURE__ */ new Set();
   destroyed = false;
-  pendingTask = new BehaviorSubject(false);
+  pendingTask = new import_rxjs.BehaviorSubject(false);
   get hasPendingTasks() {
     return this.destroyed ? false : this.pendingTask.value;
   }
@@ -6400,7 +3731,7 @@ var _PendingTasksInternal = class _PendingTasksInternal {
    */
   get hasPendingTasksObservable() {
     if (this.destroyed) {
-      return new Observable((subscriber) => {
+      return new import_rxjs.Observable((subscriber) => {
         subscriber.next(false);
         subscriber.complete();
       });
@@ -6498,9 +3829,9 @@ __publicField(
   })
 );
 var PendingTasks = _PendingTasks;
-function noop2(...args) {
+function noop(...args) {
 }
-__name(noop2, "noop");
+__name(noop, "noop");
 var _EffectScheduler = class _EffectScheduler {
 };
 __name(_EffectScheduler, "EffectScheduler");
@@ -6531,11 +3862,11 @@ var _ZoneAwareEffectScheduler = class _ZoneAwareEffectScheduler {
   }
   remove(handle) {
     const zone = handle.zone;
-    const queue2 = this.queues.get(zone);
-    if (!queue2.has(handle)) {
+    const queue = this.queues.get(zone);
+    if (!queue.has(handle)) {
       return;
     }
-    queue2.delete(handle);
+    queue.delete(handle);
     if (handle.dirty) {
       this.dirtyEffectCount--;
     }
@@ -6545,11 +3876,11 @@ var _ZoneAwareEffectScheduler = class _ZoneAwareEffectScheduler {
     if (!this.queues.has(zone)) {
       this.queues.set(zone, /* @__PURE__ */ new Set());
     }
-    const queue2 = this.queues.get(zone);
-    if (queue2.has(handle)) {
+    const queue = this.queues.get(zone);
+    if (queue.has(handle)) {
       return;
     }
-    queue2.add(handle);
+    queue.add(handle);
   }
   /**
    * Run all scheduled effects.
@@ -6560,11 +3891,11 @@ var _ZoneAwareEffectScheduler = class _ZoneAwareEffectScheduler {
   flush() {
     while (this.dirtyEffectCount > 0) {
       let ranOneEffect = false;
-      for (const [zone, queue2] of this.queues) {
+      for (const [zone, queue] of this.queues) {
         if (zone === null) {
-          ranOneEffect ||= this.flushQueue(queue2);
+          ranOneEffect ||= this.flushQueue(queue);
         } else {
-          ranOneEffect ||= zone.run(() => this.flushQueue(queue2));
+          ranOneEffect ||= zone.run(() => this.flushQueue(queue));
         }
       }
       if (!ranOneEffect) {
@@ -6572,9 +3903,9 @@ var _ZoneAwareEffectScheduler = class _ZoneAwareEffectScheduler {
       }
     }
   }
-  flushQueue(queue2) {
+  flushQueue(queue) {
     let ranOneEffect = false;
-    for (const handle of queue2) {
+    for (const handle of queue) {
       if (!handle.dirty) {
         continue;
       }
@@ -6587,6 +3918,10 @@ var _ZoneAwareEffectScheduler = class _ZoneAwareEffectScheduler {
 };
 __name(_ZoneAwareEffectScheduler, "ZoneAwareEffectScheduler");
 var ZoneAwareEffectScheduler = _ZoneAwareEffectScheduler;
+
+// node_modules/@angular/core/fesm2022/debug_node.mjs
+var import_rxjs2 = __toESM(require_cjs(), 1);
+var import_operators = __toESM(require_operators(), 1);
 
 // node_modules/@angular/core/fesm2022/attribute.mjs
 var Attribute = {
@@ -7139,9 +4474,9 @@ function callHooks(currentView, arr, initPhase, currentNodeIndex) {
   ngDevMode && assertEqual(isInCheckNoChangesMode(), false, "Hooks should never be run when in check no changes mode.");
   const startIndex = currentNodeIndex !== void 0 ? currentView[PREORDER_HOOK_FLAGS] & 65535 : 0;
   const nodeIndexLimit = currentNodeIndex != null ? currentNodeIndex : -1;
-  const max2 = arr.length - 1;
+  const max = arr.length - 1;
   let lastNodeIndexFound = 0;
-  for (let i = startIndex; i < max2; i++) {
+  for (let i = startIndex; i < max; i++) {
     const hook = arr[i + 1];
     if (typeof hook === "number") {
       lastNodeIndexFound = arr[i];
@@ -7310,13 +4645,13 @@ __name(hasStyleInput, "hasStyleInput");
 function assertTNodeType(tNode, expectedTypes, message) {
   assertDefined(tNode, "should be called with a TNode");
   if ((tNode.type & expectedTypes) === 0) {
-    throwError2(message || `Expected [${toTNodeTypeAsString(expectedTypes)}] but got ${toTNodeTypeAsString(tNode.type)}.`);
+    throwError(message || `Expected [${toTNodeTypeAsString(expectedTypes)}] but got ${toTNodeTypeAsString(tNode.type)}.`);
   }
 }
 __name(assertTNodeType, "assertTNodeType");
 function assertPureTNodeType(type) {
   if (!(type === 2 || type === 1 || type === 4 || type === 8 || type === 32 || type === 16 || type === 64 || type === 128)) {
-    throwError2(`Expected TNodeType to have only a single type selected, but got ${toTNodeTypeAsString(type)}.`);
+    throwError(`Expected TNodeType to have only a single type selected, but got ${toTNodeTypeAsString(type)}.`);
   }
 }
 __name(assertPureTNodeType, "assertPureTNodeType");
@@ -8158,7 +5493,7 @@ var _QueryList = class _QueryList {
    * Returns `Observable` of `QueryList` notifying the subscriber of changes.
    */
   get changes() {
-    return this._changes ??= new Subject();
+    return this._changes ??= new import_rxjs2.Subject();
   }
   /**
    * @param emitDistinctChangesOnly Whether `QueryList.changes` should fire only when actual change
@@ -8400,19 +5735,19 @@ function getLContext(target) {
       }
       const native = unwrapRNode(lView[nodeIndex]);
       const existingCtx = readPatchedData(native);
-      const context2 = existingCtx && !Array.isArray(existingCtx) ? existingCtx : createLContext(lView, nodeIndex, native);
-      if (component && context2.component === void 0) {
-        context2.component = component;
-        attachPatchData(context2.component, context2);
+      const context = existingCtx && !Array.isArray(existingCtx) ? existingCtx : createLContext(lView, nodeIndex, native);
+      if (component && context.component === void 0) {
+        context.component = component;
+        attachPatchData(context.component, context);
       }
-      if (directives && context2.directives === void 0) {
-        context2.directives = directives;
+      if (directives && context.directives === void 0) {
+        context.directives = directives;
         for (let i = 0; i < directives.length; i++) {
-          attachPatchData(directives[i], context2);
+          attachPatchData(directives[i], context);
         }
       }
-      attachPatchData(context2.native, context2);
-      mpValue = context2;
+      attachPatchData(context.native, context);
+      mpValue = context;
     }
   } else {
     const rElement = target;
@@ -8428,9 +5763,9 @@ function getLContext(target) {
         const index = findViaNativeElement(lView, rElement);
         if (index >= 0) {
           const native = unwrapRNode(lView[index]);
-          const context2 = createLContext(lView, index, native);
-          attachPatchData(native, context2);
-          mpValue = context2;
+          const context = createLContext(lView, index, native);
+          attachPatchData(native, context);
+          mpValue = context;
           break;
         }
       }
@@ -8450,15 +5785,15 @@ function getComponentViewByInstance(componentInstance) {
     const contextLView = patchedData;
     const nodeIndex = findViaComponent(contextLView, componentInstance);
     lView = getComponentLViewByIndex(nodeIndex, contextLView);
-    const context2 = createLContext(contextLView, nodeIndex, lView[HOST]);
-    context2.component = componentInstance;
-    attachPatchData(componentInstance, context2);
-    attachPatchData(context2.native, context2);
+    const context = createLContext(contextLView, nodeIndex, lView[HOST]);
+    context.component = componentInstance;
+    attachPatchData(componentInstance, context);
+    attachPatchData(context.native, context);
   } else {
-    const context2 = patchedData;
-    const contextLView = context2.lView;
+    const context = patchedData;
+    const contextLView = context.lView;
     ngDevMode && assertLView(contextLView);
-    lView = getComponentLViewByIndex(context2.nodeIndex, contextLView);
+    lView = getComponentLViewByIndex(context.nodeIndex, contextLView);
   }
   return lView;
 }
@@ -8620,29 +5955,29 @@ function getNearestLContainer(viewOrContainer) {
 __name(getNearestLContainer, "getNearestLContainer");
 function getComponent(element) {
   ngDevMode && assertDomElement(element);
-  const context2 = getLContext(element);
-  if (context2 === null)
+  const context = getLContext(element);
+  if (context === null)
     return null;
-  if (context2.component === void 0) {
-    const lView = context2.lView;
+  if (context.component === void 0) {
+    const lView = context.lView;
     if (lView === null) {
       return null;
     }
-    context2.component = getComponentAtNodeIndex(context2.nodeIndex, lView);
+    context.component = getComponentAtNodeIndex(context.nodeIndex, lView);
   }
-  return context2.component;
+  return context.component;
 }
 __name(getComponent, "getComponent");
 function getContext(element) {
   assertDomElement(element);
-  const context2 = getLContext(element);
-  const lView = context2 ? context2.lView : null;
+  const context = getLContext(element);
+  const lView = context ? context.lView : null;
   return lView === null ? null : lView[CONTEXT];
 }
 __name(getContext, "getContext");
 function getOwningComponent(elementOrDir) {
-  const context2 = getLContext(elementOrDir);
-  let lView = context2 ? context2.lView : null;
+  const context = getLContext(elementOrDir);
+  let lView = context ? context.lView : null;
   if (lView === null)
     return null;
   let parent;
@@ -8658,21 +5993,21 @@ function getRootComponents(elementOrDir) {
 }
 __name(getRootComponents, "getRootComponents");
 function getInjector(elementOrDir) {
-  const context2 = getLContext(elementOrDir);
-  const lView = context2 ? context2.lView : null;
+  const context = getLContext(elementOrDir);
+  const lView = context ? context.lView : null;
   if (lView === null)
     return Injector.NULL;
-  const tNode = lView[TVIEW].data[context2.nodeIndex];
+  const tNode = lView[TVIEW].data[context.nodeIndex];
   return new NodeInjector(tNode, lView);
 }
 __name(getInjector, "getInjector");
 function getInjectionTokens(element) {
-  const context2 = getLContext(element);
-  const lView = context2 ? context2.lView : null;
+  const context = getLContext(element);
+  const lView = context ? context.lView : null;
   if (lView === null)
     return [];
   const tView = lView[TVIEW];
-  const tNode = tView.data[context2.nodeIndex];
+  const tNode = tView.data[context.nodeIndex];
   const providerTokens = [];
   const startIndex = tNode.providerIndexes & 1048575;
   const endIndex = tNode.directiveEnd;
@@ -8690,20 +6025,20 @@ function getDirectives(node) {
   if (node instanceof Text) {
     return [];
   }
-  const context2 = getLContext(node);
-  const lView = context2 ? context2.lView : null;
+  const context = getLContext(node);
+  const lView = context ? context.lView : null;
   if (lView === null) {
     return [];
   }
   const tView = lView[TVIEW];
-  const nodeIndex = context2.nodeIndex;
+  const nodeIndex = context.nodeIndex;
   if (!tView?.data[nodeIndex]) {
     return [];
   }
-  if (context2.directives === void 0) {
-    context2.directives = getDirectivesAtNodeIndex(nodeIndex, lView);
+  if (context.directives === void 0) {
+    context.directives = getDirectivesAtNodeIndex(nodeIndex, lView);
   }
-  return context2.directives === null ? [] : [...context2.directives];
+  return context.directives === null ? [] : [...context.directives];
 }
 __name(getDirectives, "getDirectives");
 var Framework;
@@ -8746,17 +6081,17 @@ function getDirectiveMetadata$1(directiveOrComponentInstance) {
 }
 __name(getDirectiveMetadata$1, "getDirectiveMetadata$1");
 function getLocalRefs(target) {
-  const context2 = getLContext(target);
-  if (context2 === null)
+  const context = getLContext(target);
+  if (context === null)
     return {};
-  if (context2.localRefs === void 0) {
-    const lView = context2.lView;
+  if (context.localRefs === void 0) {
+    const lView = context.lView;
     if (lView === null) {
       return {};
     }
-    context2.localRefs = discoverLocalRefs(lView, context2.nodeIndex);
+    context.localRefs = discoverLocalRefs(lView, context.nodeIndex);
   }
-  return context2.localRefs || {};
+  return context.localRefs || {};
 }
 __name(getLocalRefs, "getLocalRefs");
 function getHostElement(componentOrDirective) {
@@ -8872,7 +6207,7 @@ function makeStateKey(key) {
 __name(makeStateKey, "makeStateKey");
 function initTransferState() {
   const transferState = new TransferState();
-  if (true) {
+  if (false) {
     transferState.store = retrieveTransferredState(getDocument(), inject2(APP_ID));
   }
   return transferState;
@@ -9109,23 +6444,6 @@ function setJSActionAttributes(nativeElement, eventTypes, parentDeferBlockId = n
   }
 }
 __name(setJSActionAttributes, "setJSActionAttributes");
-var sharedStashFunction = /* @__PURE__ */ __name((rEl, eventType, listenerFn) => {
-  const el = rEl;
-  const eventListenerMap = el.__jsaction_fns ?? /* @__PURE__ */ new Map();
-  const eventListeners = eventListenerMap.get(eventType) ?? [];
-  eventListeners.push(listenerFn);
-  eventListenerMap.set(eventType, eventListeners);
-  el.__jsaction_fns = eventListenerMap;
-}, "sharedStashFunction");
-var sharedMapFunction = /* @__PURE__ */ __name((rEl, jsActionMap) => {
-  const el = rEl;
-  let blockName = el.getAttribute(DEFER_BLOCK_SSR_ID_ATTRIBUTE) ?? "";
-  const blockSet = jsActionMap.get(blockName) ?? /* @__PURE__ */ new Set();
-  if (!blockSet.has(el)) {
-    blockSet.add(el);
-  }
-  jsActionMap.set(blockName, blockSet);
-}, "sharedMapFunction");
 function removeListenersFromBlocks(blockNames, jsActionMap) {
   if (blockNames.length > 0) {
     let blockList = [];
@@ -9148,40 +6466,12 @@ var JSACTION_EVENT_CONTRACT = new InjectionToken(ngDevMode ? "EVENT_CONTRACT_DET
   providedIn: "root",
   factory: /* @__PURE__ */ __name(() => ({}), "factory")
 });
-function invokeListeners(event, currentTarget) {
-  const handlerFns = currentTarget?.__jsaction_fns?.get(event.type);
-  if (!handlerFns || !currentTarget?.isConnected) {
-    return;
-  }
-  for (const handler of handlerFns) {
-    handler(event);
-  }
-}
-__name(invokeListeners, "invokeListeners");
-var stashEventListeners = /* @__PURE__ */ new Map();
-function setStashFn(appId, fn) {
-  stashEventListeners.set(appId, fn);
-  return () => stashEventListeners.delete(appId);
-}
-__name(setStashFn, "setStashFn");
-var isStashEventListenerImplEnabled = false;
 var _stashEventListenerImpl = /* @__PURE__ */ __name((lView, target, eventName, wrappedListener) => {
 }, "_stashEventListenerImpl");
 function stashEventListenerImpl(lView, target, eventName, wrappedListener) {
   _stashEventListenerImpl(lView, target, eventName, wrappedListener);
 }
 __name(stashEventListenerImpl, "stashEventListenerImpl");
-function enableStashEventListenerImpl() {
-  if (!isStashEventListenerImplEnabled) {
-    _stashEventListenerImpl = /* @__PURE__ */ __name((lView, target, eventName, wrappedListener) => {
-      const appId = lView[INJECTOR].get(APP_ID);
-      const stashEventListener = stashEventListeners.get(appId);
-      stashEventListener?.(target, eventName, wrappedListener);
-    }, "_stashEventListenerImpl");
-    isStashEventListenerImplEnabled = true;
-  }
-}
-__name(enableStashEventListenerImpl, "enableStashEventListenerImpl");
 var DEHYDRATED_BLOCK_REGISTRY = new InjectionToken(ngDevMode ? "DEHYDRATED_BLOCK_REGISTRY" : "");
 var _DehydratedBlockRegistry = class _DehydratedBlockRegistry {
   registry = /* @__PURE__ */ new Map();
@@ -9396,14 +6686,6 @@ function markRNodeAsSkippedByHydration(node) {
   ngDevMode.componentsSkippedHydration++;
 }
 __name(markRNodeAsSkippedByHydration, "markRNodeAsSkippedByHydration");
-function countBlocksSkippedByHydration(injector) {
-  const transferState = injector.get(TransferState);
-  const nghDeferData = transferState.get(NGH_DEFER_BLOCKS_KEY, {});
-  if (ngDevMode) {
-    ngDevMode.deferBlocksWithIncrementalHydration = Object.keys(nghDeferData).length;
-  }
-}
-__name(countBlocksSkippedByHydration, "countBlocksSkippedByHydration");
 function markRNodeAsHavingHydrationMismatch(node, expectedNodeDetails = null, actualNodeDetails = null) {
   if (!ngDevMode) {
     throw new Error("Calling `markRNodeAsMismatchedByHydration` in prod mode is not supported and likely a mistake.");
@@ -9445,10 +6727,6 @@ function assertIncrementalHydrationIsConfigured(injector) {
   }
 }
 __name(assertIncrementalHydrationIsConfigured, "assertIncrementalHydrationIsConfigured");
-function assertSsrIdDefined(ssrUniqueId) {
-  assertDefined(ssrUniqueId, "Internal error: expecting an SSR id for a defer block that should be hydrated, but the id is not present");
-}
-__name(assertSsrIdDefined, "assertSsrIdDefined");
 function getNgContainerSize(hydrationInfo, index) {
   const data = hydrationInfo.data;
   let size = data[ELEMENT_CONTAINERS]?.[index] ?? null;
@@ -9496,9 +6774,9 @@ function canHydrateNode(lView, tNode) {
   return hydrationInfo !== null && !isInSkipHydrationBlock() && !isDetachedByI18n(tNode) && !isDisconnectedNode$1(hydrationInfo, tNode.index - HEADER_OFFSET);
 }
 __name(canHydrateNode, "canHydrateNode");
-function processTextNodeBeforeSerialization(context2, node) {
+function processTextNodeBeforeSerialization(context, node) {
   const el = node;
-  const corruptedTextNodes = context2.corruptedTextNodes;
+  const corruptedTextNodes = context.corruptedTextNodes;
   if (el.textContent === "") {
     corruptedTextNodes.set(
       el,
@@ -9533,50 +6811,6 @@ function convertHydrateTriggersToJsAction(triggers) {
   return actionList;
 }
 __name(convertHydrateTriggersToJsAction, "convertHydrateTriggersToJsAction");
-function getParentBlockHydrationQueue(deferBlockId, injector) {
-  const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-  const transferState = injector.get(TransferState);
-  const deferBlockParents = transferState.get(NGH_DEFER_BLOCKS_KEY, {});
-  let isTopMostDeferBlock = false;
-  let currentBlockId = deferBlockId;
-  let parentBlockPromise = null;
-  const hydrationQueue = [];
-  while (!isTopMostDeferBlock && currentBlockId) {
-    ngDevMode && assertEqual(hydrationQueue.indexOf(currentBlockId), -1, "Internal error: defer block hierarchy has a cycle.");
-    isTopMostDeferBlock = dehydratedBlockRegistry.has(currentBlockId);
-    const hydratingParentBlock = dehydratedBlockRegistry.hydrating.get(currentBlockId);
-    if (parentBlockPromise === null && hydratingParentBlock != null) {
-      parentBlockPromise = hydratingParentBlock.promise;
-      break;
-    }
-    hydrationQueue.unshift(currentBlockId);
-    currentBlockId = deferBlockParents[currentBlockId][DEFER_PARENT_BLOCK_ID];
-  }
-  return { parentBlockPromise, hydrationQueue };
-}
-__name(getParentBlockHydrationQueue, "getParentBlockHydrationQueue");
-function gatherDeferBlocksByJSActionAttribute(doc) {
-  const jsactionNodes = doc.body.querySelectorAll("[jsaction]");
-  const blockMap = /* @__PURE__ */ new Set();
-  const eventTypes = [hoverEventNames.join(":;"), interactionEventNames.join(":;")].join("|");
-  for (let node of jsactionNodes) {
-    const attr = node.getAttribute("jsaction");
-    const blockId = node.getAttribute("ngb");
-    if (attr?.match(eventTypes) && blockId !== null) {
-      blockMap.add(node);
-    }
-  }
-  return blockMap;
-}
-__name(gatherDeferBlocksByJSActionAttribute, "gatherDeferBlocksByJSActionAttribute");
-function appendDeferBlocksToJSActionMap(doc, injector) {
-  const blockMap = gatherDeferBlocksByJSActionAttribute(doc);
-  const jsActionMap = injector.get(JSACTION_BLOCK_ELEMENT_MAP);
-  for (let rNode of blockMap) {
-    sharedMapFunction(rNode, jsActionMap);
-  }
-}
-__name(appendDeferBlocksToJSActionMap, "appendDeferBlocksToJSActionMap");
 var _retrieveDeferBlockDataImpl = /* @__PURE__ */ __name(() => {
   return {};
 }, "_retrieveDeferBlockDataImpl");
@@ -9594,56 +6828,6 @@ function enableRetrieveDeferBlockDataImpl() {
   _retrieveDeferBlockDataImpl = retrieveDeferBlockDataImpl;
 }
 __name(enableRetrieveDeferBlockDataImpl, "enableRetrieveDeferBlockDataImpl");
-function retrieveDeferBlockData(injector) {
-  return _retrieveDeferBlockDataImpl(injector);
-}
-__name(retrieveDeferBlockData, "retrieveDeferBlockData");
-function isTimerTrigger(triggerInfo) {
-  return typeof triggerInfo === "object" && triggerInfo.trigger === 5;
-}
-__name(isTimerTrigger, "isTimerTrigger");
-function getHydrateTimerTrigger(blockData) {
-  const trigger = blockData[DEFER_HYDRATE_TRIGGERS]?.find((t) => isTimerTrigger(t));
-  return trigger?.delay ?? null;
-}
-__name(getHydrateTimerTrigger, "getHydrateTimerTrigger");
-function hasHydrateTrigger(blockData, trigger) {
-  return blockData[DEFER_HYDRATE_TRIGGERS]?.includes(trigger) ?? false;
-}
-__name(hasHydrateTrigger, "hasHydrateTrigger");
-function createBlockSummary(blockInfo) {
-  return {
-    data: blockInfo,
-    hydrate: {
-      idle: hasHydrateTrigger(
-        blockInfo,
-        0
-        /* DeferBlockTrigger.Idle */
-      ),
-      immediate: hasHydrateTrigger(
-        blockInfo,
-        1
-        /* DeferBlockTrigger.Immediate */
-      ),
-      timer: getHydrateTimerTrigger(blockInfo),
-      viewport: hasHydrateTrigger(
-        blockInfo,
-        2
-        /* DeferBlockTrigger.Viewport */
-      )
-    }
-  };
-}
-__name(createBlockSummary, "createBlockSummary");
-function processBlockData(injector) {
-  const blockData = retrieveDeferBlockData(injector);
-  let blockDetails = /* @__PURE__ */ new Map();
-  for (let blockId in blockData) {
-    blockDetails.set(blockId, createBlockSummary(blockData[blockId]));
-  }
-  return blockDetails;
-}
-__name(processBlockData, "processBlockData");
 function isSsrContentsIntegrity(node) {
   return !!node && node.nodeType === Node.COMMENT_NODE && node.textContent?.trim() === SSR_CONTENT_INTEGRITY_MARKER;
 }
@@ -9938,7 +7122,7 @@ function tagSet(tags) {
   return res;
 }
 __name(tagSet, "tagSet");
-function merge3(...sets) {
+function merge(...sets) {
   const res = {};
   for (const s of sets) {
     for (const v in s) {
@@ -9948,18 +7132,18 @@ function merge3(...sets) {
   }
   return res;
 }
-__name(merge3, "merge");
+__name(merge, "merge");
 var VOID_ELEMENTS = tagSet("area,br,col,hr,img,wbr");
 var OPTIONAL_END_TAG_BLOCK_ELEMENTS = tagSet("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr");
 var OPTIONAL_END_TAG_INLINE_ELEMENTS = tagSet("rp,rt");
-var OPTIONAL_END_TAG_ELEMENTS = merge3(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
-var BLOCK_ELEMENTS = merge3(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet("address,article,aside,blockquote,caption,center,del,details,dialog,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,main,map,menu,nav,ol,pre,section,summary,table,ul"));
-var INLINE_ELEMENTS = merge3(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet("a,abbr,acronym,audio,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,picture,q,ruby,rp,rt,s,samp,small,source,span,strike,strong,sub,sup,time,track,tt,u,var,video"));
-var VALID_ELEMENTS = merge3(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
+var OPTIONAL_END_TAG_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
+var BLOCK_ELEMENTS = merge(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet("address,article,aside,blockquote,caption,center,del,details,dialog,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,main,map,menu,nav,ol,pre,section,summary,table,ul"));
+var INLINE_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet("a,abbr,acronym,audio,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,picture,q,ruby,rp,rt,s,samp,small,source,span,strike,strong,sub,sup,time,track,tt,u,var,video"));
+var VALID_ELEMENTS = merge(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
 var URI_ATTRS = tagSet("background,cite,href,itemtype,longdesc,poster,src,xlink:href");
 var HTML_ATTRS = tagSet("abbr,accesskey,align,alt,autoplay,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,compact,controls,coords,datetime,default,dir,download,face,headers,height,hidden,hreflang,hspace,ismap,itemscope,itemprop,kind,label,lang,language,loop,media,muted,nohref,nowrap,open,preload,rel,rev,role,rows,rowspan,rules,scope,scrolling,shape,size,sizes,span,srclang,srcset,start,summary,tabindex,target,title,translate,type,usemap,valign,value,vspace,width");
 var ARIA_ATTRS = tagSet("aria-activedescendant,aria-atomic,aria-autocomplete,aria-busy,aria-checked,aria-colcount,aria-colindex,aria-colspan,aria-controls,aria-current,aria-describedby,aria-details,aria-disabled,aria-dropeffect,aria-errormessage,aria-expanded,aria-flowto,aria-grabbed,aria-haspopup,aria-hidden,aria-invalid,aria-keyshortcuts,aria-label,aria-labelledby,aria-level,aria-live,aria-modal,aria-multiline,aria-multiselectable,aria-orientation,aria-owns,aria-placeholder,aria-posinset,aria-pressed,aria-readonly,aria-relevant,aria-required,aria-roledescription,aria-rowcount,aria-rowindex,aria-rowspan,aria-selected,aria-setsize,aria-sort,aria-valuemax,aria-valuemin,aria-valuenow,aria-valuetext");
-var VALID_ATTRS = merge3(URI_ATTRS, HTML_ATTRS, ARIA_ATTRS);
+var VALID_ATTRS = merge(URI_ATTRS, HTML_ATTRS, ARIA_ATTRS);
 var SKIP_TRAVERSING_CONTENT_IF_INVALID_ELEMENTS = tagSet("script,style,template");
 var _SanitizingHtmlSerializer = class _SanitizingHtmlSerializer {
   // Explicitly track if something was stripped, to avoid accidentally warning of sanitization just
@@ -10400,22 +7584,22 @@ function reportUnknownPropertyError(message) {
 }
 __name(reportUnknownPropertyError, "reportUnknownPropertyError");
 function getDeclarationComponentDef(lView) {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   const declarationLView = lView[DECLARATION_COMPONENT_VIEW];
-  const context2 = declarationLView[CONTEXT];
-  if (!context2)
+  const context = declarationLView[CONTEXT];
+  if (!context)
     return null;
-  return context2.constructor ? getComponentDef(context2.constructor) : null;
+  return context.constructor ? getComponentDef(context.constructor) : null;
 }
 __name(getDeclarationComponentDef, "getDeclarationComponentDef");
 function isHostComponentStandalone(lView) {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   const componentDef = getDeclarationComponentDef(lView);
   return !!componentDef?.standalone;
 }
 __name(isHostComponentStandalone, "isHostComponentStandalone");
 function getTemplateLocationDetails(lView) {
-  !ngDevMode && throwError2("Must never be called in production mode");
+  !ngDevMode && throwError("Must never be called in production mode");
   const hostComponentDef = getDeclarationComponentDef(lView);
   const componentClassName = hostComponentDef?.type?.name;
   return componentClassName ? ` (used in the '${componentClassName}' component template)` : "";
@@ -10475,8 +7659,8 @@ function assertComponentDef(type) {
   }
 }
 __name(assertComponentDef, "assertComponentDef");
-function throwMultipleComponentError(tNode, first2, second) {
-  throw new RuntimeError(-300, `Multiple components match node with tagname ${tNode.value}: ${stringifyForError(first2)} and ${stringifyForError(second)}`);
+function throwMultipleComponentError(tNode, first, second) {
+  throw new RuntimeError(-300, `Multiple components match node with tagname ${tNode.value}: ${stringifyForError(first)} and ${stringifyForError(second)}`);
 }
 __name(throwMultipleComponentError, "throwMultipleComponentError");
 function throwErrorIfNoChangesMode(creationMode, oldValue, currValue, propName, lView) {
@@ -10952,7 +8136,7 @@ function getOrCreateComponentTView(def) {
   return tView;
 }
 __name(getOrCreateComponentTView, "getOrCreateComponentTView");
-function createLView(parentLView, tView, context2, flags, host, tHostNode, environment, renderer, injector, embeddedViewInjector, hydrationInfo) {
+function createLView(parentLView, tView, context, flags, host, tHostNode, environment, renderer, injector, embeddedViewInjector, hydrationInfo) {
   const lView = tView.blueprint.slice();
   lView[HOST] = host;
   lView[FLAGS] = flags | 4 | 128 | 8 | 64 | 1024;
@@ -10962,7 +8146,7 @@ function createLView(parentLView, tView, context2, flags, host, tHostNode, envir
   resetPreOrderHookFlags(lView);
   ngDevMode && tView.declTNode && parentLView && assertTNodeForLView(tView.declTNode, parentLView);
   lView[PARENT] = lView[DECLARATION_VIEW] = parentLView;
-  lView[CONTEXT] = context2;
+  lView[CONTEXT] = context;
   lView[ENVIRONMENT] = environment || parentLView && parentLView[ENVIRONMENT];
   ngDevMode && assertDefined(lView[ENVIRONMENT], "LViewEnvironment is required");
   lView[RENDERER] = renderer || parentLView && parentLView[RENDERER];
@@ -11251,8 +8435,8 @@ function processCleanups(tView, lView) {
         }
         i += 2;
       } else {
-        const context2 = lCleanup[tCleanup[i + 1]];
-        tCleanup[i].call(context2);
+        const context = lCleanup[tCleanup[i + 1]];
+        tCleanup[i].call(context);
       }
     }
   }
@@ -11282,12 +8466,12 @@ function executeOnDestroys(tView, lView) {
   let destroyHooks;
   if (tView != null && (destroyHooks = tView.destroyHooks) != null) {
     for (let i = 0; i < destroyHooks.length; i += 2) {
-      const context2 = lView[destroyHooks[i]];
-      if (!(context2 instanceof NodeInjectorFactory)) {
+      const context = lView[destroyHooks[i]];
+      if (!(context instanceof NodeInjectorFactory)) {
         const toCall = destroyHooks[i + 1];
         if (Array.isArray(toCall)) {
           for (let j = 0; j < toCall.length; j += 2) {
-            const callContext = context2[toCall[j]];
+            const callContext = context[toCall[j]];
             const hook = toCall[j + 1];
             profiler(4, callContext, hook);
             try {
@@ -11297,11 +8481,11 @@ function executeOnDestroys(tView, lView) {
             }
           }
         } else {
-          profiler(4, context2, toCall);
+          profiler(4, context, toCall);
           try {
-            toCall.call(context2);
+            toCall.call(context);
           } finally {
-            profiler(5, context2, toCall);
+            profiler(5, context, toCall);
           }
         }
       }
@@ -11556,7 +8740,7 @@ function applyStyling(renderer, isClassBased, rNode, prop, value) {
   }
 }
 __name(applyStyling, "applyStyling");
-function executeTemplate(tView, lView, templateFn, rf, context2) {
+function executeTemplate(tView, lView, templateFn, rf, context) {
   const prevSelectedIndex = getSelectedIndex();
   const isUpdatePhase = rf & 2;
   try {
@@ -11565,12 +8749,12 @@ function executeTemplate(tView, lView, templateFn, rf, context2) {
       selectIndexInternal(tView, lView, HEADER_OFFSET, !!ngDevMode && isInCheckNoChangesMode());
     }
     const preHookType = isUpdatePhase ? 2 : 0;
-    profiler(preHookType, context2, templateFn);
-    templateFn(rf, context2);
+    profiler(preHookType, context, templateFn);
+    templateFn(rf, context);
   } finally {
     setSelectedIndex(prevSelectedIndex);
     const postHookType = isUpdatePhase ? 3 : 1;
-    profiler(postHookType, context2, templateFn);
+    profiler(postHookType, context, templateFn);
   }
 }
 __name(executeTemplate, "executeTemplate");
@@ -11999,18 +9183,18 @@ function syncViewWithBlueprint(tView, lView) {
   }
 }
 __name(syncViewWithBlueprint, "syncViewWithBlueprint");
-function renderView(tView, lView, context2) {
+function renderView(tView, lView, context) {
   ngDevMode && assertEqual(isCreationMode(lView), true, "Should be run in creation mode");
   ngDevMode && assertNotReactive(renderView.name);
   enterView(lView);
   try {
     const viewQuery = tView.viewQuery;
     if (viewQuery !== null) {
-      executeViewQueryFn(1, viewQuery, context2);
+      executeViewQueryFn(1, viewQuery, context);
     }
     const templateFn = tView.template;
     if (templateFn !== null) {
-      executeTemplate(tView, lView, templateFn, 1, context2);
+      executeTemplate(tView, lView, templateFn, 1, context);
     }
     if (tView.firstCreatePass) {
       tView.firstCreatePass = false;
@@ -12020,7 +9204,7 @@ function renderView(tView, lView, context2) {
       refreshContentQueries(tView, lView);
     }
     if (tView.staticViewQueries) {
-      executeViewQueryFn(2, tView.viewQuery, context2);
+      executeViewQueryFn(2, tView.viewQuery, context);
     }
     const components = tView.components;
     if (components !== null) {
@@ -12044,7 +9228,7 @@ function renderChildComponents(hostLView, components) {
   }
 }
 __name(renderChildComponents, "renderChildComponents");
-function createAndRenderEmbeddedLView(declarationLView, templateTNode, context2, options) {
+function createAndRenderEmbeddedLView(declarationLView, templateTNode, context, options) {
   const prevConsumer = setActiveConsumer(null);
   try {
     const embeddedTView = templateTNode.tView;
@@ -12052,7 +9236,7 @@ function createAndRenderEmbeddedLView(declarationLView, templateTNode, context2,
     ngDevMode && assertTNodeForLView(templateTNode, declarationLView);
     const isSignalView = declarationLView[FLAGS] & 4096;
     const viewFlags = isSignalView ? 4096 : 16;
-    const embeddedLView = createLView(declarationLView, embeddedTView, context2, viewFlags, null, templateTNode, null, null, options?.injector ?? null, options?.embeddedViewInjector ?? null, options?.dehydratedView ?? null);
+    const embeddedLView = createLView(declarationLView, embeddedTView, context, viewFlags, null, templateTNode, null, null, options?.injector ?? null, options?.embeddedViewInjector ?? null, options?.dehydratedView ?? null);
     const declarationLContainer = declarationLView[templateTNode.index];
     ngDevMode && assertLContainer(declarationLContainer);
     embeddedLView[DECLARATION_LCONTAINER] = declarationLContainer;
@@ -12060,7 +9244,7 @@ function createAndRenderEmbeddedLView(declarationLView, templateTNode, context2,
     if (declarationViewLQueries !== null) {
       embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
     }
-    renderView(embeddedTView, embeddedLView, context2);
+    renderView(embeddedTView, embeddedLView, context);
     return embeddedLView;
   } finally {
     setActiveConsumer(prevConsumer);
@@ -12270,7 +9454,7 @@ function checkNoChangesInternal(lView, exhaustive) {
   }
 }
 __name(checkNoChangesInternal, "checkNoChangesInternal");
-function refreshView(tView, lView, templateFn, context2) {
+function refreshView(tView, lView, templateFn, context) {
   ngDevMode && assertEqual(isCreationMode(lView), false, "Should be run in update mode");
   if (isDestroyed(lView))
     return;
@@ -12298,7 +9482,7 @@ function refreshView(tView, lView, templateFn, context2) {
     resetPreOrderHookFlags(lView);
     setBindingIndex(tView.bindingStartIndex);
     if (templateFn !== null) {
-      executeTemplate(tView, lView, templateFn, 2, context2);
+      executeTemplate(tView, lView, templateFn, 2, context);
     }
     const hooksInitPhaseCompleted = (flags & 3) === 3;
     if (!isInCheckNoChangesPass) {
@@ -12366,7 +9550,7 @@ function refreshView(tView, lView, templateFn, context2) {
     }
     const viewQuery = tView.viewQuery;
     if (viewQuery !== null) {
-      executeViewQueryFn(2, viewQuery, context2);
+      executeViewQueryFn(2, viewQuery, context);
     }
     if (!isInCheckNoChangesPass) {
       if (hooksInitPhaseCompleted) {
@@ -12525,10 +9709,10 @@ function processHostBindingOpCodes(tView, lView) {
         const bindingRootIndx = hostBindingOpCodes[++i];
         const hostBindingFn = hostBindingOpCodes[++i];
         setBindingRootForHostBindings(bindingRootIndx, directiveIdx);
-        const context2 = lView[directiveIdx];
-        profiler(24, context2);
-        hostBindingFn(2, context2);
-        profiler(25, context2);
+        const context = lView[directiveIdx];
+        profiler(24, context);
+        hostBindingFn(2, context);
+        profiler(25, context);
       }
     }
   } finally {
@@ -13026,8 +10210,8 @@ var _TemplateRef = class _TemplateRef {
    * @param injector Injector to be used within the embedded view.
    * @returns The new embedded view object.
    */
-  createEmbeddedView(context2, injector) {
-    return this.createEmbeddedViewImpl(context2, injector);
+  createEmbeddedView(context, injector) {
+    return this.createEmbeddedViewImpl(context, injector);
   }
   /**
    * Implementation of the `createEmbeddedView` function.
@@ -13038,8 +10222,8 @@ var _TemplateRef = class _TemplateRef {
    *
    * @internal
    */
-  createEmbeddedViewImpl(context2, injector, dehydratedView) {
-    const embeddedLView = createAndRenderEmbeddedLView(this._declarationLView, this._declarationTContainer, context2, { embeddedViewInjector: injector, dehydratedView });
+  createEmbeddedViewImpl(context, injector, dehydratedView) {
+    const embeddedLView = createAndRenderEmbeddedLView(this._declarationLView, this._declarationTContainer, context, { embeddedViewInjector: injector, dehydratedView });
     return new ViewRef(embeddedLView);
   }
 };
@@ -13519,7 +10703,7 @@ function getTIcu(tView, index) {
   if (value === null || typeof value === "string")
     return null;
   if (ngDevMode && !(value.hasOwnProperty("tView") || value.hasOwnProperty("currentCaseLViewIndex"))) {
-    throwError2("We expect to get 'null'|'TIcu'|'TIcuContainer', but got: " + value);
+    throwError("We expect to get 'null'|'TIcu'|'TIcuContainer', but got: " + value);
   }
   const tIcu = value.hasOwnProperty("currentCaseLViewIndex") ? value : value.value;
   ngDevMode && assertTIcu(tIcu);
@@ -13675,9 +10859,9 @@ function decompressNodeLocation(path) {
   const [_, refNodeId, refNodeName, rest] = matches;
   const ref = refNodeId ? parseInt(refNodeId, 10) : refNodeName;
   const steps = [];
-  for (const [_2, step, count2] of rest.matchAll(/(f|n)(\d*)/g)) {
-    const repeat2 = parseInt(count2, 10) || 1;
-    steps.push(step, repeat2);
+  for (const [_2, step, count] of rest.matchAll(/(f|n)(\d*)/g)) {
+    const repeat = parseInt(count, 10) || 1;
+    steps.push(step, repeat);
   }
   return [ref, ...steps];
 }
@@ -13749,9 +10933,9 @@ function locateNextRNode(hydrationInfo, tView, lView, tNode) {
   return native;
 }
 __name(locateNextRNode, "locateNextRNode");
-function siblingAfter(skip2, from2) {
-  let currentNode = from2;
-  for (let i = 0; i < skip2; i++) {
+function siblingAfter(skip, from) {
+  let currentNode = from;
+  for (let i = 0; i < skip; i++) {
     ngDevMode && validateSiblingNodeExists(currentNode);
     currentNode = currentNode.nextSibling;
   }
@@ -13762,22 +10946,22 @@ function stringifyNavigationInstructions(instructions) {
   const container = [];
   for (let i = 0; i < instructions.length; i += 2) {
     const step = instructions[i];
-    const repeat2 = instructions[i + 1];
-    for (let r = 0; r < repeat2; r++) {
+    const repeat = instructions[i + 1];
+    for (let r = 0; r < repeat; r++) {
       container.push(step === NODE_NAVIGATION_STEP_FIRST_CHILD ? "firstChild" : "nextSibling");
     }
   }
   return container.join(".");
 }
 __name(stringifyNavigationInstructions, "stringifyNavigationInstructions");
-function navigateToNode(from2, instructions) {
-  let node = from2;
+function navigateToNode(from, instructions) {
+  let node = from;
   for (let i = 0; i < instructions.length; i += 2) {
     const step = instructions[i];
-    const repeat2 = instructions[i + 1];
-    for (let r = 0; r < repeat2; r++) {
+    const repeat = instructions[i + 1];
+    for (let r = 0; r < repeat; r++) {
       if (ngDevMode && !node) {
-        throw nodeNotFoundAtPathError(from2, stringifyNavigationInstructions(instructions));
+        throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
       }
       switch (step) {
         case NODE_NAVIGATION_STEP_FIRST_CHILD:
@@ -13790,7 +10974,7 @@ function navigateToNode(from2, instructions) {
     }
   }
   if (ngDevMode && !node) {
-    throw nodeNotFoundAtPathError(from2, stringifyNavigationInstructions(instructions));
+    throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
   }
   return node;
 }
@@ -13842,8 +11026,8 @@ function navigateBetweenSiblings(start, finish) {
   return node == null ? null : nav;
 }
 __name(navigateBetweenSiblings, "navigateBetweenSiblings");
-function calcPathBetween(from2, to, fromNodeName) {
-  const path = navigateBetween(from2, to);
+function calcPathBetween(from, to, fromNodeName) {
+  const path = navigateBetween(from, to);
   return path === null ? null : compressNodeLocation(fromNodeName, path);
 }
 __name(calcPathBetween, "calcPathBetween");
@@ -13881,27 +11065,6 @@ function calcPathForNode(tNode, lView, excludedParentNodes) {
   return path;
 }
 __name(calcPathForNode, "calcPathForNode");
-function gatherDeferBlocksCommentNodes(doc, node) {
-  const commentNodesIterator = doc.createNodeIterator(node, NodeFilter.SHOW_COMMENT, { acceptNode });
-  let currentNode;
-  const nodesByBlockId = /* @__PURE__ */ new Map();
-  while (currentNode = commentNodesIterator.nextNode()) {
-    const nghPattern = "ngh=";
-    const content = currentNode?.textContent;
-    const nghIdx = content?.indexOf(nghPattern) ?? -1;
-    if (nghIdx > -1) {
-      const nghValue = content.substring(nghIdx + nghPattern.length).trim();
-      ngDevMode && assertEqual(nghValue.startsWith("d"), true, "Invalid defer block id found in a comment node.");
-      nodesByBlockId.set(nghValue, currentNode);
-    }
-  }
-  return nodesByBlockId;
-}
-__name(gatherDeferBlocksCommentNodes, "gatherDeferBlocksCommentNodes");
-function acceptNode(node) {
-  return node.textContent?.trimStart().startsWith("ngh=") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-}
-__name(acceptNode, "acceptNode");
 var _isI18nHydrationSupportEnabled = false;
 var _prepareI18nBlockForHydrationImpl = /* @__PURE__ */ __name(() => {
 }, "_prepareI18nBlockForHydrationImpl");
@@ -13926,11 +11089,11 @@ function isI18nHydrationEnabled(injector) {
   return injector.get(IS_I18N_HYDRATION_ENABLED, false);
 }
 __name(isI18nHydrationEnabled, "isI18nHydrationEnabled");
-function getOrComputeI18nChildren(tView, context2) {
-  let i18nChildren = context2.i18nChildren.get(tView);
+function getOrComputeI18nChildren(tView, context) {
+  let i18nChildren = context.i18nChildren.get(tView);
   if (i18nChildren === void 0) {
     i18nChildren = collectI18nChildren(tView);
-    context2.i18nChildren.set(tView, i18nChildren);
+    context.i18nChildren.set(tView, i18nChildren);
   }
   return i18nChildren;
 }
@@ -13970,8 +11133,8 @@ function collectI18nChildren(tView) {
   return children.size === 0 ? null : children;
 }
 __name(collectI18nChildren, "collectI18nChildren");
-function trySerializeI18nBlock(lView, index, context2) {
-  if (!context2.isI18nHydrationEnabled) {
+function trySerializeI18nBlock(lView, index, context) {
+  if (!context.isI18nHydrationEnabled) {
     return null;
   }
   const tView = lView[TVIEW];
@@ -13988,14 +11151,14 @@ function trySerializeI18nBlock(lView, index, context2) {
     disconnectedNodes: /* @__PURE__ */ new Set(),
     disjointNodes: /* @__PURE__ */ new Set()
   };
-  serializeI18nBlock(lView, serializedI18nBlock, context2, tI18n.ast);
+  serializeI18nBlock(lView, serializedI18nBlock, context, tI18n.ast);
   return serializedI18nBlock.caseQueue.length === 0 && serializedI18nBlock.disconnectedNodes.size === 0 && serializedI18nBlock.disjointNodes.size === 0 ? null : serializedI18nBlock;
 }
 __name(trySerializeI18nBlock, "trySerializeI18nBlock");
-function serializeI18nBlock(lView, serializedI18nBlock, context2, nodes) {
+function serializeI18nBlock(lView, serializedI18nBlock, context, nodes) {
   let prevRNode = null;
   for (const node of nodes) {
-    const nextRNode = serializeI18nNode(lView, serializedI18nBlock, context2, node);
+    const nextRNode = serializeI18nNode(lView, serializedI18nBlock, context, node);
     if (nextRNode) {
       if (isDisjointNode(prevRNode, nextRNode)) {
         serializedI18nBlock.disjointNodes.add(node.index - HEADER_OFFSET);
@@ -14010,7 +11173,7 @@ function isDisjointNode(prevNode, nextNode) {
   return prevNode && prevNode.nextSibling !== nextNode;
 }
 __name(isDisjointNode, "isDisjointNode");
-function serializeI18nNode(lView, serializedI18nBlock, context2, node) {
+function serializeI18nNode(lView, serializedI18nBlock, context, node) {
   const maybeRNode = unwrapRNode(lView[node.index]);
   if (!maybeRNode || isDisconnectedRNode(maybeRNode)) {
     serializedI18nBlock.disconnectedNodes.add(node.index - HEADER_OFFSET);
@@ -14019,12 +11182,12 @@ function serializeI18nNode(lView, serializedI18nBlock, context2, node) {
   const rNode = maybeRNode;
   switch (node.kind) {
     case 0: {
-      processTextNodeBeforeSerialization(context2, rNode);
+      processTextNodeBeforeSerialization(context, rNode);
       break;
     }
     case 1:
     case 2: {
-      serializeI18nBlock(lView, serializedI18nBlock, context2, node.children);
+      serializeI18nBlock(lView, serializedI18nBlock, context, node.children);
       break;
     }
     case 3: {
@@ -14032,7 +11195,7 @@ function serializeI18nNode(lView, serializedI18nBlock, context2, node) {
       if (currentCase != null) {
         const caseIdx = currentCase < 0 ? ~currentCase : currentCase;
         serializedI18nBlock.caseQueue.push(caseIdx);
-        serializeI18nBlock(lView, serializedI18nBlock, context2, node.cases[caseIdx]);
+        serializeI18nBlock(lView, serializedI18nBlock, context, node.cases[caseIdx]);
       }
       break;
     }
@@ -14058,12 +11221,12 @@ function setCurrentNode(state, node) {
   state.currentNode = node;
 }
 __name(setCurrentNode, "setCurrentNode");
-function appendI18nNodeToCollection(context2, state, astNode) {
+function appendI18nNodeToCollection(context, state, astNode) {
   const noOffsetIndex = astNode.index - HEADER_OFFSET;
-  const { disconnectedNodes } = context2;
+  const { disconnectedNodes } = context;
   const currentNode = state.currentNode;
   if (state.isConnected) {
-    context2.i18nNodes.set(noOffsetIndex, currentNode);
+    context.i18nNodes.set(noOffsetIndex, currentNode);
     disconnectedNodes.delete(noOffsetIndex);
   } else {
     disconnectedNodes.add(noOffsetIndex);
@@ -14071,9 +11234,9 @@ function appendI18nNodeToCollection(context2, state, astNode) {
   return currentNode;
 }
 __name(appendI18nNodeToCollection, "appendI18nNodeToCollection");
-function skipSiblingNodes(state, skip2) {
+function skipSiblingNodes(state, skip) {
   let currentNode = state.currentNode;
-  for (let i = 0; i < skip2; i++) {
+  for (let i = 0; i < skip; i++) {
     if (!currentNode) {
       break;
     }
@@ -14116,45 +11279,45 @@ function prepareI18nBlockForHydrationImpl(lView, index, parentTNode, subTemplate
   hydrationInfo.disconnectedNodes = disconnectedNodes.size === 0 ? null : disconnectedNodes;
 }
 __name(prepareI18nBlockForHydrationImpl, "prepareI18nBlockForHydrationImpl");
-function collectI18nNodesFromDom(context2, state, nodeOrNodes) {
+function collectI18nNodesFromDom(context, state, nodeOrNodes) {
   if (Array.isArray(nodeOrNodes)) {
     let nextState = state;
     for (const node of nodeOrNodes) {
-      const targetNode = tryLocateRNodeByPath(context2.hydrationInfo, context2.lView, node.index - HEADER_OFFSET);
+      const targetNode = tryLocateRNodeByPath(context.hydrationInfo, context.lView, node.index - HEADER_OFFSET);
       if (targetNode) {
         nextState = forkHydrationState(state, targetNode);
       }
-      collectI18nNodesFromDom(context2, nextState, node);
+      collectI18nNodesFromDom(context, nextState, node);
     }
   } else {
-    if (context2.disconnectedNodes.has(nodeOrNodes.index - HEADER_OFFSET)) {
+    if (context.disconnectedNodes.has(nodeOrNodes.index - HEADER_OFFSET)) {
       return;
     }
     switch (nodeOrNodes.kind) {
       case 0: {
-        const currentNode = appendI18nNodeToCollection(context2, state, nodeOrNodes);
+        const currentNode = appendI18nNodeToCollection(context, state, nodeOrNodes);
         setCurrentNode(state, currentNode?.nextSibling ?? null);
         break;
       }
       case 1: {
-        collectI18nNodesFromDom(context2, forkHydrationState(state, state.currentNode?.firstChild ?? null), nodeOrNodes.children);
-        const currentNode = appendI18nNodeToCollection(context2, state, nodeOrNodes);
+        collectI18nNodesFromDom(context, forkHydrationState(state, state.currentNode?.firstChild ?? null), nodeOrNodes.children);
+        const currentNode = appendI18nNodeToCollection(context, state, nodeOrNodes);
         setCurrentNode(state, currentNode?.nextSibling ?? null);
         break;
       }
       case 2: {
         const noOffsetIndex = nodeOrNodes.index - HEADER_OFFSET;
-        const { hydrationInfo } = context2;
+        const { hydrationInfo } = context;
         const containerSize = getNgContainerSize(hydrationInfo, noOffsetIndex);
         switch (nodeOrNodes.type) {
           case 0: {
-            const currentNode = appendI18nNodeToCollection(context2, state, nodeOrNodes);
+            const currentNode = appendI18nNodeToCollection(context, state, nodeOrNodes);
             if (isSerializedElementContainer(hydrationInfo, noOffsetIndex)) {
-              collectI18nNodesFromDom(context2, state, nodeOrNodes.children);
+              collectI18nNodesFromDom(context, state, nodeOrNodes.children);
               const nextNode = skipSiblingNodes(state, 1);
               setCurrentNode(state, nextNode);
             } else {
-              collectI18nNodesFromDom(context2, forkHydrationState(state, state.currentNode?.firstChild ?? null), nodeOrNodes.children);
+              collectI18nNodesFromDom(context, forkHydrationState(state, state.currentNode?.firstChild ?? null), nodeOrNodes.children);
               setCurrentNode(state, currentNode?.nextSibling ?? null);
               if (containerSize !== null) {
                 const nextNode = skipSiblingNodes(state, containerSize + 1);
@@ -14165,7 +11328,7 @@ function collectI18nNodesFromDom(context2, state, nodeOrNodes) {
           }
           case 1: {
             ngDevMode && assertNotEqual(containerSize, null, "Expected a container size while hydrating i18n subtemplate");
-            appendI18nNodeToCollection(context2, state, nodeOrNodes);
+            appendI18nNodeToCollection(context, state, nodeOrNodes);
             const nextNode = skipSiblingNodes(state, containerSize + 1);
             setCurrentNode(state, nextNode);
             break;
@@ -14174,15 +11337,15 @@ function collectI18nNodesFromDom(context2, state, nodeOrNodes) {
         break;
       }
       case 3: {
-        const selectedCase = state.isConnected ? context2.caseQueue.shift() : null;
+        const selectedCase = state.isConnected ? context.caseQueue.shift() : null;
         const childState = { currentNode: null, isConnected: false };
         for (let i = 0; i < nodeOrNodes.cases.length; i++) {
-          collectI18nNodesFromDom(context2, i === selectedCase ? state : childState, nodeOrNodes.cases[i]);
+          collectI18nNodesFromDom(context, i === selectedCase ? state : childState, nodeOrNodes.cases[i]);
         }
         if (selectedCase !== null) {
-          context2.dehydratedIcuData.set(nodeOrNodes.index, { case: selectedCase, node: nodeOrNodes });
+          context.dehydratedIcuData.set(nodeOrNodes.index, { case: selectedCase, node: nodeOrNodes });
         }
-        const currentNode = appendI18nNodeToCollection(context2, state, nodeOrNodes);
+        const currentNode = appendI18nNodeToCollection(context, state, nodeOrNodes);
         setCurrentNode(state, currentNode?.nextSibling ?? null);
         break;
       }
@@ -14210,30 +11373,6 @@ function claimDehydratedIcuCaseImpl(lView, icuIndex, caseIndex) {
   }
 }
 __name(claimDehydratedIcuCaseImpl, "claimDehydratedIcuCaseImpl");
-function cleanupI18nHydrationData(lView) {
-  const hydrationInfo = lView[HYDRATION];
-  if (hydrationInfo) {
-    const { i18nNodes, dehydratedIcuData: dehydratedIcuDataMap } = hydrationInfo;
-    if (i18nNodes && dehydratedIcuDataMap) {
-      const renderer = lView[RENDERER];
-      for (const dehydratedIcuData of dehydratedIcuDataMap.values()) {
-        cleanupDehydratedIcuData(renderer, i18nNodes, dehydratedIcuData);
-      }
-    }
-    hydrationInfo.i18nNodes = void 0;
-    hydrationInfo.dehydratedIcuData = void 0;
-  }
-}
-__name(cleanupI18nHydrationData, "cleanupI18nHydrationData");
-function cleanupDehydratedIcuData(renderer, i18nNodes, dehydratedIcuData) {
-  for (const node of dehydratedIcuData.node.cases[dehydratedIcuData.case]) {
-    const rNode = i18nNodes.get(node.index - HEADER_OFFSET);
-    if (rNode) {
-      nativeRemoveNode(renderer, rNode, false);
-    }
-  }
-}
-__name(cleanupDehydratedIcuData, "cleanupDehydratedIcuData");
 function removeDehydratedViews(lContainer) {
   const views = lContainer[DEHYDRATED_VIEWS] ?? [];
   const parentLView = lContainer[PARENT];
@@ -14250,19 +11389,6 @@ function removeDehydratedViews(lContainer) {
   lContainer[DEHYDRATED_VIEWS] = retainedViews;
 }
 __name(removeDehydratedViews, "removeDehydratedViews");
-function removeDehydratedViewList(deferBlock) {
-  const { lContainer } = deferBlock;
-  const dehydratedViews = lContainer[DEHYDRATED_VIEWS];
-  if (dehydratedViews === null)
-    return;
-  const parentLView = lContainer[PARENT];
-  const renderer = parentLView[RENDERER];
-  for (const view of dehydratedViews) {
-    removeDehydratedView(view, renderer);
-    ngDevMode && ngDevMode.dehydratedViewsRemoved++;
-  }
-}
-__name(removeDehydratedViewList, "removeDehydratedViewList");
 function removeDehydratedView(dehydratedView, renderer) {
   let nodesRemoved = 0;
   let currentRNode = dehydratedView.firstChild;
@@ -14278,53 +11404,6 @@ function removeDehydratedView(dehydratedView, renderer) {
   }
 }
 __name(removeDehydratedView, "removeDehydratedView");
-function cleanupLContainer(lContainer) {
-  removeDehydratedViews(lContainer);
-  const hostLView = lContainer[HOST];
-  if (isLView(hostLView)) {
-    cleanupLView(hostLView);
-  }
-  for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
-    cleanupLView(lContainer[i]);
-  }
-}
-__name(cleanupLContainer, "cleanupLContainer");
-function cleanupLView(lView) {
-  cleanupI18nHydrationData(lView);
-  const tView = lView[TVIEW];
-  for (let i = HEADER_OFFSET; i < tView.bindingStartIndex; i++) {
-    if (isLContainer(lView[i])) {
-      const lContainer = lView[i];
-      cleanupLContainer(lContainer);
-    } else if (isLView(lView[i])) {
-      cleanupLView(lView[i]);
-    }
-  }
-}
-__name(cleanupLView, "cleanupLView");
-function cleanupDehydratedViews(appRef) {
-  const viewRefs = appRef._views;
-  for (const viewRef of viewRefs) {
-    const lNode = getLNodeForHydration(viewRef);
-    if (lNode !== null && lNode[HOST] !== null) {
-      if (isLView(lNode)) {
-        cleanupLView(lNode);
-      } else {
-        cleanupLContainer(lNode);
-      }
-      ngDevMode && ngDevMode.dehydratedViewsCleanupRuns++;
-    }
-  }
-}
-__name(cleanupDehydratedViews, "cleanupDehydratedViews");
-function cleanupHydratedDeferBlocks(deferBlock, hydratedBlocks, registry2, appRef) {
-  if (deferBlock !== null) {
-    registry2.cleanup(hydratedBlocks);
-    cleanupLContainer(deferBlock.lContainer);
-    cleanupDehydratedViews(appRef);
-  }
-}
-__name(cleanupHydratedDeferBlocks, "cleanupHydratedDeferBlocks");
 function locateDehydratedViewsInContainer(currentRNode, serializedViews) {
   const dehydratedViews = [];
   for (const serializedView of serializedViews) {
@@ -14917,8 +11996,8 @@ function setupSelectorMatchedInputsOrOutputs(mode, tNode, def, directiveIndex) {
   }
 }
 __name(setupSelectorMatchedInputsOrOutputs, "setupSelectorMatchedInputsOrOutputs");
-function setupHostDirectiveInputsOrOutputs(mode, tNode, config2, directiveIndex) {
-  const aliasMap = mode === 0 ? config2.inputs : config2.outputs;
+function setupHostDirectiveInputsOrOutputs(mode, tNode, config, directiveIndex) {
+  const aliasMap = mode === 0 ? config.inputs : config.outputs;
   for (const initialName in aliasMap) {
     if (aliasMap.hasOwnProperty(initialName)) {
       const publicName = aliasMap[initialName];
@@ -14975,11 +12054,11 @@ function setupInitialInputs(tNode, directiveIndex, isHostDirective) {
         }
       }
     } else if (isHostDirective && hostDirectiveInputs.hasOwnProperty(attrName)) {
-      const config2 = hostDirectiveInputs[attrName];
-      for (let j = 0; j < config2.length; j += 2) {
-        if (config2[j] === directiveIndex) {
+      const config = hostDirectiveInputs[attrName];
+      for (let j = 0; j < config.length; j += 2) {
+        if (config[j] === directiveIndex) {
           inputsToStore ??= [];
-          inputsToStore.push(config2[j + 1], attrs[i + 1]);
+          inputsToStore.push(config[j + 1], attrs[i + 1]);
           break;
         }
       }
@@ -15143,9 +12222,9 @@ function iterateListLike(obj, fn) {
       fn(obj[i]);
     }
   } else {
-    const iterator2 = obj[Symbol.iterator]();
+    const iterator = obj[Symbol.iterator]();
     let item;
-    while (!(item = iterator2.next()).done) {
+    while (!(item = iterator.next()).done) {
       fn(item.value);
     }
   }
@@ -15226,27 +12305,27 @@ function wrapListener(tNode, lView, listenerFn) {
       5
       /* NotificationSource.Listener */
     );
-    const context2 = lView[CONTEXT];
-    let result = executeListenerWithErrorHandling(lView, context2, listenerFn, event);
+    const context = lView[CONTEXT];
+    let result = executeListenerWithErrorHandling(lView, context, listenerFn, event);
     let nextListenerFn = wrapListenerIn_markDirtyAndPreventDefault.__ngNextListenerFn__;
     while (nextListenerFn) {
-      result = executeListenerWithErrorHandling(lView, context2, nextListenerFn, event) && result;
+      result = executeListenerWithErrorHandling(lView, context, nextListenerFn, event) && result;
       nextListenerFn = nextListenerFn.__ngNextListenerFn__;
     }
     return result;
   }, "wrapListenerIn_markDirtyAndPreventDefault");
 }
 __name(wrapListener, "wrapListener");
-function executeListenerWithErrorHandling(lView, context2, listenerFn, e) {
+function executeListenerWithErrorHandling(lView, context, listenerFn, e) {
   const prevConsumer = setActiveConsumer(null);
   try {
-    profiler(6, context2, listenerFn);
+    profiler(6, context, listenerFn);
     return listenerFn(e) !== false;
   } catch (error) {
     handleUncaughtError(lView, error);
     return false;
   } finally {
-    profiler(7, context2, listenerFn);
+    profiler(7, context, listenerFn);
     setActiveConsumer(prevConsumer);
   }
 }
@@ -15812,7 +12891,7 @@ var R3ViewContainerRef = (_a4 = class extends VE_ViewContainerRef {
   get length() {
     return this._lContainer.length - CONTAINER_HEADER_OFFSET;
   }
-  createEmbeddedView(templateRef, context2, indexOrOptions) {
+  createEmbeddedView(templateRef, context, indexOrOptions) {
     let index;
     let injector;
     if (typeof indexOrOptions === "number") {
@@ -15822,7 +12901,7 @@ var R3ViewContainerRef = (_a4 = class extends VE_ViewContainerRef {
       injector = indexOrOptions.injector;
     }
     const dehydratedView = findMatchingDehydratedView(this._lContainer, templateRef.ssrId);
-    const viewRef = templateRef.createEmbeddedViewImpl(context2 || {}, injector, dehydratedView);
+    const viewRef = templateRef.createEmbeddedViewImpl(context || {}, injector, dehydratedView);
     this.insertImpl(viewRef, index, shouldAddViewToDom(this._hostTNode, dehydratedView));
     return viewRef;
   }
@@ -15841,7 +12920,7 @@ var R3ViewContainerRef = (_a4 = class extends VE_ViewContainerRef {
       }
       const options = indexOrOptions || {};
       if (ngDevMode && options.environmentInjector && options.ngModuleRef) {
-        throwError2(`Cannot pass both environmentInjector and ngModuleRef options to createComponent().`);
+        throwError(`Cannot pass both environmentInjector and ngModuleRef options to createComponent().`);
       }
       index = options.index;
       injector = options.injector;
@@ -16277,7 +13356,7 @@ function createSpecialToken(lView, tNode, read) {
     );
     return createContainerRef(tNode, lView);
   } else {
-    ngDevMode && throwError2(`Special token to read should be one of ElementRef, TemplateRef or ViewContainerRef but got ${stringify(read)}.`);
+    ngDevMode && throwError(`Special token to read should be one of ElementRef, TemplateRef or ViewContainerRef but got ${stringify(read)}.`);
   }
 }
 __name(createSpecialToken, "createSpecialToken");
@@ -16555,10 +13634,10 @@ function clearResolutionOfComponentResourcesQueue() {
   return old;
 }
 __name(clearResolutionOfComponentResourcesQueue, "clearResolutionOfComponentResourcesQueue");
-function restoreComponentResolutionQueue(queue2) {
+function restoreComponentResolutionQueue(queue) {
   componentDefPendingResolution.clear();
-  queue2.forEach((_, type) => componentDefPendingResolution.add(type));
-  componentResourceResolutionQueue = queue2;
+  queue.forEach((_, type) => componentDefPendingResolution.add(type));
+  componentResourceResolutionQueue = queue;
 }
 __name(restoreComponentResolutionQueue, "restoreComponentResolutionQueue");
 function isComponentResourceResolutionQueueEmpty() {
@@ -16712,15 +13791,15 @@ var _EnvironmentNgModuleRefAdapter = class _EnvironmentNgModuleRefAdapter extend
   injector;
   componentFactoryResolver = new ComponentFactoryResolver(this);
   instance = null;
-  constructor(config2) {
+  constructor(config) {
     super();
     const injector = new R3Injector([
-      ...config2.providers,
+      ...config.providers,
       { provide: NgModuleRef$1, useValue: this },
       { provide: ComponentFactoryResolver$1, useValue: this.componentFactoryResolver }
-    ], config2.parent || getNullInjector(), config2.debugName, /* @__PURE__ */ new Set(["environment"]));
+    ], config.parent || getNullInjector(), config.debugName, /* @__PURE__ */ new Set(["environment"]));
     this.injector = injector;
-    if (config2.runEnvironmentInitializers) {
+    if (config.runEnvironmentInitializers) {
       injector.resolveInjectorInitializers();
     }
   }
@@ -16988,7 +14067,7 @@ function getComponentId(componentDef) {
   }
   hash += 2147483647 + 1;
   const compId = "c" + hash;
-  if ((typeof ngDevMode === "undefined" || ngDevMode) && true) {
+  if ((typeof ngDevMode === "undefined" || ngDevMode) && false) {
     if (GENERATED_COMP_IDS.has(compId)) {
       const previousCompDefType = GENERATED_COMP_IDS.get(compId);
       if (previousCompDefType !== componentDef.type) {
@@ -17214,9 +14293,9 @@ function findHostDirectiveDefs(currentDef, matchedDefs, hostDirectiveDefs) {
   if (currentDef.hostDirectives !== null) {
     for (const configOrFn of currentDef.hostDirectives) {
       if (typeof configOrFn === "function") {
-        const resolved2 = configOrFn();
-        for (const config2 of resolved2) {
-          trackHostDirectiveDef(createHostDirectiveDef(config2), matchedDefs, hostDirectiveDefs);
+        const resolved = configOrFn();
+        for (const config of resolved) {
+          trackHostDirectiveDef(createHostDirectiveDef(config), matchedDefs, hostDirectiveDefs);
         }
       } else {
         trackHostDirectiveDef(configOrFn, matchedDefs, hostDirectiveDefs);
@@ -17236,11 +14315,11 @@ function trackHostDirectiveDef(def, matchedDefs, hostDirectiveDefs) {
   matchedDefs.push(hostDirectiveDef);
 }
 __name(trackHostDirectiveDef, "trackHostDirectiveDef");
-function createHostDirectiveDef(config2) {
-  return typeof config2 === "function" ? { directive: resolveForwardRef(config2), inputs: EMPTY_OBJ, outputs: EMPTY_OBJ } : {
-    directive: resolveForwardRef(config2.directive),
-    inputs: bindingArrayToMap(config2.inputs),
-    outputs: bindingArrayToMap(config2.outputs)
+function createHostDirectiveDef(config) {
+  return typeof config === "function" ? { directive: resolveForwardRef(config), inputs: EMPTY_OBJ, outputs: EMPTY_OBJ } : {
+    directive: resolveForwardRef(config.directive),
+    inputs: bindingArrayToMap(config.inputs),
+    outputs: bindingArrayToMap(config.outputs)
   };
 }
 __name(createHostDirectiveDef, "createHostDirectiveDef");
@@ -17510,7 +14589,7 @@ var TracingAction;
 })(TracingAction || (TracingAction = {}));
 var TracingService = new InjectionToken(ngDevMode ? "TracingService" : "");
 var SCHEDULE_IN_ROOT_ZONE_DEFAULT = false;
-var _EventEmitter_ = class _EventEmitter_ extends Subject {
+var _EventEmitter_ = class _EventEmitter_ extends import_rxjs2.Subject {
   // tslint:disable-next-line:require-internal-with-underscore
   __isAsync;
   destroyRef = void 0;
@@ -17551,7 +14630,7 @@ var _EventEmitter_ = class _EventEmitter_ extends Subject {
       }
     }
     const sink = super.subscribe({ next: nextFn, error: errorFn, complete: completeFn });
-    if (observerOrNext instanceof Subscription) {
+    if (observerOrNext instanceof import_rxjs2.Subscription) {
       observerOrNext.add(sink);
     }
     return sink;
@@ -17578,7 +14657,7 @@ function scheduleCallbackWithRafRace(callback) {
   let timeoutId;
   let animationFrameId;
   function cleanup() {
-    callback = noop2;
+    callback = noop;
     try {
       if (animationFrameId !== void 0 && typeof cancelAnimationFrame === "function") {
         cancelAnimationFrame(animationFrameId);
@@ -17606,7 +14685,7 @@ __name(scheduleCallbackWithRafRace, "scheduleCallbackWithRafRace");
 function scheduleCallbackWithMicrotask(callback) {
   queueMicrotask(() => callback());
   return () => {
-    callback = noop2;
+    callback = noop;
   };
 }
 __name(scheduleCallbackWithMicrotask, "scheduleCallbackWithMicrotask");
@@ -17739,7 +14818,7 @@ var _NgZone = class _NgZone {
    */
   runTask(fn, applyThis, applyArgs, name) {
     const zone = this._inner;
-    const task = zone.scheduleEventTask("NgZoneEvent: " + name, fn, EMPTY_PAYLOAD, noop2, noop2);
+    const task = zone.scheduleEventTask("NgZoneEvent: " + name, fn, EMPTY_PAYLOAD, noop, noop);
     try {
       return zone.runTask(task, applyThis, applyArgs);
     } finally {
@@ -18129,9 +15208,9 @@ var _AfterRenderSequence = class _AfterRenderSequence {
   destroy() {
     this.impl.unregister(this);
     this.unregisterOnDestroy?.();
-    const scheduled2 = this.view?.[AFTER_RENDER_SEQUENCES_TO_ADD];
-    if (scheduled2) {
-      this.view[AFTER_RENDER_SEQUENCES_TO_ADD] = scheduled2.filter((s) => s !== this);
+    const scheduled = this.view?.[AFTER_RENDER_SEQUENCES_TO_ADD];
+    if (scheduled) {
+      this.view[AFTER_RENDER_SEQUENCES_TO_ADD] = scheduled.filter((s) => s !== this);
     }
   }
 };
@@ -18143,7 +15222,7 @@ function afterEveryRender(callbackOrSpec, options) {
     assertInInjectionContext(afterEveryRender);
   }
   const injector = options?.injector ?? inject2(Injector);
-  if (false) {
+  if (true) {
     return NOOP_AFTER_RENDER_REF;
   }
   performanceMarkFeature("NgAfterRender");
@@ -18161,7 +15240,7 @@ function afterNextRender(callbackOrSpec, options) {
     assertInInjectionContext(afterNextRender);
   }
   const injector = options?.injector ?? inject2(Injector);
-  if (false) {
+  if (true) {
     return NOOP_AFTER_RENDER_REF;
   }
   performanceMarkFeature("NgAfterNextRender");
@@ -18204,6 +15283,10 @@ function afterEveryRenderImpl(callbackOrSpec, injector, options, once) {
   return sequence;
 }
 __name(afterEveryRenderImpl, "afterEveryRenderImpl");
+var NOOP_AFTER_RENDER_REF = {
+  destroy() {
+  }
+};
 function getDeferBlockDataIndex(deferBlockIndex) {
   return deferBlockIndex + 1;
 }
@@ -18247,7 +15330,7 @@ function getTemplateIndexForState(newState, hostLView, tNode) {
     case DeferBlockState.Placeholder:
       return tDetails.placeholderTmplIndex;
     default:
-      ngDevMode && throwError2(`Unexpected defer block state: ${newState}`);
+      ngDevMode && throwError(`Unexpected defer block state: ${newState}`);
       return null;
   }
 }
@@ -18457,15 +15540,15 @@ __publicField(
   })
 );
 var IdleScheduler = _IdleScheduler;
-function onTimer(delay2) {
-  return (callback, injector) => scheduleTimerTrigger(delay2, callback, injector);
+function onTimer(delay) {
+  return (callback, injector) => scheduleTimerTrigger(delay, callback, injector);
 }
 __name(onTimer, "onTimer");
-function scheduleTimerTrigger(delay2, callback, injector) {
+function scheduleTimerTrigger(delay, callback, injector) {
   const scheduler = injector.get(TimerScheduler);
   const ngZone = injector.get(NgZone);
   const cleanupFn = /* @__PURE__ */ __name(() => scheduler.remove(callback), "cleanupFn");
-  scheduler.add(delay2, callback, ngZone);
+  scheduler.add(delay, callback, ngZone);
   return cleanupFn;
 }
 __name(scheduleTimerTrigger, "scheduleTimerTrigger");
@@ -18487,9 +15570,9 @@ var _TimerScheduler = class _TimerScheduler {
   // the current callback invocation. The shape of this list is the same
   // as the shape of the `current` list.
   deferred = [];
-  add(delay2, callback, ngZone) {
+  add(delay, callback, ngZone) {
     const target = this.executingCallbacks ? this.deferred : this.current;
-    this.addToQueue(target, Date.now() + delay2, callback);
+    this.addToQueue(target, Date.now() + delay, callback);
     this.scheduleTimer(ngZone);
   }
   remove(callback) {
@@ -18574,10 +15657,10 @@ var _TimerScheduler = class _TimerScheduler {
       // frame duration.
       this.invokeTimerAt && this.invokeTimerAt - invokeAt > FRAME_DURATION_MS) {
         this.clearTimeout();
-        const timeout2 = Math.max(invokeAt - now, FRAME_DURATION_MS);
+        const timeout = Math.max(invokeAt - now, FRAME_DURATION_MS);
         this.invokeTimerAt = invokeAt;
         this.timeoutId = ngZone.runOutsideAngular(() => {
-          return setTimeout(() => ngZone.run(callback), timeout2);
+          return setTimeout(() => ngZone.run(callback), timeout);
         });
       }
     }
@@ -18677,7 +15760,7 @@ function renderDeferBlockState(newState, tNode, lContainer, skipTimerScheduling 
   }
   if (isValidStateChange(currentState, newState) && isValidStateChange(lDetails[NEXT_DEFER_BLOCK_STATE] ?? -1, newState)) {
     const tDetails = getTDeferBlockDetails(hostTView, tNode);
-    const needsScheduling = !skipTimerScheduling && true && (getLoadingBlockAfter(tDetails) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Loading) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Placeholder));
+    const needsScheduling = !skipTimerScheduling && false;
     if (ngDevMode && needsScheduling) {
       assertDefined(applyDeferBlockStateWithSchedulingImpl, "Expected scheduling function to be defined");
     }
@@ -18774,7 +15857,7 @@ function applyDeferBlockStateWithScheduling(newState, lDetails, lContainer, tNod
   }
 }
 __name(applyDeferBlockStateWithScheduling, "applyDeferBlockStateWithScheduling");
-function scheduleDeferBlockUpdate(timeout2, lDetails, tNode, lContainer, hostLView) {
+function scheduleDeferBlockUpdate(timeout, lDetails, tNode, lContainer, hostLView) {
   const callback = /* @__PURE__ */ __name(() => {
     const nextState = lDetails[NEXT_DEFER_BLOCK_STATE];
     lDetails[STATE_IS_FROZEN_UNTIL] = null;
@@ -18783,7 +15866,7 @@ function scheduleDeferBlockUpdate(timeout2, lDetails, tNode, lContainer, hostLVi
       renderDeferBlockState(nextState, tNode, lContainer);
     }
   }, "callback");
-  return scheduleTimerTrigger(timeout2, callback, hostLView[INJECTOR]);
+  return scheduleTimerTrigger(timeout, callback, hostLView[INJECTOR]);
 }
 __name(scheduleDeferBlockUpdate, "scheduleDeferBlockUpdate");
 function isValidStateChange(currentState, newState) {
@@ -18906,22 +15989,22 @@ function setupFrameworkInjectorProfiler() {
 }
 __name(setupFrameworkInjectorProfiler, "setupFrameworkInjectorProfiler");
 function injectorProfilerEventHandler(injectorProfilerEvent) {
-  const { context: context2, type } = injectorProfilerEvent;
+  const { context, type } = injectorProfilerEvent;
   if (type === 0) {
-    handleInjectEvent(context2, injectorProfilerEvent.service);
+    handleInjectEvent(context, injectorProfilerEvent.service);
   } else if (type === 1) {
-    handleInstanceCreatedByInjectorEvent(context2, injectorProfilerEvent.instance);
+    handleInstanceCreatedByInjectorEvent(context, injectorProfilerEvent.instance);
   } else if (type === 2) {
-    handleProviderConfiguredEvent(context2, injectorProfilerEvent.providerRecord);
+    handleProviderConfiguredEvent(context, injectorProfilerEvent.providerRecord);
   } else if (type === 3) {
-    handleEffectCreatedEvent(context2, injectorProfilerEvent.effect);
+    handleEffectCreatedEvent(context, injectorProfilerEvent.effect);
   }
 }
 __name(injectorProfilerEventHandler, "injectorProfilerEventHandler");
-function handleEffectCreatedEvent(context2, effect2) {
-  const diResolver = getDIResolver(context2.injector);
+function handleEffectCreatedEvent(context, effect2) {
+  const diResolver = getDIResolver(context.injector);
   if (diResolver === null) {
-    throwError2("An EffectCreated event must be run within an injection context.");
+    throwError("An EffectCreated event must be run within an injection context.");
   }
   const { resolverToEffects } = frameworkDIDebugData;
   if (!resolverToEffects.has(diResolver)) {
@@ -18930,28 +16013,28 @@ function handleEffectCreatedEvent(context2, effect2) {
   resolverToEffects.get(diResolver).push(effect2);
 }
 __name(handleEffectCreatedEvent, "handleEffectCreatedEvent");
-function handleInjectEvent(context2, data) {
-  const diResolver = getDIResolver(context2.injector);
+function handleInjectEvent(context, data) {
+  const diResolver = getDIResolver(context.injector);
   if (diResolver === null) {
-    throwError2("An Inject event must be run within an injection context.");
+    throwError("An Inject event must be run within an injection context.");
   }
   const diResolverToInstantiatedToken = frameworkDIDebugData.resolverToTokenToDependencies;
   if (!diResolverToInstantiatedToken.has(diResolver)) {
     diResolverToInstantiatedToken.set(diResolver, /* @__PURE__ */ new WeakMap());
   }
-  if (!canBeHeldWeakly(context2.token)) {
+  if (!canBeHeldWeakly(context.token)) {
     return;
   }
   const instantiatedTokenToDependencies = diResolverToInstantiatedToken.get(diResolver);
-  if (!instantiatedTokenToDependencies.has(context2.token)) {
-    instantiatedTokenToDependencies.set(context2.token, []);
+  if (!instantiatedTokenToDependencies.has(context.token)) {
+    instantiatedTokenToDependencies.set(context.token, []);
   }
   const { token, value, flags } = data;
-  assertDefined(context2.token, "Injector profiler context token is undefined.");
-  const dependencies = instantiatedTokenToDependencies.get(context2.token);
+  assertDefined(context.token, "Injector profiler context token is undefined.");
+  const dependencies = instantiatedTokenToDependencies.get(context.token);
   assertDefined(dependencies, "Could not resolve dependencies for token.");
-  if (context2.injector instanceof NodeInjector) {
-    dependencies.push({ token, value, flags, injectedIn: getNodeInjectorContext(context2.injector) });
+  if (context.injector instanceof NodeInjector) {
+    dependencies.push({ token, value, flags, injectedIn: getNodeInjectorContext(context.injector) });
   } else {
     dependencies.push({ token, value, flags });
   }
@@ -18959,7 +16042,7 @@ function handleInjectEvent(context2, data) {
 __name(handleInjectEvent, "handleInjectEvent");
 function getNodeInjectorContext(injector) {
   if (!(injector instanceof NodeInjector)) {
-    throwError2("getNodeInjectorContext must be called with a NodeInjector");
+    throwError("getNodeInjectorContext must be called with a NodeInjector");
   }
   const lView = getNodeInjectorLView(injector);
   const tNode = getNodeInjectorTNode(injector);
@@ -18970,13 +16053,13 @@ function getNodeInjectorContext(injector) {
   return { lView, tNode };
 }
 __name(getNodeInjectorContext, "getNodeInjectorContext");
-function handleInstanceCreatedByInjectorEvent(context2, data) {
+function handleInstanceCreatedByInjectorEvent(context, data) {
   const { value } = data;
   if (data.value == null) {
     return;
   }
-  if (getDIResolver(context2.injector) === null) {
-    throwError2("An InjectorCreatedInstance event must be run within an injection context.");
+  if (getDIResolver(context.injector) === null) {
+    throwError("An InjectorCreatedInstance event must be run within an injection context.");
   }
   let standaloneComponent = void 0;
   if (typeof value === "object") {
@@ -18985,7 +16068,7 @@ function handleInstanceCreatedByInjectorEvent(context2, data) {
   if (standaloneComponent == void 0 || !isStandaloneComponent(standaloneComponent)) {
     return;
   }
-  const environmentInjector = context2.injector.get(EnvironmentInjector, null, { optional: true });
+  const environmentInjector = context.injector.get(EnvironmentInjector, null, { optional: true });
   if (environmentInjector === null) {
     return;
   }
@@ -19001,16 +16084,16 @@ function isStandaloneComponent(value) {
   return !!def?.standalone;
 }
 __name(isStandaloneComponent, "isStandaloneComponent");
-function handleProviderConfiguredEvent(context2, data) {
+function handleProviderConfiguredEvent(context, data) {
   const { resolverToProviders } = frameworkDIDebugData;
   let diResolver;
-  if (context2?.injector instanceof NodeInjector) {
-    diResolver = getNodeInjectorTNode(context2.injector);
+  if (context?.injector instanceof NodeInjector) {
+    diResolver = getNodeInjectorTNode(context.injector);
   } else {
-    diResolver = context2.injector;
+    diResolver = context.injector;
   }
   if (diResolver === null) {
-    throwError2("A ProviderConfigured event must be run within an injection context.");
+    throwError("A ProviderConfigured event must be run within an injection context.");
   }
   if (!resolverToProviders.has(diResolver)) {
     resolverToProviders.set(diResolver, []);
@@ -19352,7 +16435,7 @@ function getInjectorProviders(injector) {
   } else if (injector instanceof EnvironmentInjector) {
     return getEnvironmentInjectorProviders(injector);
   }
-  throwError2("getInjectorProviders only supports NodeInjector and EnvironmentInjector");
+  throwError("getInjectorProviders only supports NodeInjector and EnvironmentInjector");
 }
 __name(getInjectorProviders, "getInjectorProviders");
 function getInjectorMetadata(injector) {
@@ -19385,7 +16468,7 @@ function getInjectorResolutionPathHelper(injector, resolutionPath) {
       if (firstInjector instanceof NodeInjector) {
         const moduleInjector = getModuleInjectorOfNodeInjector(firstInjector);
         if (moduleInjector === null) {
-          throwError2("NodeInjector must have some connection to the module injector tree");
+          throwError("NodeInjector must have some connection to the module injector tree");
         }
         resolutionPath.push(moduleInjector);
         getInjectorResolutionPathHelper(moduleInjector, resolutionPath);
@@ -19413,7 +16496,7 @@ function getInjectorParent(injector) {
   } else if (injector instanceof ChainedInjector) {
     return injector.parentInjector;
   } else {
-    throwError2("getInjectorParent only support injectors of type R3Injector, NodeInjector, NullInjector");
+    throwError("getInjectorParent only support injectors of type R3Injector, NodeInjector, NullInjector");
   }
   const parentLocation = getParentInjectorLocation(tNode, lView);
   if (hasParentInjector(parentLocation)) {
@@ -19440,12 +16523,12 @@ function getModuleInjectorOfNodeInjector(injector) {
   if (injector instanceof NodeInjector) {
     lView = getNodeInjectorLView(injector);
   } else {
-    throwError2("getModuleInjectorOfNodeInjector must be called with a NodeInjector");
+    throwError("getModuleInjectorOfNodeInjector must be called with a NodeInjector");
   }
   const inj = lView[INJECTOR];
   const moduleInjector = inj instanceof ChainedInjector ? inj.parentInjector : inj.parent;
   if (!moduleInjector) {
-    throwError2("NodeInjector must have some connection to the module injector tree");
+    throwError("NodeInjector must have some connection to the module injector tree");
   }
   return moduleInjector;
 }
@@ -19560,7 +16643,7 @@ __name(extractSignalNodesAndEdgesFromRoots, "extractSignalNodesAndEdgesFromRoots
 function getSignalGraph(injector) {
   let templateConsumer = null;
   if (!(injector instanceof NodeInjector) && !(injector instanceof R3Injector)) {
-    return throwError2("getSignalGraph must be called with a NodeInjector or R3Injector");
+    return throwError("getSignalGraph must be called with a NodeInjector or R3Injector");
   }
   if (injector instanceof NodeInjector) {
     templateConsumer = getTemplateConsumer(injector);
@@ -19859,13 +16942,13 @@ var _Testability = class _Testability {
       };
     });
   }
-  addCallback(cb, timeout2, updateCb) {
+  addCallback(cb, timeout, updateCb) {
     let timeoutId = -1;
-    if (timeout2 && timeout2 > 0) {
+    if (timeout && timeout > 0) {
       timeoutId = setTimeout(() => {
         this._callbacks = this._callbacks.filter((cb2) => cb2.timeoutId !== timeoutId);
         cb();
-      }, timeout2);
+      }, timeout);
     }
     this._callbacks.push({ doneCb: cb, timeoutId, updateCb });
   }
@@ -19881,11 +16964,11 @@ var _Testability = class _Testability {
    *    pending macrotasks changes. If this callback returns true doneCb will not be invoked
    *    and no further updates will be issued.
    */
-  whenStable(doneCb, timeout2, updateCb) {
+  whenStable(doneCb, timeout, updateCb) {
     if (updateCb && !this._taskTrackingZone) {
       throw new Error('Task tracking zone is required when passing an update callback to whenStable(). Is "zone.js/plugins/task-tracking" loaded?');
     }
-    this.addCallback(doneCb, timeout2, updateCb);
+    this.addCallback(doneCb, timeout, updateCb);
     this._runCallbacksIfReady();
   }
   /**
@@ -19912,7 +16995,7 @@ var _Testability = class _Testability {
    * @param provider The name of binding variable
    * @param exactMatch Whether using exactMatch
    */
-  findProviders(using2, provider, exactMatch) {
+  findProviders(using, provider, exactMatch) {
     return [];
   }
 };
@@ -20000,10 +17083,10 @@ function setTestabilityGetter(getter) {
 }
 __name(setTestabilityGetter, "setTestabilityGetter");
 var _testabilityGetter;
-function isPromise2(obj) {
+function isPromise(obj) {
   return !!obj && typeof obj.then === "function";
 }
-__name(isPromise2, "isPromise");
+__name(isPromise, "isPromise");
 function isSubscribable(obj) {
   return !!obj && typeof obj.subscribe === "function";
 }
@@ -20045,7 +17128,7 @@ var _ApplicationInitStatus = class _ApplicationInitStatus {
     const asyncInitPromises = [];
     for (const appInits of this.appInits) {
       const initResult = runInInjectionContext(this.injector, appInits);
-      if (isPromise2(initResult)) {
+      if (isPromise(initResult)) {
         asyncInitPromises.push(initResult);
       } else if (isSubscribable(initResult)) {
         const observableAsPromise = new Promise((resolve, reject) => {
@@ -20154,7 +17237,7 @@ var _ApplicationRef = class _ApplicationRef {
   autoDetectTestViews = /* @__PURE__ */ new Set();
   includeAllTestViews = false;
   /** @internal */
-  afterTick = new Subject();
+  afterTick = new import_rxjs2.Subject();
   /** @internal */
   get allViews() {
     return [
@@ -20182,7 +17265,7 @@ var _ApplicationRef = class _ApplicationRef {
    * Returns an Observable that indicates when the application is stable or unstable.
    */
   get isStable() {
-    return this.internalPendingTask.hasPendingTasksObservable.pipe(map((pending) => !pending));
+    return this.internalPendingTask.hasPendingTasksObservable.pipe((0, import_operators.map)((pending) => !pending));
   }
   constructor() {
     inject2(TracingService, { optional: true });
@@ -20561,7 +17644,7 @@ function scheduleDelayedTrigger(scheduleFn) {
 }
 __name(scheduleDelayedTrigger, "scheduleDelayedTrigger");
 function scheduleDelayedPrefetching(scheduleFn, trigger) {
-  if (false)
+  if (true)
     return;
   const lView = getLView();
   const injector = lView[INJECTOR];
@@ -20576,17 +17659,6 @@ function scheduleDelayedPrefetching(scheduleFn, trigger) {
   }
 }
 __name(scheduleDelayedPrefetching, "scheduleDelayedPrefetching");
-function scheduleDelayedHydrating(scheduleFn, lView, tNode) {
-  if (false)
-    return;
-  const injector = lView[INJECTOR];
-  const lDetails = getLDeferBlockDetails(lView, tNode);
-  const ssrUniqueId = lDetails[SSR_UNIQUE_ID];
-  ngDevMode && assertSsrIdDefined(ssrUniqueId);
-  const cleanupFn = scheduleFn(() => triggerHydrationFromBlockName(injector, ssrUniqueId), injector);
-  storeTriggerCleanupFn(2, lDetails, cleanupFn);
-}
-__name(scheduleDelayedHydrating, "scheduleDelayedHydrating");
 function triggerPrefetching(tDetails, lView, tNode) {
   triggerResourceLoading(tDetails, lView, tNode);
 }
@@ -20668,12 +17740,12 @@ function triggerResourceLoading(tDetails, lView, tNode) {
 }
 __name(triggerResourceLoading, "triggerResourceLoading");
 function shouldTriggerDeferBlock(triggerType, lView) {
-  if (triggerType === 0 && true && false) {
+  if (triggerType === 0 && true && true) {
     return false;
   }
   const injector = lView[INJECTOR];
-  const config2 = injector.get(DEFER_BLOCK_CONFIG, null, { optional: true });
-  if (config2?.behavior === DeferBlockBehavior.Manual) {
+  const config = injector.get(DEFER_BLOCK_CONFIG, null, { optional: true });
+  if (config?.behavior === DeferBlockBehavior.Manual) {
     return false;
   }
   return true;
@@ -20709,120 +17781,18 @@ function triggerDeferBlock(triggerType, lView, tNode) {
       break;
     default:
       if (ngDevMode) {
-        throwError2("Unknown defer block state");
+        throwError("Unknown defer block state");
       }
   }
 }
 __name(triggerDeferBlock, "triggerDeferBlock");
-async function triggerHydrationFromBlockName(injector, blockName, replayQueuedEventsFn) {
-  const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-  const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
-  if (blocksBeingHydrated.has(blockName)) {
-    return;
-  }
-  const { parentBlockPromise, hydrationQueue } = getParentBlockHydrationQueue(blockName, injector);
-  if (hydrationQueue.length === 0)
-    return;
-  if (parentBlockPromise !== null) {
-    hydrationQueue.shift();
-  }
-  populateHydratingStateForQueue(dehydratedBlockRegistry, hydrationQueue);
-  if (parentBlockPromise !== null) {
-    await parentBlockPromise;
-  }
-  const topmostParentBlock = hydrationQueue[0];
-  if (dehydratedBlockRegistry.has(topmostParentBlock)) {
-    await triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn);
-  } else {
-    dehydratedBlockRegistry.awaitParentBlock(topmostParentBlock, async () => await triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn));
-  }
-}
-__name(triggerHydrationFromBlockName, "triggerHydrationFromBlockName");
-async function triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn) {
-  const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-  const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
-  const pendingTasks = injector.get(PendingTasksInternal);
-  const taskId = pendingTasks.add();
-  for (let blockQueueIdx = 0; blockQueueIdx < hydrationQueue.length; blockQueueIdx++) {
-    const dehydratedBlockId = hydrationQueue[blockQueueIdx];
-    const dehydratedDeferBlock = dehydratedBlockRegistry.get(dehydratedBlockId);
-    if (dehydratedDeferBlock != null) {
-      await triggerResourceLoadingForHydration(dehydratedDeferBlock);
-      await nextRender(injector);
-      if (deferBlockHasErrored(dehydratedDeferBlock)) {
-        removeDehydratedViewList(dehydratedDeferBlock);
-        cleanupRemainingHydrationQueue(hydrationQueue.slice(blockQueueIdx), dehydratedBlockRegistry);
-        break;
-      }
-      blocksBeingHydrated.get(dehydratedBlockId).resolve();
-    } else {
-      cleanupParentContainer(blockQueueIdx, hydrationQueue, dehydratedBlockRegistry);
-      cleanupRemainingHydrationQueue(hydrationQueue.slice(blockQueueIdx), dehydratedBlockRegistry);
-      break;
-    }
-  }
-  const lastBlockName = hydrationQueue[hydrationQueue.length - 1];
-  await blocksBeingHydrated.get(lastBlockName)?.promise;
-  pendingTasks.remove(taskId);
-  if (replayQueuedEventsFn) {
-    replayQueuedEventsFn(hydrationQueue);
-  }
-  cleanupHydratedDeferBlocks(dehydratedBlockRegistry.get(lastBlockName), hydrationQueue, dehydratedBlockRegistry, injector.get(ApplicationRef));
-}
-__name(triggerHydrationForBlockQueue, "triggerHydrationForBlockQueue");
-function deferBlockHasErrored(deferBlock) {
-  return getLDeferBlockDetails(deferBlock.lView, deferBlock.tNode)[DEFER_BLOCK_STATE] === DeferBlockState.Error;
-}
-__name(deferBlockHasErrored, "deferBlockHasErrored");
-function cleanupParentContainer(currentBlockIdx, hydrationQueue, dehydratedBlockRegistry) {
-  const parentDeferBlockIdx = currentBlockIdx - 1;
-  const parentDeferBlock = parentDeferBlockIdx > -1 ? dehydratedBlockRegistry.get(hydrationQueue[parentDeferBlockIdx]) : null;
-  if (parentDeferBlock) {
-    cleanupLContainer(parentDeferBlock.lContainer);
-  }
-}
-__name(cleanupParentContainer, "cleanupParentContainer");
-function cleanupRemainingHydrationQueue(hydrationQueue, dehydratedBlockRegistry) {
-  const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
-  for (const dehydratedBlockId in hydrationQueue) {
-    blocksBeingHydrated.get(dehydratedBlockId)?.reject();
-  }
-  dehydratedBlockRegistry.cleanup(hydrationQueue);
-}
-__name(cleanupRemainingHydrationQueue, "cleanupRemainingHydrationQueue");
-function populateHydratingStateForQueue(registry2, queue2) {
-  for (let blockId of queue2) {
-    registry2.hydrating.set(blockId, Promise.withResolvers());
-  }
-}
-__name(populateHydratingStateForQueue, "populateHydratingStateForQueue");
-function nextRender(injector) {
-  return new Promise((resolveFn) => afterNextRender(resolveFn, { injector }));
-}
-__name(nextRender, "nextRender");
-async function triggerResourceLoadingForHydration(dehydratedBlock) {
-  const { tNode, lView } = dehydratedBlock;
-  const lDetails = getLDeferBlockDetails(lView, tNode);
-  return new Promise((resolve) => {
-    onDeferBlockCompletion(lDetails, resolve);
-    triggerDeferBlock(2, lView, tNode);
-  });
-}
-__name(triggerResourceLoadingForHydration, "triggerResourceLoadingForHydration");
-function onDeferBlockCompletion(lDetails, callback) {
-  if (!Array.isArray(lDetails[ON_COMPLETE_FNS])) {
-    lDetails[ON_COMPLETE_FNS] = [];
-  }
-  lDetails[ON_COMPLETE_FNS].push(callback);
-}
-__name(onDeferBlockCompletion, "onDeferBlockCompletion");
 function shouldAttachTrigger(triggerType, lView, tNode) {
   if (triggerType === 0) {
     return shouldAttachRegularTrigger(lView, tNode);
   } else if (triggerType === 2) {
     return !shouldAttachRegularTrigger(lView, tNode);
   }
-  return true;
+  return false;
 }
 __name(shouldAttachTrigger, "shouldAttachTrigger");
 function hasHydrateTriggers(flags) {
@@ -20834,7 +17804,7 @@ function shouldAttachRegularTrigger(lView, tNode) {
   const tDetails = getTDeferBlockDetails(lView[TVIEW], tNode);
   const incrementalHydrationEnabled = isIncrementalHydrationEnabled(injector);
   const _hasHydrateTriggers = hasHydrateTriggers(tDetails.flags);
-  if (false) {
+  if (true) {
     return !incrementalHydrationEnabled || !_hasHydrateTriggers;
   }
   const lDetails = getLDeferBlockDetails(lView, tNode);
@@ -20850,79 +17820,6 @@ function getHydrateTriggers(tView, tNode) {
   return tDetails.hydrateTriggers ??= /* @__PURE__ */ new Map();
 }
 __name(getHydrateTriggers, "getHydrateTriggers");
-function processAndInitTriggers(injector, blockData, nodes) {
-  const idleElements = [];
-  const timerElements = [];
-  const viewportElements = [];
-  const immediateElements = [];
-  for (let [blockId, blockSummary] of blockData) {
-    const commentNode = nodes.get(blockId);
-    if (commentNode !== void 0) {
-      const numRootNodes = blockSummary.data[NUM_ROOT_NODES];
-      let currentNode = commentNode;
-      for (let i = 0; i < numRootNodes; i++) {
-        currentNode = currentNode.previousSibling;
-        if (currentNode.nodeType !== Node.ELEMENT_NODE) {
-          continue;
-        }
-        const elementTrigger = { el: currentNode, blockName: blockId };
-        if (blockSummary.hydrate.idle) {
-          idleElements.push(elementTrigger);
-        }
-        if (blockSummary.hydrate.immediate) {
-          immediateElements.push(elementTrigger);
-        }
-        if (blockSummary.hydrate.timer !== null) {
-          elementTrigger.delay = blockSummary.hydrate.timer;
-          timerElements.push(elementTrigger);
-        }
-        if (blockSummary.hydrate.viewport) {
-          viewportElements.push(elementTrigger);
-        }
-      }
-    }
-  }
-  setIdleTriggers(injector, idleElements);
-  setImmediateTriggers(injector, immediateElements);
-  setViewportTriggers(injector, viewportElements);
-  setTimerTriggers(injector, timerElements);
-}
-__name(processAndInitTriggers, "processAndInitTriggers");
-function setIdleTriggers(injector, elementTriggers) {
-  for (const elementTrigger of elementTriggers) {
-    const registry2 = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-    const onInvoke = /* @__PURE__ */ __name(() => triggerHydrationFromBlockName(injector, elementTrigger.blockName), "onInvoke");
-    const cleanupFn = onIdle(onInvoke, injector);
-    registry2.addCleanupFn(elementTrigger.blockName, cleanupFn);
-  }
-}
-__name(setIdleTriggers, "setIdleTriggers");
-function setViewportTriggers(injector, elementTriggers) {
-  if (elementTriggers.length > 0) {
-    const registry2 = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-    for (let elementTrigger of elementTriggers) {
-      const cleanupFn = onViewportWrapper(elementTrigger.el, () => triggerHydrationFromBlockName(injector, elementTrigger.blockName), injector);
-      registry2.addCleanupFn(elementTrigger.blockName, cleanupFn);
-    }
-  }
-}
-__name(setViewportTriggers, "setViewportTriggers");
-function setTimerTriggers(injector, elementTriggers) {
-  for (const elementTrigger of elementTriggers) {
-    const registry2 = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-    const onInvoke = /* @__PURE__ */ __name(() => triggerHydrationFromBlockName(injector, elementTrigger.blockName), "onInvoke");
-    const timerFn = onTimer(elementTrigger.delay);
-    const cleanupFn = timerFn(onInvoke, injector);
-    registry2.addCleanupFn(elementTrigger.blockName, cleanupFn);
-  }
-}
-__name(setTimerTriggers, "setTimerTriggers");
-function setImmediateTriggers(injector, elementTriggers) {
-  for (const elementTrigger of elementTriggers) {
-    triggerHydrationFromBlockName(injector, elementTrigger.blockName);
-  }
-}
-__name(setImmediateTriggers, "setImmediateTriggers");
 var _hmrWarningProduced = false;
 function logHmrWarning(injector) {
   if (!_hmrWarningProduced) {
@@ -21077,7 +17974,7 @@ function ɵɵdeferHydrateWhen(rawValue) {
   const hydrateTriggers = getHydrateTriggers(tView, tNode);
   hydrateTriggers.set(6, null);
   if (bindingUpdated(lView, bindingIndex, rawValue)) {
-    if (false) {
+    if (true) {
       triggerDeferBlock(2, lView, tNode);
     } else {
       const injector = lView[INJECTOR];
@@ -21107,7 +18004,7 @@ function ɵɵdeferHydrateNever() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(7, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   }
 }
@@ -21144,7 +18041,7 @@ function ɵɵdeferHydrateOnIdle() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(0, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   } else {
     scheduleDelayedHydrating(onIdle, lView, tNode);
@@ -21191,7 +18088,7 @@ function ɵɵdeferHydrateOnImmediate() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(1, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   } else {
     const injector = lView[INJECTOR];
@@ -21202,42 +18099,42 @@ function ɵɵdeferHydrateOnImmediate() {
   }
 }
 __name(ɵɵdeferHydrateOnImmediate, "ɵɵdeferHydrateOnImmediate");
-function ɵɵdeferOnTimer(delay2) {
+function ɵɵdeferOnTimer(delay) {
   const lView = getLView();
   const tNode = getCurrentTNode();
   if (ngDevMode) {
-    trackTriggerForDebugging(lView[TVIEW], tNode, `on timer(${delay2}ms)`);
+    trackTriggerForDebugging(lView[TVIEW], tNode, `on timer(${delay}ms)`);
   }
   if (!shouldAttachTrigger(0, lView, tNode))
     return;
-  scheduleDelayedTrigger(onTimer(delay2));
+  scheduleDelayedTrigger(onTimer(delay));
 }
 __name(ɵɵdeferOnTimer, "ɵɵdeferOnTimer");
-function ɵɵdeferPrefetchOnTimer(delay2) {
+function ɵɵdeferPrefetchOnTimer(delay) {
   const lView = getLView();
   const tNode = getCurrentTNode();
   if (ngDevMode) {
-    trackTriggerForDebugging(lView[TVIEW], tNode, `prefetch on timer(${delay2}ms)`);
+    trackTriggerForDebugging(lView[TVIEW], tNode, `prefetch on timer(${delay}ms)`);
   }
   if (!shouldAttachTrigger(1, lView, tNode))
     return;
-  scheduleDelayedPrefetching(onTimer(delay2));
+  scheduleDelayedPrefetching(onTimer(delay));
 }
 __name(ɵɵdeferPrefetchOnTimer, "ɵɵdeferPrefetchOnTimer");
-function ɵɵdeferHydrateOnTimer(delay2) {
+function ɵɵdeferHydrateOnTimer(delay) {
   const lView = getLView();
   const tNode = getCurrentTNode();
   if (ngDevMode) {
-    trackTriggerForDebugging(lView[TVIEW], tNode, `hydrate on timer(${delay2}ms)`);
+    trackTriggerForDebugging(lView[TVIEW], tNode, `hydrate on timer(${delay}ms)`);
   }
   if (!shouldAttachTrigger(2, lView, tNode))
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
-  hydrateTriggers.set(5, { delay: delay2 });
-  if (false) {
+  hydrateTriggers.set(5, { delay });
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   } else {
-    scheduleDelayedHydrating(onTimer(delay2), lView, tNode);
+    scheduleDelayedHydrating(onTimer(delay), lView, tNode);
   }
 }
 __name(ɵɵdeferHydrateOnTimer, "ɵɵdeferHydrateOnTimer");
@@ -21250,7 +18147,7 @@ function ɵɵdeferOnHover(triggerIndex, walkUpTimes) {
   if (!shouldAttachTrigger(0, lView, tNode))
     return;
   renderPlaceholder(lView, tNode);
-  if (true) {
+  if (false) {
     registerDomTrigger(
       lView,
       tNode,
@@ -21298,7 +18195,7 @@ function ɵɵdeferHydrateOnHover() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(4, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   }
 }
@@ -21312,7 +18209,7 @@ function ɵɵdeferOnInteraction(triggerIndex, walkUpTimes) {
   if (!shouldAttachTrigger(0, lView, tNode))
     return;
   renderPlaceholder(lView, tNode);
-  if (true) {
+  if (false) {
     registerDomTrigger(
       lView,
       tNode,
@@ -21360,7 +18257,7 @@ function ɵɵdeferHydrateOnInteraction() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(3, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   }
 }
@@ -21374,7 +18271,7 @@ function ɵɵdeferOnViewport(triggerIndex, walkUpTimes) {
   if (!shouldAttachTrigger(0, lView, tNode))
     return;
   renderPlaceholder(lView, tNode);
-  if (true) {
+  if (false) {
     registerDomTrigger(
       lView,
       tNode,
@@ -21422,7 +18319,7 @@ function ɵɵdeferHydrateOnViewport() {
     return;
   const hydrateTriggers = getHydrateTriggers(getTView(), tNode);
   hydrateTriggers.set(2, null);
-  if (false) {
+  if (true) {
     triggerDeferBlock(2, lView, tNode);
   }
 }
@@ -21671,8 +18568,7 @@ function determineLongestAnimationFromElementAnimations(el, animationsMap, anima
 }
 __name(determineLongestAnimationFromElementAnimations, "determineLongestAnimationFromElementAnimations");
 var DEFAULT_ANIMATIONS_DISABLED = false;
-var areAnimationSupported = typeof document !== "undefined" && // tslint:disable-next-line:no-toplevel-property-access
-typeof document?.documentElement?.getAnimations === "function";
+var areAnimationSupported = false;
 function areAnimationsDisabled(lView) {
   const injector = lView[INJECTOR];
   return injector.get(ANIMATIONS_DISABLED, DEFAULT_ANIMATIONS_DISABLED);
@@ -21736,7 +18632,7 @@ function trackLeavingNodes(tNode, el) {
 __name(trackLeavingNodes, "trackLeavingNodes");
 function ɵɵanimateEnter(value) {
   performanceMarkFeature("NgAnimateEnter");
-  if (!areAnimationSupported) {
+  if (true) {
     return ɵɵanimateEnter;
   }
   ngDevMode && assertAnimationTypes(value, "animate.enter");
@@ -21801,7 +18697,7 @@ function trackEnterClasses(el, classList, cleanupFns) {
 __name(trackEnterClasses, "trackEnterClasses");
 function ɵɵanimateEnterListener(value) {
   performanceMarkFeature("NgAnimateEnter");
-  if (!areAnimationSupported) {
+  if (true) {
     return ɵɵanimateEnterListener;
   }
   ngDevMode && assertAnimationTypes(value, "animate.enter");
@@ -21819,7 +18715,7 @@ function ɵɵanimateEnterListener(value) {
 __name(ɵɵanimateEnterListener, "ɵɵanimateEnterListener");
 function ɵɵanimateLeave(value) {
   performanceMarkFeature("NgAnimateLeave");
-  if (!areAnimationSupported) {
+  if (true) {
     return ɵɵanimateLeave;
   }
   ngDevMode && assertAnimationTypes(value, "animate.leave");
@@ -21848,7 +18744,7 @@ function ɵɵanimateLeave(value) {
 __name(ɵɵanimateLeave, "ɵɵanimateLeave");
 function ɵɵanimateLeaveListener(value) {
   performanceMarkFeature("NgAnimateLeave");
-  if (!areAnimationSupported) {
+  if (true) {
     return ɵɵanimateLeaveListener;
   }
   ngDevMode && assertAnimationTypes(value, "animate.leave");
@@ -23102,7 +19998,7 @@ function applyMutableOpCodes(tView, mutableOpCodes, lView, anchorRNode) {
           }
           break;
         default:
-          ngDevMode && throwError2(`Unable to determine the type of mutate operation for "${opCode}"`);
+          ngDevMode && throwError(`Unable to determine the type of mutate operation for "${opCode}"`);
       }
     }
   }
@@ -23575,14 +20471,14 @@ function generateBindingUpdateOpCodes(updateOpCodes, str, destinationNode, attrN
 }
 __name(generateBindingUpdateOpCodes, "generateBindingUpdateOpCodes");
 function countBindings(opCodes) {
-  let count2 = 0;
+  let count = 0;
   for (let i = 0; i < opCodes.length; i++) {
     const opCode = opCodes[i];
     if (typeof opCode === "number" && opCode < 0) {
-      count2++;
+      count++;
     }
   }
-  return count2;
+  return count;
 }
 __name(countBindings, "countBindings");
 function toMaskBit(bindingIndex) {
@@ -24118,8 +21014,8 @@ function ɵɵprojection(nodeIndex, selectorIndex = 0, attrs, fallbackTemplateFn,
   const hydrationInfo = lView[HYDRATION];
   const isNodeCreationMode = !hydrationInfo || isInSkipHydrationBlock();
   const componentHostNode = lView[DECLARATION_COMPONENT_VIEW][T_HOST];
-  const isEmpty2 = componentHostNode.projection[tProjectionNode.projection] === null;
-  if (isEmpty2 && fallbackIndex !== null) {
+  const isEmpty = componentHostNode.projection[tProjectionNode.projection] === null;
+  if (isEmpty && fallbackIndex !== null) {
     insertFallbackContent(lView, tView, fallbackIndex);
   } else if (isNodeCreationMode && !isDetachedByI18n(tProjectionNode)) {
     applyProjection(tView, lView, tProjectionNode);
@@ -24498,7 +21394,7 @@ function consumeQuotedText(text, quoteCharCode, startIndex, endIndex) {
 __name(consumeQuotedText, "consumeQuotedText");
 function malformedStyleError(text, expecting, index) {
   ngDevMode && assertEqual(typeof text === "string", true, "String expected here");
-  throw throwError2(`Malformed style at location ${index} in string '` + text.substring(0, index) + "[>>" + text.substring(index, index + 1) + "<<]" + text.slice(index + 1) + `'. Expecting '${expecting}'.`);
+  throw throwError(`Malformed style at location ${index} in string '` + text.substring(0, index) + "[>>" + text.substring(index, index + 1) + "<<]" + text.slice(index + 1) + `'. Expecting '${expecting}'.`);
 }
 __name(malformedStyleError, "malformedStyleError");
 function ɵɵstyleProp(prop, value, suffix) {
@@ -24709,7 +21605,7 @@ function toStylingKeyValueArray(keyValueArraySet2, stringParser, value) {
   } else if (typeof unwrappedValue === "string") {
     stringParser(styleKeyValueArray, unwrappedValue);
   } else {
-    ngDevMode && throwError2("Unsupported styling type: " + typeof unwrappedValue + " (" + unwrappedValue + ")");
+    ngDevMode && throwError("Unsupported styling type: " + typeof unwrappedValue + " (" + unwrappedValue + ")");
   }
   return styleKeyValueArray;
 }
@@ -25528,7 +22424,7 @@ __name(ɵɵpipe, "ɵɵpipe");
 function getPipeDef2(name, registry2) {
   if (registry2) {
     if (ngDevMode) {
-      const pipes = registry2.filter((pipe2) => pipe2.name === name);
+      const pipes = registry2.filter((pipe) => pipe.name === name);
       if (pipes.length > 1) {
         console.warn(formatRuntimeError(313, getMultipleMatchingPipesMessage(name)));
       }
@@ -25549,9 +22445,9 @@ __name(getPipeDef2, "getPipeDef");
 function getMultipleMatchingPipesMessage(name) {
   const lView = getLView();
   const declarationLView = lView[DECLARATION_COMPONENT_VIEW];
-  const context2 = declarationLView[CONTEXT];
+  const context = declarationLView[CONTEXT];
   const hostIsStandalone = isHostComponentStandalone(lView);
-  const componentInfoMessage = context2 ? ` in the '${context2.constructor.name}' component` : "";
+  const componentInfoMessage = context ? ` in the '${context.constructor.name}' component` : "";
   const verifyMessage = `check ${hostIsStandalone ? "'@Component.imports' of this component" : "the imports of this module"}`;
   const errorMessage = `Multiple pipes match the name \`${name}\`${componentInfoMessage}. ${verifyMessage}`;
   return errorMessage;
@@ -25560,9 +22456,9 @@ __name(getMultipleMatchingPipesMessage, "getMultipleMatchingPipesMessage");
 function getPipeNotFoundErrorMessage(name) {
   const lView = getLView();
   const declarationLView = lView[DECLARATION_COMPONENT_VIEW];
-  const context2 = declarationLView[CONTEXT];
+  const context = declarationLView[CONTEXT];
   const hostIsStandalone = isHostComponentStandalone(lView);
-  const componentInfoMessage = context2 ? ` in the '${context2.constructor.name}' component` : "";
+  const componentInfoMessage = context ? ` in the '${context.constructor.name}' component` : "";
   const verifyMessage = `Verify that it is ${hostIsStandalone ? "included in the '@Component.imports' of this component" : "declared or imported in this module"}`;
   const errorMessage = `The pipe '${name}' could not be found${componentInfoMessage}. ${verifyMessage}`;
   return errorMessage;
@@ -25629,8 +22525,8 @@ function ɵsetClassDebugInfo(type, debugInfo) {
   }
 }
 __name(ɵsetClassDebugInfo, "ɵsetClassDebugInfo");
-function ɵɵgetReplaceMetadataURL(id, timestamp2, base) {
-  const url = `./@ng/component?c=${id}&t=${encodeURIComponent(timestamp2)}`;
+function ɵɵgetReplaceMetadataURL(id, timestamp, base) {
+  const url = `./@ng/component?c=${id}&t=${encodeURIComponent(timestamp)}`;
   return new URL(url, base).href;
 }
 __name(ɵɵgetReplaceMetadataURL, "ɵɵgetReplaceMetadataURL");
@@ -26318,7 +23214,7 @@ function setScopeOnDeclaredComponents(moduleType, ngModule) {
 __name(setScopeOnDeclaredComponents, "setScopeOnDeclaredComponents");
 function patchComponentDefWithScope(componentDef, transitiveScopes) {
   componentDef.directiveDefs = () => Array.from(transitiveScopes.compilation.directives).map((dir) => dir.hasOwnProperty(NG_COMP_DEF) ? getComponentDef(dir) : getDirectiveDef(dir)).filter((def) => !!def);
-  componentDef.pipeDefs = () => Array.from(transitiveScopes.compilation.pipes).map((pipe2) => getPipeDef(pipe2));
+  componentDef.pipeDefs = () => Array.from(transitiveScopes.compilation.pipes).map((pipe) => getPipeDef(pipe));
   componentDef.schemas = transitiveScopes.schemas;
   componentDef.tView = null;
 }
@@ -26994,7 +23890,7 @@ function getNgZoneOptions(options) {
 }
 __name(getNgZoneOptions, "getNgZoneOptions");
 var _ZoneStablePendingTask = class _ZoneStablePendingTask {
-  subscription = new Subscription();
+  subscription = new import_rxjs2.Subscription();
   initialized = false;
   zone = inject2(NgZone);
   pendingTasks = inject2(PendingTasksInternal);
@@ -27065,7 +23961,7 @@ var _ChangeDetectionSchedulerImpl = class _ChangeDetectionSchedulerImpl {
   disableScheduling = inject2(ZONELESS_SCHEDULER_DISABLED, { optional: true }) ?? false;
   zoneIsDefined = typeof Zone !== "undefined" && !!Zone.root.run;
   schedulerTickApplyArgs = [{ data: { "__scheduler_tick__": true } }];
-  subscriptions = new Subscription();
+  subscriptions = new import_rxjs2.Subscription();
   angularZoneId = this.zoneIsDefined ? this.ngZone._inner?.get(angularZoneInstanceIdProperty) : null;
   scheduleInRootZone = !this.zonelessEnabled && this.zoneIsDefined && (inject2(SCHEDULE_IN_ROOT_ZONE, { optional: true }) ?? false);
   cancelScheduledCallback = null;
@@ -27360,11 +24256,11 @@ var _DebugElement = class _DebugElement extends DebugNode {
    * The element tag name, if it is an element.
    */
   get name() {
-    const context2 = getLContext(this.nativeNode);
-    const lView = context2 ? context2.lView : null;
+    const context = getLContext(this.nativeNode);
+    const lView = context ? context.lView : null;
     if (lView !== null) {
       const tData = lView[TVIEW].data;
-      const tNode = tData[context2.nodeIndex];
+      const tNode = tData[context.nodeIndex];
       return tNode.value;
     } else {
       return this.nativeNode.nodeName;
@@ -27383,13 +24279,13 @@ var _DebugElement = class _DebugElement extends DebugNode {
    *  - attribute bindings (e.g. `[attr.role]="menu"`)
    */
   get properties() {
-    const context2 = getLContext(this.nativeNode);
-    const lView = context2 ? context2.lView : null;
+    const context = getLContext(this.nativeNode);
+    const lView = context ? context.lView : null;
     if (lView === null) {
       return {};
     }
     const tData = lView[TVIEW].data;
-    const tNode = tData[context2.nodeIndex];
+    const tNode = tData[context.nodeIndex];
     const properties = {};
     copyDomProperties(this.nativeElement, properties);
     collectPropertyBindings(properties, tNode, lView, tData);
@@ -27405,12 +24301,12 @@ var _DebugElement = class _DebugElement extends DebugNode {
     if (!element) {
       return attributes;
     }
-    const context2 = getLContext(element);
-    const lView = context2 ? context2.lView : null;
+    const context = getLContext(element);
+    const lView = context ? context.lView : null;
     if (lView === null) {
       return {};
     }
-    const tNodeAttrs = lView[TVIEW].data[context2.nodeIndex].attrs;
+    const tNodeAttrs = lView[TVIEW].data[context.nodeIndex].attrs;
     const lowercaseTNodeAttrs = [];
     if (tNodeAttrs) {
       let i = 0;
@@ -27567,10 +24463,10 @@ function isPrimitiveValue(value) {
 }
 __name(isPrimitiveValue, "isPrimitiveValue");
 function _queryAll(parentElement, predicate, matches, elementsOnly) {
-  const context2 = getLContext(parentElement.nativeNode);
-  const lView = context2 ? context2.lView : null;
+  const context = getLContext(parentElement.nativeNode);
+  const lView = context ? context.lView : null;
   if (lView !== null) {
-    const parentTNode = lView[TVIEW].data[context2.nodeIndex];
+    const parentTNode = lView[TVIEW].data[context.nodeIndex];
     _queryNodeChildren(parentTNode, lView, predicate, matches, elementsOnly, parentElement.nativeNode);
   } else {
     _queryNativeNodeDescendants(parentElement.nativeNode, predicate, matches, elementsOnly);
@@ -27820,7 +24716,7 @@ __name(effect, "effect");
 var EFFECT_NODE = (() => __spreadProps(__spreadValues({}, BASE_EFFECT_NODE), {
   cleanupFns: void 0,
   zone: null,
-  onDestroyFn: noop2,
+  onDestroyFn: noop,
   run() {
     if (ngDevMode && isInNotificationPhase()) {
       throw new Error(`Schedulers cannot synchronously execute watches while scheduling.`);
@@ -28213,41 +25109,6 @@ __name(_ResourceWrappedError, "ResourceWrappedError");
 var ResourceWrappedError = _ResourceWrappedError;
 
 // node_modules/@angular/core/fesm2022/primitives/event-dispatch.mjs
-var Property = {
-  /**
-   * The parsed value of the jsaction attribute is stored in this
-   * property on the DOM node. The parsed value is an Object. The
-   * property names of the object are the events; the values are the
-   * names of the actions. This property is attached even on nodes
-   * that don't have a jsaction attribute as an optimization, because
-   * property lookup is faster than attribute access.
-   */
-  JSACTION: "__jsaction",
-  /**
-   * The owner property references an a logical owner for a DOM node. JSAction
-   * will follow this reference instead of parentNode when traversing the DOM
-   * to find jsaction attributes. This allows overlaying a logical structure
-   * over a document where the DOM structure can't reflect that structure.
-   */
-  OWNER: "__owner"
-};
-var parseCache = {};
-function get(element) {
-  return element[Property.JSACTION];
-}
-__name(get, "get");
-function set(element, actionMap) {
-  element[Property.JSACTION] = actionMap;
-}
-__name(set, "set");
-function getParsed(text) {
-  return parseCache[text];
-}
-__name(getParsed, "getParsed");
-function setParsed(text, parsed) {
-  parseCache[text] = parsed;
-}
-__name(setParsed, "setParsed");
 var EventType = {
   /**
    * Mouse middle click, introduced in Chrome 55 and not yet supported on
@@ -28545,881 +25406,18 @@ var CAPTURE_EVENT_TYPES = [
 var isCaptureEventType = /* @__PURE__ */ __name((eventType) => CAPTURE_EVENT_TYPES.indexOf(eventType) >= 0, "isCaptureEventType");
 var EARLY_EVENT_TYPES = BUBBLE_EVENT_TYPES.concat(CAPTURE_EVENT_TYPES);
 var isEarlyEventType = /* @__PURE__ */ __name((eventType) => EARLY_EVENT_TYPES.indexOf(eventType) >= 0, "isEarlyEventType");
-function getBrowserEventType(eventType) {
-  if (eventType === EventType.MOUSEENTER) {
-    return EventType.MOUSEOVER;
-  } else if (eventType === EventType.MOUSELEAVE) {
-    return EventType.MOUSEOUT;
-  } else if (eventType === EventType.POINTERENTER) {
-    return EventType.POINTEROVER;
-  } else if (eventType === EventType.POINTERLEAVE) {
-    return EventType.POINTEROUT;
-  }
-  return eventType;
-}
-__name(getBrowserEventType, "getBrowserEventType");
-function addEventListener(element, eventType, handler, passive) {
-  let capture = false;
-  if (isCaptureEventType(eventType)) {
-    capture = true;
-  }
-  const options = typeof passive === "boolean" ? { capture, passive } : capture;
-  element.addEventListener(eventType, handler, options);
-  return { eventType, handler, capture, passive };
-}
-__name(addEventListener, "addEventListener");
-function removeEventListener(element, info) {
-  if (element.removeEventListener) {
-    const options = typeof info.passive === "boolean" ? { capture: info.capture } : info.capture;
-    element.removeEventListener(info.eventType, info.handler, options);
-  } else if (element.detachEvent) {
-    element.detachEvent(`on${info.eventType}`, info.handler);
-  }
-}
-__name(removeEventListener, "removeEventListener");
-function preventDefault(e) {
-  e.preventDefault ? e.preventDefault() : e.returnValue = false;
-}
-__name(preventDefault, "preventDefault");
 var isMac = typeof navigator !== "undefined" && /Macintosh/.test(navigator.userAgent);
-function isMiddleClick(e) {
-  return (
-    // `which` is an old DOM API.
-    e.which === 2 || // `which` is an old DOM API.
-    e.which == null && // `button` is an old DOM API.
-    e.button === 4
-  );
-}
-__name(isMiddleClick, "isMiddleClick");
-function isModifiedClickEvent(e) {
-  return (
-    // `metaKey` is an old DOM API.
-    isMac && e.metaKey || // `ctrlKey` is an old DOM API.
-    !isMac && e.ctrlKey || isMiddleClick(e) || // `shiftKey` is an old DOM API.
-    e.shiftKey
-  );
-}
-__name(isModifiedClickEvent, "isModifiedClickEvent");
-function isMouseSpecialEvent(e, type, element) {
-  const related = e.relatedTarget;
-  return (e.type === EventType.MOUSEOVER && type === EventType.MOUSEENTER || e.type === EventType.MOUSEOUT && type === EventType.MOUSELEAVE || e.type === EventType.POINTEROVER && type === EventType.POINTERENTER || e.type === EventType.POINTEROUT && type === EventType.POINTERLEAVE) && (!related || related !== element && !element.contains(related));
-}
-__name(isMouseSpecialEvent, "isMouseSpecialEvent");
-function createMouseSpecialEvent(e, target) {
-  const copy = {};
-  for (const property in e) {
-    if (property === "srcElement" || property === "target") {
-      continue;
-    }
-    const key = property;
-    const value = e[key];
-    if (typeof value === "function") {
-      continue;
-    }
-    copy[key] = value;
-  }
-  if (e.type === EventType.MOUSEOVER) {
-    copy["type"] = EventType.MOUSEENTER;
-  } else if (e.type === EventType.MOUSEOUT) {
-    copy["type"] = EventType.MOUSELEAVE;
-  } else if (e.type === EventType.POINTEROVER) {
-    copy["type"] = EventType.POINTERENTER;
-  } else {
-    copy["type"] = EventType.POINTERLEAVE;
-  }
-  copy["target"] = copy["srcElement"] = target;
-  copy["bubbles"] = false;
-  copy["_originalEvent"] = e;
-  return copy;
-}
-__name(createMouseSpecialEvent, "createMouseSpecialEvent");
 var isIos = typeof navigator !== "undefined" && /iPhone|iPad|iPod/.test(navigator.userAgent);
-var _EventContractContainer = class _EventContractContainer {
-  element;
-  /**
-   * Array of event handlers and their corresponding event types that are
-   * installed on this container.
-   *
-   */
-  handlerInfos = [];
-  /**
-   * @param element The container Element.
-   */
-  constructor(element) {
-    this.element = element;
-  }
-  /**
-   * Installs the provided installer on the element owned by this container,
-   * and maintains a reference to resulting handler in order to remove it
-   * later if desired.
-   */
-  addEventListener(eventType, getHandler, passive) {
-    if (isIos) {
-      this.element.style.cursor = "pointer";
-    }
-    this.handlerInfos.push(addEventListener(this.element, eventType, getHandler(this.element), passive));
-  }
-  /**
-   * Removes all the handlers installed on this container.
-   */
-  cleanUp() {
-    for (let i = 0; i < this.handlerInfos.length; i++) {
-      removeEventListener(this.element, this.handlerInfos[i]);
-    }
-    this.handlerInfos = [];
-  }
-};
-__name(_EventContractContainer, "EventContractContainer");
-var EventContractContainer = _EventContractContainer;
-var Char = {
-  /**
-   * The separator between the namespace and the action name in the
-   * jsaction attribute value.
-   */
-  NAMESPACE_ACTION_SEPARATOR: ".",
-  /**
-   * The separator between the event name and action in the jsaction
-   * attribute value.
-   */
-  EVENT_ACTION_SEPARATOR: ":"
-};
-function getEventType(eventInfo) {
-  return eventInfo.eventType;
-}
-__name(getEventType, "getEventType");
-function setEventType(eventInfo, eventType) {
-  eventInfo.eventType = eventType;
-}
-__name(setEventType, "setEventType");
-function getEvent(eventInfo) {
-  return eventInfo.event;
-}
-__name(getEvent, "getEvent");
-function setEvent(eventInfo, event) {
-  eventInfo.event = event;
-}
-__name(setEvent, "setEvent");
-function getTargetElement(eventInfo) {
-  return eventInfo.targetElement;
-}
-__name(getTargetElement, "getTargetElement");
-function setTargetElement(eventInfo, targetElement) {
-  eventInfo.targetElement = targetElement;
-}
-__name(setTargetElement, "setTargetElement");
-function getContainer(eventInfo) {
-  return eventInfo.eic;
-}
-__name(getContainer, "getContainer");
-function setContainer(eventInfo, container) {
-  eventInfo.eic = container;
-}
-__name(setContainer, "setContainer");
-function getTimestamp(eventInfo) {
-  return eventInfo.timeStamp;
-}
-__name(getTimestamp, "getTimestamp");
-function setTimestamp(eventInfo, timestamp2) {
-  eventInfo.timeStamp = timestamp2;
-}
-__name(setTimestamp, "setTimestamp");
-function getAction(eventInfo) {
-  return eventInfo.eia;
-}
-__name(getAction, "getAction");
-function setAction(eventInfo, actionName, actionElement) {
-  eventInfo.eia = [actionName, actionElement];
-}
-__name(setAction, "setAction");
-function unsetAction(eventInfo) {
-  eventInfo.eia = void 0;
-}
-__name(unsetAction, "unsetAction");
-function getActionElement(actionInfo) {
-  return actionInfo[1];
-}
-__name(getActionElement, "getActionElement");
-function getIsReplay(eventInfo) {
-  return eventInfo.eirp;
-}
-__name(getIsReplay, "getIsReplay");
-function setIsReplay(eventInfo, replay) {
-  eventInfo.eirp = replay;
-}
-__name(setIsReplay, "setIsReplay");
-function getResolved(eventInfo) {
-  return eventInfo.eir;
-}
-__name(getResolved, "getResolved");
-function setResolved(eventInfo, resolved2) {
-  eventInfo.eir = resolved2;
-}
-__name(setResolved, "setResolved");
-function cloneEventInfo(eventInfo) {
-  return {
-    eventType: eventInfo.eventType,
-    event: eventInfo.event,
-    targetElement: eventInfo.targetElement,
-    eic: eventInfo.eic,
-    eia: eventInfo.eia,
-    timeStamp: eventInfo.timeStamp,
-    eirp: eventInfo.eirp,
-    eiack: eventInfo.eiack,
-    eir: eventInfo.eir
-  };
-}
-__name(cloneEventInfo, "cloneEventInfo");
-function createEventInfoFromParameters(eventType, event, targetElement, container, timestamp2, action, isReplay, a11yClickKey) {
-  return {
-    eventType,
-    event,
-    targetElement,
-    eic: container,
-    timeStamp: timestamp2,
-    eia: action,
-    eirp: isReplay,
-    eiack: a11yClickKey
-  };
-}
-__name(createEventInfoFromParameters, "createEventInfoFromParameters");
-var _EventInfoWrapper = class _EventInfoWrapper {
-  eventInfo;
-  constructor(eventInfo) {
-    this.eventInfo = eventInfo;
-  }
-  getEventType() {
-    return getEventType(this.eventInfo);
-  }
-  setEventType(eventType) {
-    setEventType(this.eventInfo, eventType);
-  }
-  getEvent() {
-    return getEvent(this.eventInfo);
-  }
-  setEvent(event) {
-    setEvent(this.eventInfo, event);
-  }
-  getTargetElement() {
-    return getTargetElement(this.eventInfo);
-  }
-  setTargetElement(targetElement) {
-    setTargetElement(this.eventInfo, targetElement);
-  }
-  getContainer() {
-    return getContainer(this.eventInfo);
-  }
-  setContainer(container) {
-    setContainer(this.eventInfo, container);
-  }
-  getTimestamp() {
-    return getTimestamp(this.eventInfo);
-  }
-  setTimestamp(timestamp2) {
-    setTimestamp(this.eventInfo, timestamp2);
-  }
-  getAction() {
-    const action = getAction(this.eventInfo);
-    if (!action)
-      return void 0;
-    return {
-      name: action[0],
-      element: action[1]
-    };
-  }
-  setAction(action) {
-    if (!action) {
-      unsetAction(this.eventInfo);
-      return;
-    }
-    setAction(this.eventInfo, action.name, action.element);
-  }
-  getIsReplay() {
-    return getIsReplay(this.eventInfo);
-  }
-  setIsReplay(replay) {
-    setIsReplay(this.eventInfo, replay);
-  }
-  getResolved() {
-    return getResolved(this.eventInfo);
-  }
-  setResolved(resolved2) {
-    setResolved(this.eventInfo, resolved2);
-  }
-  clone() {
-    return new _EventInfoWrapper(cloneEventInfo(this.eventInfo));
-  }
-};
-__name(_EventInfoWrapper, "EventInfoWrapper");
-var EventInfoWrapper = _EventInfoWrapper;
-var EMPTY_ACTION_MAP = {};
-var REGEXP_SEMICOLON = /\s*;\s*/;
 var DEFAULT_EVENT_TYPE = EventType.CLICK;
-var _ActionResolver = class _ActionResolver {
-  a11yClickSupport = false;
-  clickModSupport = true;
-  syntheticMouseEventSupport;
-  updateEventInfoForA11yClick = void 0;
-  preventDefaultForA11yClick = void 0;
-  populateClickOnlyAction = void 0;
-  constructor({ syntheticMouseEventSupport = false, clickModSupport = true } = {}) {
-    this.syntheticMouseEventSupport = syntheticMouseEventSupport;
-    this.clickModSupport = clickModSupport;
-  }
-  resolveEventType(eventInfo) {
-    if (this.clickModSupport && getEventType(eventInfo) === EventType.CLICK && isModifiedClickEvent(getEvent(eventInfo))) {
-      setEventType(eventInfo, EventType.CLICKMOD);
-    } else if (this.a11yClickSupport) {
-      this.updateEventInfoForA11yClick(eventInfo);
-    }
-  }
-  resolveAction(eventInfo) {
-    if (getResolved(eventInfo)) {
-      return;
-    }
-    this.populateAction(eventInfo, getTargetElement(eventInfo));
-    setResolved(eventInfo, true);
-  }
-  resolveParentAction(eventInfo) {
-    const action = getAction(eventInfo);
-    const actionElement = action && getActionElement(action);
-    unsetAction(eventInfo);
-    const parentNode = actionElement && this.getParentNode(actionElement);
-    if (!parentNode) {
-      return;
-    }
-    this.populateAction(eventInfo, parentNode);
-  }
-  /**
-   * Searches for a jsaction that the DOM event maps to and creates an
-   * object containing event information used for dispatching by
-   * jsaction.Dispatcher. This method populates the `action` and `actionElement`
-   * fields of the EventInfo object passed in by finding the first
-   * jsaction attribute above the target Node of the event, and below
-   * the container Node, that specifies a jsaction for the event
-   * type. If no such jsaction is found, then action is undefined.
-   *
-   * @param eventInfo `EventInfo` to set `action` and `actionElement` if an
-   *    action is found on any `Element` in the path of the `Event`.
-   */
-  populateAction(eventInfo, currentTarget) {
-    let actionElement = currentTarget;
-    while (actionElement && actionElement !== getContainer(eventInfo)) {
-      if (actionElement.nodeType === Node.ELEMENT_NODE) {
-        this.populateActionOnElement(actionElement, eventInfo);
-      }
-      if (getAction(eventInfo)) {
-        break;
-      }
-      actionElement = this.getParentNode(actionElement);
-    }
-    const action = getAction(eventInfo);
-    if (!action) {
-      return;
-    }
-    if (this.a11yClickSupport) {
-      this.preventDefaultForA11yClick(eventInfo);
-    }
-    if (this.syntheticMouseEventSupport) {
-      if (getEventType(eventInfo) === EventType.MOUSEENTER || getEventType(eventInfo) === EventType.MOUSELEAVE || getEventType(eventInfo) === EventType.POINTERENTER || getEventType(eventInfo) === EventType.POINTERLEAVE) {
-        if (isMouseSpecialEvent(getEvent(eventInfo), getEventType(eventInfo), getActionElement(action))) {
-          const copiedEvent = createMouseSpecialEvent(getEvent(eventInfo), getActionElement(action));
-          setEvent(eventInfo, copiedEvent);
-          setTargetElement(eventInfo, getActionElement(action));
-        } else {
-          unsetAction(eventInfo);
-        }
-      }
-    }
-  }
-  /**
-   * Walk to the parent node, unless the node has a different owner in
-   * which case we walk to the owner. Attempt to walk to host of a
-   * shadow root if needed.
-   */
-  getParentNode(element) {
-    const owner = element[Property.OWNER];
-    if (owner) {
-      return owner;
-    }
-    const parentNode = element.parentNode;
-    if (parentNode?.nodeName === "#document-fragment") {
-      return parentNode?.host ?? null;
-    }
-    return parentNode;
-  }
-  /**
-   * Accesses the jsaction map on a node and retrieves the name of the
-   * action the given event is mapped to, if any. It parses the
-   * attribute value and stores it in a property on the node for
-   * subsequent retrieval without re-parsing and re-accessing the
-   * attribute.
-   *
-   * @param actionElement The DOM node to retrieve the jsaction map from.
-   * @param eventInfo `EventInfo` to set `action` and `actionElement` if an
-   *    action is found on the `actionElement`.
-   */
-  populateActionOnElement(actionElement, eventInfo) {
-    const actionMap = this.parseActions(actionElement);
-    const actionName = actionMap[getEventType(eventInfo)];
-    if (actionName !== void 0) {
-      setAction(eventInfo, actionName, actionElement);
-    }
-    if (this.a11yClickSupport) {
-      this.populateClickOnlyAction(actionElement, eventInfo, actionMap);
-    }
-  }
-  /**
-   * Parses and caches an element's jsaction element into a map.
-   *
-   * This is primarily for internal use.
-   *
-   * @param actionElement The DOM node to retrieve the jsaction map from.
-   * @return Map from event to qualified name of the jsaction bound to it.
-   */
-  parseActions(actionElement) {
-    let actionMap = get(actionElement);
-    if (!actionMap) {
-      const jsactionAttribute = actionElement.getAttribute(Attribute.JSACTION);
-      if (!jsactionAttribute) {
-        actionMap = EMPTY_ACTION_MAP;
-        set(actionElement, actionMap);
-      } else {
-        actionMap = getParsed(jsactionAttribute);
-        if (!actionMap) {
-          actionMap = {};
-          const values = jsactionAttribute.split(REGEXP_SEMICOLON);
-          for (let idx = 0; idx < values.length; idx++) {
-            const value = values[idx];
-            if (!value) {
-              continue;
-            }
-            const colon = value.indexOf(Char.EVENT_ACTION_SEPARATOR);
-            const hasColon = colon !== -1;
-            const type = hasColon ? value.substr(0, colon).trim() : DEFAULT_EVENT_TYPE;
-            const action = hasColon ? value.substr(colon + 1).trim() : value;
-            actionMap[type] = action;
-          }
-          setParsed(jsactionAttribute, actionMap);
-        }
-        set(actionElement, actionMap);
-      }
-    }
-    return actionMap;
-  }
-  addA11yClickSupport(updateEventInfoForA11yClick, preventDefaultForA11yClick, populateClickOnlyAction) {
-    this.a11yClickSupport = true;
-    this.updateEventInfoForA11yClick = updateEventInfoForA11yClick;
-    this.preventDefaultForA11yClick = preventDefaultForA11yClick;
-    this.populateClickOnlyAction = populateClickOnlyAction;
-  }
-};
-__name(_ActionResolver, "ActionResolver");
-var ActionResolver = _ActionResolver;
 var Restriction;
 (function(Restriction2) {
   Restriction2[Restriction2["I_AM_THE_JSACTION_FRAMEWORK"] = 0] = "I_AM_THE_JSACTION_FRAMEWORK";
 })(Restriction || (Restriction = {}));
-var _Dispatcher = class _Dispatcher {
-  dispatchDelegate;
-  // The ActionResolver to use to resolve actions.
-  actionResolver;
-  /** The replayer function to be called when there are queued events. */
-  eventReplayer;
-  /** Whether the event replay is scheduled. */
-  eventReplayScheduled = false;
-  /** The queue of events. */
-  replayEventInfoWrappers = [];
-  /**
-   * Options are:
-   *   - `eventReplayer`: When the event contract dispatches replay events
-   *      to the Dispatcher, the Dispatcher collects them and in the next tick
-   *      dispatches them to the `eventReplayer`. Defaults to dispatching to `dispatchDelegate`.
-   * @param dispatchDelegate A function that should handle dispatching an `EventInfoWrapper` to handlers.
-   */
-  constructor(dispatchDelegate, { actionResolver, eventReplayer } = {}) {
-    this.dispatchDelegate = dispatchDelegate;
-    this.actionResolver = actionResolver;
-    this.eventReplayer = eventReplayer;
-  }
-  /**
-   * Receives an event or the event queue from the EventContract. The event
-   * queue is copied and it attempts to replay.
-   * If event info is passed in it looks for an action handler that can handle
-   * the given event.  If there is no handler registered queues the event and
-   * checks if a loader is registered for the given namespace. If so, calls it.
-   *
-   * Alternatively, if in global dispatch mode, calls all registered global
-   * handlers for the appropriate event type.
-   *
-   * The three functionalities of this call are deliberately not split into
-   * three methods (and then declared as an abstract interface), because the
-   * interface is used by EventContract, which lives in a different jsbinary.
-   * Therefore the interface between the three is defined entirely in terms that
-   * are invariant under jscompiler processing (Function and Array, as opposed
-   * to a custom type with method names).
-   *
-   * @param eventInfo The info for the event that triggered this call or the
-   *     queue of events from EventContract.
-   */
-  dispatch(eventInfo) {
-    const eventInfoWrapper = new EventInfoWrapper(eventInfo);
-    this.actionResolver?.resolveEventType(eventInfo);
-    this.actionResolver?.resolveAction(eventInfo);
-    const action = eventInfoWrapper.getAction();
-    if (action && shouldPreventDefaultBeforeDispatching(action.element, eventInfoWrapper)) {
-      preventDefault(eventInfoWrapper.getEvent());
-    }
-    if (this.eventReplayer && eventInfoWrapper.getIsReplay()) {
-      this.scheduleEventInfoWrapperReplay(eventInfoWrapper);
-      return;
-    }
-    this.dispatchDelegate(eventInfoWrapper);
-  }
-  /**
-   * Schedules an `EventInfoWrapper` for replay. The replaying will happen in its own
-   * stack once the current flow cedes control. This is done to mimic
-   * browser event handling.
-   */
-  scheduleEventInfoWrapperReplay(eventInfoWrapper) {
-    this.replayEventInfoWrappers.push(eventInfoWrapper);
-    if (this.eventReplayScheduled) {
-      return;
-    }
-    this.eventReplayScheduled = true;
-    Promise.resolve().then(() => {
-      this.eventReplayScheduled = false;
-      this.eventReplayer(this.replayEventInfoWrappers);
-    });
-  }
-};
-__name(_Dispatcher, "Dispatcher");
-var Dispatcher = _Dispatcher;
-function shouldPreventDefaultBeforeDispatching(actionElement, eventInfoWrapper) {
-  return actionElement.tagName === "A" && (eventInfoWrapper.getEventType() === EventType.CLICK || eventInfoWrapper.getEventType() === EventType.CLICKMOD);
-}
-__name(shouldPreventDefaultBeforeDispatching, "shouldPreventDefaultBeforeDispatching");
 var PROPAGATION_STOPPED_SYMBOL = Symbol.for("propagationStopped");
-var EventPhase = {
-  REPLAY: 101
-};
-var PREVENT_DEFAULT_ERROR_MESSAGE_DETAILS = " Because event replay occurs after browser dispatch, `preventDefault` would have no effect. You can check whether an event is being replayed by accessing the event phase: `event.eventPhase === EventPhase.REPLAY`.";
-var PREVENT_DEFAULT_ERROR_MESSAGE = `\`preventDefault\` called during event replay.`;
-var COMPOSED_PATH_ERROR_MESSAGE_DETAILS = " Because event replay occurs after browser dispatch, `composedPath()` will be empty. Iterate parent nodes from `event.target` or `event.currentTarget` if you need to check elements in the event path.";
-var COMPOSED_PATH_ERROR_MESSAGE = `\`composedPath\` called during event replay.`;
-var _EventDispatcher = class _EventDispatcher {
-  dispatchDelegate;
-  clickModSupport;
-  actionResolver;
-  dispatcher;
-  constructor(dispatchDelegate, clickModSupport = true) {
-    this.dispatchDelegate = dispatchDelegate;
-    this.clickModSupport = clickModSupport;
-    this.actionResolver = new ActionResolver({ clickModSupport });
-    this.dispatcher = new Dispatcher((eventInfoWrapper) => {
-      this.dispatchToDelegate(eventInfoWrapper);
-    }, {
-      actionResolver: this.actionResolver
-    });
-  }
-  /**
-   * The entrypoint for the `EventContract` dispatch.
-   */
-  dispatch(eventInfo) {
-    this.dispatcher.dispatch(eventInfo);
-  }
-  /** Internal method that does basic disaptching. */
-  dispatchToDelegate(eventInfoWrapper) {
-    if (eventInfoWrapper.getIsReplay()) {
-      prepareEventForReplay(eventInfoWrapper);
-    }
-    prepareEventForBubbling(eventInfoWrapper);
-    while (eventInfoWrapper.getAction()) {
-      prepareEventForDispatch(eventInfoWrapper);
-      if (isCaptureEventType(eventInfoWrapper.getEventType()) && eventInfoWrapper.getAction().element !== eventInfoWrapper.getTargetElement()) {
-        return;
-      }
-      this.dispatchDelegate(eventInfoWrapper.getEvent(), eventInfoWrapper.getAction().name);
-      if (propagationStopped(eventInfoWrapper)) {
-        return;
-      }
-      this.actionResolver.resolveParentAction(eventInfoWrapper.eventInfo);
-    }
-  }
-};
-__name(_EventDispatcher, "EventDispatcher");
-var EventDispatcher = _EventDispatcher;
-function prepareEventForBubbling(eventInfoWrapper) {
-  const event = eventInfoWrapper.getEvent();
-  const originalStopPropagation = eventInfoWrapper.getEvent().stopPropagation.bind(event);
-  const stopPropagation = /* @__PURE__ */ __name(() => {
-    event[PROPAGATION_STOPPED_SYMBOL] = true;
-    originalStopPropagation();
-  }, "stopPropagation");
-  patchEventInstance(event, "stopPropagation", stopPropagation);
-  patchEventInstance(event, "stopImmediatePropagation", stopPropagation);
-}
-__name(prepareEventForBubbling, "prepareEventForBubbling");
-function propagationStopped(eventInfoWrapper) {
-  const event = eventInfoWrapper.getEvent();
-  return !!event[PROPAGATION_STOPPED_SYMBOL];
-}
-__name(propagationStopped, "propagationStopped");
-function prepareEventForReplay(eventInfoWrapper) {
-  const event = eventInfoWrapper.getEvent();
-  const target = eventInfoWrapper.getTargetElement();
-  const originalPreventDefault = event.preventDefault.bind(event);
-  patchEventInstance(event, "target", target);
-  patchEventInstance(event, "eventPhase", EventPhase.REPLAY);
-  patchEventInstance(event, "preventDefault", () => {
-    originalPreventDefault();
-    throw new Error(PREVENT_DEFAULT_ERROR_MESSAGE + (ngDevMode ? PREVENT_DEFAULT_ERROR_MESSAGE_DETAILS : ""));
-  });
-  patchEventInstance(event, "composedPath", () => {
-    throw new Error(COMPOSED_PATH_ERROR_MESSAGE + (ngDevMode ? COMPOSED_PATH_ERROR_MESSAGE_DETAILS : ""));
-  });
-}
-__name(prepareEventForReplay, "prepareEventForReplay");
-function prepareEventForDispatch(eventInfoWrapper) {
-  const event = eventInfoWrapper.getEvent();
-  const currentTarget = eventInfoWrapper.getAction()?.element;
-  if (currentTarget) {
-    patchEventInstance(event, "currentTarget", currentTarget, {
-      // `currentTarget` is going to get reassigned every dispatch.
-      configurable: true
-    });
-  }
-}
-__name(prepareEventForDispatch, "prepareEventForDispatch");
-function patchEventInstance(event, property, value, { configurable = false } = {}) {
-  Object.defineProperty(event, property, { value, configurable });
-}
-__name(patchEventInstance, "patchEventInstance");
-function registerDispatcher$1(eventContract, dispatcher) {
-  eventContract.ecrd((eventInfo) => {
-    dispatcher.dispatch(eventInfo);
-  }, Restriction.I_AM_THE_JSACTION_FRAMEWORK);
-}
-__name(registerDispatcher$1, "registerDispatcher$1");
-function getQueuedEventInfos(earlyJsactionData) {
-  return earlyJsactionData?.q ?? [];
-}
-__name(getQueuedEventInfos, "getQueuedEventInfos");
-function removeAllEventListeners(earlyJsactionData) {
-  if (!earlyJsactionData) {
-    return;
-  }
-  removeEventListeners(earlyJsactionData.c, earlyJsactionData.et, earlyJsactionData.h);
-  removeEventListeners(earlyJsactionData.c, earlyJsactionData.etc, earlyJsactionData.h, true);
-}
-__name(removeAllEventListeners, "removeAllEventListeners");
-function removeEventListeners(container, eventTypes, earlyEventHandler, capture) {
-  for (let i = 0; i < eventTypes.length; i++) {
-    container.removeEventListener(
-      eventTypes[i],
-      earlyEventHandler,
-      /* useCapture */
-      capture
-    );
-  }
-}
-__name(removeEventListeners, "removeEventListeners");
-var MOUSE_SPECIAL_SUPPORT = false;
-var _EventContract = class _EventContract {
-  containerManager;
-  /**
-   * The DOM events which this contract covers. Used to prevent double
-   * registration of event types. The value of the map is the
-   * internally created DOM event handler function that handles the
-   * DOM events. See addEvent().
-   *
-   */
-  eventHandlers = {};
-  browserEventTypeToExtraEventTypes = {};
-  /**
-   * The dispatcher function. Events are passed to this function for
-   * handling once it was set using the registerDispatcher() method. This is
-   * done because the function is passed from another jsbinary, so passing the
-   * instance and invoking the method here would require to leave the method
-   * unobfuscated.
-   */
-  dispatcher = null;
-  /**
-   * The list of suspended `EventInfo` that will be dispatched
-   * as soon as the `Dispatcher` is registered.
-   */
-  queuedEventInfos = [];
-  constructor(containerManager) {
-    this.containerManager = containerManager;
-  }
-  handleEvent(eventType, event, container) {
-    const eventInfo = createEventInfoFromParameters(
-      /* eventType= */
-      eventType,
-      /* event= */
-      event,
-      /* targetElement= */
-      event.target,
-      /* container= */
-      container,
-      /* timestamp= */
-      Date.now()
-    );
-    this.handleEventInfo(eventInfo);
-  }
-  /**
-   * Handle an `EventInfo`.
-   */
-  handleEventInfo(eventInfo) {
-    if (!this.dispatcher) {
-      setIsReplay(eventInfo, true);
-      this.queuedEventInfos?.push(eventInfo);
-      return;
-    }
-    this.dispatcher(eventInfo);
-  }
-  /**
-   * Enables jsaction handlers to be called for the event type given by
-   * name.
-   *
-   * If the event is already registered, this does nothing.
-   *
-   * @param prefixedEventType If supplied, this event is used in
-   *     the actual browser event registration instead of the name that is
-   *     exposed to jsaction. Use this if you e.g. want users to be able
-   *     to subscribe to jsaction="transitionEnd:foo" while the underlying
-   *     event is webkitTransitionEnd in one browser and mozTransitionEnd
-   *     in another.
-   *
-   * @param passive A boolean value that, if `true`, indicates that the event
-   *     handler will never call `preventDefault()`.
-   */
-  addEvent(eventType, prefixedEventType, passive) {
-    if (eventType in this.eventHandlers || !this.containerManager) {
-      return;
-    }
-    if (!_EventContract.MOUSE_SPECIAL_SUPPORT && MOUSE_SPECIAL_EVENT_TYPES.indexOf(eventType) >= 0) {
-      return;
-    }
-    const eventHandler = /* @__PURE__ */ __name((eventType2, event, container) => {
-      this.handleEvent(eventType2, event, container);
-    }, "eventHandler");
-    this.eventHandlers[eventType] = eventHandler;
-    const browserEventType = getBrowserEventType(prefixedEventType || eventType);
-    if (browserEventType !== eventType) {
-      const eventTypes = this.browserEventTypeToExtraEventTypes[browserEventType] || [];
-      eventTypes.push(eventType);
-      this.browserEventTypeToExtraEventTypes[browserEventType] = eventTypes;
-    }
-    this.containerManager.addEventListener(browserEventType, (element) => {
-      return (event) => {
-        eventHandler(eventType, event, element);
-      };
-    }, passive);
-  }
-  /**
-   * Gets the queued early events and replay them using the appropriate handler
-   * in the provided event contract. Once all the events are replayed, it cleans
-   * up the early contract.
-   */
-  replayEarlyEvents(earlyJsactionData = window._ejsa) {
-    if (!earlyJsactionData) {
-      return;
-    }
-    this.replayEarlyEventInfos(earlyJsactionData.q);
-    removeAllEventListeners(earlyJsactionData);
-    delete window._ejsa;
-  }
-  /**
-   * Replays all the early `EventInfo` objects, dispatching them through the normal
-   * `EventContract` flow.
-   */
-  replayEarlyEventInfos(earlyEventInfos) {
-    for (let i = 0; i < earlyEventInfos.length; i++) {
-      const earlyEventInfo = earlyEventInfos[i];
-      const eventTypes = this.getEventTypesForBrowserEventType(earlyEventInfo.eventType);
-      for (let j = 0; j < eventTypes.length; j++) {
-        const eventInfo = cloneEventInfo(earlyEventInfo);
-        setEventType(eventInfo, eventTypes[j]);
-        this.handleEventInfo(eventInfo);
-      }
-    }
-  }
-  /**
-   * Returns all JSAction event types that have been registered for a given
-   * browser event type.
-   */
-  getEventTypesForBrowserEventType(browserEventType) {
-    const eventTypes = [];
-    if (this.eventHandlers[browserEventType]) {
-      eventTypes.push(browserEventType);
-    }
-    if (this.browserEventTypeToExtraEventTypes[browserEventType]) {
-      eventTypes.push(...this.browserEventTypeToExtraEventTypes[browserEventType]);
-    }
-    return eventTypes;
-  }
-  /**
-   * Returns the event handler function for a given event type.
-   */
-  handler(eventType) {
-    return this.eventHandlers[eventType];
-  }
-  /**
-   * Cleans up the event contract. This resets all of the `EventContract`'s
-   * internal state. Users are responsible for not using this `EventContract`
-   * after it has been cleaned up.
-   */
-  cleanUp() {
-    this.containerManager?.cleanUp();
-    this.containerManager = null;
-    this.eventHandlers = {};
-    this.browserEventTypeToExtraEventTypes = {};
-    this.dispatcher = null;
-    this.queuedEventInfos = [];
-  }
-  /**
-   * Register a dispatcher function. Event info of each event mapped to
-   * a jsaction is passed for handling to this callback. The queued
-   * events are passed as well to the dispatcher for later replaying
-   * once the dispatcher is registered. Clears the event queue to null.
-   *
-   * @param dispatcher The dispatcher function.
-   * @param restriction
-   */
-  registerDispatcher(dispatcher, restriction) {
-    this.ecrd(dispatcher, restriction);
-  }
-  /**
-   * Unrenamed alias for registerDispatcher. Necessary for any codebases that
-   * split the `EventContract` and `Dispatcher` code into different compilation
-   * units.
-   */
-  ecrd(dispatcher, restriction) {
-    this.dispatcher = dispatcher;
-    if (this.queuedEventInfos?.length) {
-      for (let i = 0; i < this.queuedEventInfos.length; i++) {
-        this.handleEventInfo(this.queuedEventInfos[i]);
-      }
-      this.queuedEventInfos = null;
-    }
-  }
-};
-__name(_EventContract, "EventContract");
-__publicField(_EventContract, "MOUSE_SPECIAL_SUPPORT", MOUSE_SPECIAL_SUPPORT);
-var EventContract = _EventContract;
-function getAppScopedQueuedEventInfos(appId, dataContainer = window) {
-  return getQueuedEventInfos(dataContainer._ejsas?.[appId]);
-}
-__name(getAppScopedQueuedEventInfos, "getAppScopedQueuedEventInfos");
-function clearAppScopedEarlyEventContract(appId, dataContainer = window) {
-  if (!dataContainer._ejsas) {
-    return;
-  }
-  dataContainer._ejsas[appId] = void 0;
-}
-__name(clearAppScopedEarlyEventContract, "clearAppScopedEarlyEventContract");
 
 // node_modules/@angular/core/fesm2022/core.mjs
+var import_rxjs3 = __toESM(require_cjs(), 1);
+var import_operators2 = __toESM(require_operators(), 1);
 var REQUIRED_UNSET_VALUE = Symbol("InputSignalNode#UNSET");
 var INPUT_SIGNAL_NODE = (() => {
   return __spreadProps(__spreadValues({}, SIGNAL_NODE), {
@@ -29714,7 +25712,7 @@ var _ImagePerformanceWarning = class _ImagePerformanceWarning {
   options = inject2(IMAGE_CONFIG);
   lcpImageUrl;
   start() {
-    if (typeof PerformanceObserver === "undefined" || this.options?.disableImageSizeWarning && this.options?.disableImageLazyLoadWarning) {
+    if (true) {
       return;
     }
     this.observer = this.initPerformanceObserver();
@@ -29845,18 +25843,18 @@ function logOversizedImageWarning(src) {
 __name(logOversizedImageWarning, "logOversizedImageWarning");
 var PLATFORM_DESTROY_LISTENERS = new InjectionToken(ngDevMode ? "PlatformDestroyListeners" : "");
 var ENABLE_ROOT_COMPONENT_BOOTSTRAP = new InjectionToken(ngDevMode ? "ENABLE_ROOT_COMPONENT_BOOTSTRAP" : "");
-function isApplicationBootstrapConfig(config2) {
-  return !config2.moduleRef;
+function isApplicationBootstrapConfig(config) {
+  return !config.moduleRef;
 }
 __name(isApplicationBootstrapConfig, "isApplicationBootstrapConfig");
-function bootstrap(config2) {
-  const envInjector = isApplicationBootstrapConfig(config2) ? config2.r3Injector : config2.moduleRef.injector;
+function bootstrap(config) {
+  const envInjector = isApplicationBootstrapConfig(config) ? config.r3Injector : config.moduleRef.injector;
   const ngZone = envInjector.get(NgZone);
   return ngZone.run(() => {
-    if (isApplicationBootstrapConfig(config2)) {
-      config2.r3Injector.resolveInjectorInitializers();
+    if (isApplicationBootstrapConfig(config)) {
+      config.r3Injector.resolveInjectorInitializers();
     } else {
-      config2.moduleRef.resolveInjectorInitializers();
+      config.moduleRef.resolveInjectorInitializers();
     }
     const exceptionHandler = envInjector.get(INTERNAL_APPLICATION_ERROR_HANDLER);
     if (typeof ngDevMode === "undefined" || ngDevMode) {
@@ -29870,20 +25868,20 @@ function bootstrap(config2) {
         next: exceptionHandler
       });
     });
-    if (isApplicationBootstrapConfig(config2)) {
+    if (isApplicationBootstrapConfig(config)) {
       const destroyListener = /* @__PURE__ */ __name(() => envInjector.destroy(), "destroyListener");
-      const onPlatformDestroyListeners = config2.platformInjector.get(PLATFORM_DESTROY_LISTENERS);
+      const onPlatformDestroyListeners = config.platformInjector.get(PLATFORM_DESTROY_LISTENERS);
       onPlatformDestroyListeners.add(destroyListener);
       envInjector.onDestroy(() => {
         onErrorSubscription.unsubscribe();
         onPlatformDestroyListeners.delete(destroyListener);
       });
     } else {
-      const destroyListener = /* @__PURE__ */ __name(() => config2.moduleRef.destroy(), "destroyListener");
-      const onPlatformDestroyListeners = config2.platformInjector.get(PLATFORM_DESTROY_LISTENERS);
+      const destroyListener = /* @__PURE__ */ __name(() => config.moduleRef.destroy(), "destroyListener");
+      const onPlatformDestroyListeners = config.platformInjector.get(PLATFORM_DESTROY_LISTENERS);
       onPlatformDestroyListeners.add(destroyListener);
-      config2.moduleRef.onDestroy(() => {
-        remove(config2.allPlatformModules, config2.moduleRef);
+      config.moduleRef.onDestroy(() => {
+        remove(config.allPlatformModules, config.moduleRef);
         onErrorSubscription.unsubscribe();
         onPlatformDestroyListeners.delete(destroyListener);
       });
@@ -29898,25 +25896,25 @@ function bootstrap(config2) {
         setLocaleId(localeId || DEFAULT_LOCALE_ID);
         const enableRootComponentbootstrap = envInjector.get(ENABLE_ROOT_COMPONENT_BOOTSTRAP, true);
         if (!enableRootComponentbootstrap) {
-          if (isApplicationBootstrapConfig(config2)) {
+          if (isApplicationBootstrapConfig(config)) {
             return envInjector.get(ApplicationRef);
           }
-          config2.allPlatformModules.push(config2.moduleRef);
-          return config2.moduleRef;
+          config.allPlatformModules.push(config.moduleRef);
+          return config.moduleRef;
         }
         if (typeof ngDevMode === "undefined" || ngDevMode) {
           const imagePerformanceService = envInjector.get(ImagePerformanceWarning);
           imagePerformanceService.start();
         }
-        if (isApplicationBootstrapConfig(config2)) {
+        if (isApplicationBootstrapConfig(config)) {
           const appRef = envInjector.get(ApplicationRef);
-          if (config2.rootComponent !== void 0) {
-            appRef.bootstrap(config2.rootComponent);
+          if (config.rootComponent !== void 0) {
+            appRef.bootstrap(config.rootComponent);
           }
           return appRef;
         } else {
-          moduleBootstrapImpl?.(config2.moduleRef, config2.allPlatformModules);
-          return config2.moduleRef;
+          moduleBootstrapImpl?.(config.moduleRef, config.allPlatformModules);
+          return config.moduleRef;
         }
       }).finally(() => void pendingTasks.remove(taskId));
     });
@@ -29943,7 +25941,7 @@ __name(_moduleDoBootstrap, "_moduleDoBootstrap");
 function _callAndReportToErrorHandler(errorHandler, ngZone, callback) {
   try {
     const result = callback();
-    if (isPromise2(result)) {
+    if (isPromise(result)) {
       return result.catch((e) => {
         ngZone.runOutsideAngular(() => errorHandler(e));
         throw e;
@@ -30073,7 +26071,7 @@ function createPlatform(injector) {
   }
   publishDefaultGlobalUtils();
   publishSignalConfiguration();
-  _platformInjector = true ? injector : null;
+  _platformInjector = false ? injector : null;
   const platform = injector.get(PlatformRef);
   runPlatformInitializers(injector);
   return platform;
@@ -30092,7 +26090,7 @@ function createPlatformFactory(parentPlatformFactory, name, providers = []) {
       ];
       platform = parentPlatformFactory?.(platformProviders) ?? createPlatform(createPlatformInjector(platformProviders, desc));
     }
-    return false ? platform : assertPlatform(marker);
+    return true ? platform : assertPlatform(marker);
   };
 }
 __name(createPlatformFactory, "createPlatformFactory");
@@ -30119,7 +26117,7 @@ function assertPlatform(requiredToken) {
 }
 __name(assertPlatform, "assertPlatform");
 function getPlatform() {
-  if (false) {
+  if (true) {
     return null;
   }
   return _platformInjector?.get(PlatformRef) ?? null;
@@ -30134,7 +26132,7 @@ function createOrReusePlatformInjector(providers = []) {
     return _platformInjector;
   publishDefaultGlobalUtils();
   const injector = createPlatformInjector(providers);
-  if (true) {
+  if (false) {
     _platformInjector = injector;
   }
   publishSignalConfiguration();
@@ -30159,7 +26157,7 @@ function runPlatformInitializers(injector) {
   });
 }
 __name(runPlatformInitializers, "runPlatformInitializers");
-function exhaustiveCheckNoChangesInterval(interval2) {
+function exhaustiveCheckNoChangesInterval(interval) {
   return provideEnvironmentInitializer(() => {
     const applicationRef = inject2(ApplicationRef);
     const errorHandler = inject2(ErrorHandler);
@@ -30187,7 +26185,7 @@ function exhaustiveCheckNoChangesInterval(interval2) {
             }
           }
           scheduleCheckNoChanges();
-        }, interval2);
+        }, interval);
       });
     }
     __name(scheduleCheckNoChanges, "scheduleCheckNoChanges");
@@ -31244,13 +27242,13 @@ var ApplicationModule = _ApplicationModule;
     type: NgModule
   }], () => [{ type: ApplicationRef }], null);
 })();
-function internalCreateApplication(config2) {
-  const { rootComponent, appProviders, platformProviders, platformRef } = config2;
+function internalCreateApplication(config) {
+  const { rootComponent, appProviders, platformProviders, platformRef } = config;
   profiler(
     8
     /* ProfilerEvent.BootstrapApplicationStart */
   );
-  if (false) {
+  if (!platformRef) {
     throw new RuntimeError(401, ngDevMode && "Missing Platform: This may be due to using `bootstrapApplication` on the server without passing a `BootstrapContext`. Please make sure that `bootstrapApplication` is called with a `context` argument.");
   }
   try {
@@ -31287,20 +27285,13 @@ function internalCreateApplication(config2) {
   }
 }
 __name(internalCreateApplication, "internalCreateApplication");
-var appsWithEventReplay = /* @__PURE__ */ new WeakSet();
-var EAGER_CONTENT_LISTENERS_KEY = "";
-var blockEventQueue = [];
-function shouldEnableEventReplay(injector) {
-  return injector.get(IS_EVENT_REPLAY_ENABLED, EVENT_REPLAY_ENABLED_DEFAULT);
-}
-__name(shouldEnableEventReplay, "shouldEnableEventReplay");
 function withEventReplay() {
   const providers = [
     {
       provide: IS_EVENT_REPLAY_ENABLED,
       useFactory: /* @__PURE__ */ __name(() => {
         let isEnabled = true;
-        if (true) {
+        if (false) {
           const appId = inject2(APP_ID);
           isEnabled = !!window._ejsas?.[appId];
         }
@@ -31311,7 +27302,7 @@ function withEventReplay() {
       }, "useFactory")
     }
   ];
-  if (true) {
+  if (false) {
     providers.push({
       provide: ENVIRONMENT_INITIALIZER,
       useValue: /* @__PURE__ */ __name(() => {
@@ -31346,7 +27337,7 @@ function withEventReplay() {
           const appId = injector.get(APP_ID);
           appRef.onDestroy(() => {
             appsWithEventReplay.delete(appRef);
-            if (true) {
+            if (false) {
               clearAppScopedEarlyEventContract(appId);
             }
           });
@@ -31374,24 +27365,6 @@ function withEventReplay() {
   return providers;
 }
 __name(withEventReplay, "withEventReplay");
-var initEventReplay = /* @__PURE__ */ __name((eventDelegation, injector) => {
-  const appId = injector.get(APP_ID);
-  const earlyJsactionData = window._ejsas[appId];
-  const eventContract = eventDelegation.instance = new EventContract(new EventContractContainer(earlyJsactionData.c));
-  for (const et of earlyJsactionData.et) {
-    eventContract.addEvent(et);
-  }
-  for (const et of earlyJsactionData.etc) {
-    eventContract.addEvent(et);
-  }
-  const eventInfos = getAppScopedQueuedEventInfos(appId);
-  eventContract.replayEarlyEventInfos(eventInfos);
-  clearAppScopedEarlyEventContract(appId);
-  const dispatcher = new EventDispatcher((event) => {
-    invokeRegisteredReplayListeners(injector, event, event.currentTarget);
-  });
-  registerDispatcher$1(eventContract, dispatcher);
-}, "initEventReplay");
 function collectDomEventsInfo(tView, lView, eventTypesToReplay) {
   const domEventsInfo = /* @__PURE__ */ new Map();
   const lCleanup = lView[CLEANUP];
@@ -31430,34 +27403,6 @@ function collectDomEventsInfo(tView, lView, eventTypesToReplay) {
   return domEventsInfo;
 }
 __name(collectDomEventsInfo, "collectDomEventsInfo");
-function invokeRegisteredReplayListeners(injector, event, currentTarget) {
-  const blockName = (currentTarget && currentTarget.getAttribute(DEFER_BLOCK_SSR_ID_ATTRIBUTE)) ?? "";
-  if (/d\d+/.test(blockName)) {
-    hydrateAndInvokeBlockListeners(blockName, injector, event, currentTarget);
-  } else if (event.eventPhase === EventPhase.REPLAY) {
-    invokeListeners(event, currentTarget);
-  }
-}
-__name(invokeRegisteredReplayListeners, "invokeRegisteredReplayListeners");
-function hydrateAndInvokeBlockListeners(blockName, injector, event, currentTarget) {
-  blockEventQueue.push({ event, currentTarget });
-  triggerHydrationFromBlockName(injector, blockName, replayQueuedBlockEvents);
-}
-__name(hydrateAndInvokeBlockListeners, "hydrateAndInvokeBlockListeners");
-function replayQueuedBlockEvents(hydratedBlocks) {
-  const queue2 = [...blockEventQueue];
-  const hydrated = new Set(hydratedBlocks);
-  blockEventQueue = [];
-  for (let { event, currentTarget } of queue2) {
-    const blockName = currentTarget.getAttribute(DEFER_BLOCK_SSR_ID_ATTRIBUTE);
-    if (hydrated.has(blockName)) {
-      invokeListeners(event, currentTarget);
-    } else {
-      blockEventQueue.push({ event, currentTarget });
-    }
-  }
-}
-__name(replayQueuedBlockEvents, "replayQueuedBlockEvents");
 var _SerializedViewCollection = class _SerializedViewCollection {
   views = [];
   indexByContent = /* @__PURE__ */ new Map();
@@ -31497,23 +27442,23 @@ function calcNumRootNodesInLContainer(lContainer) {
   return rootNodes.length;
 }
 __name(calcNumRootNodesInLContainer, "calcNumRootNodesInLContainer");
-function annotateComponentLViewForHydration(lView, context2, injector) {
+function annotateComponentLViewForHydration(lView, context, injector) {
   const hostElement = lView[HOST];
   if (hostElement && !hostElement.hasAttribute(SKIP_HYDRATION_ATTR_NAME)) {
-    return annotateHostElementForHydration(hostElement, lView, null, context2);
+    return annotateHostElementForHydration(hostElement, lView, null, context);
   }
   return null;
 }
 __name(annotateComponentLViewForHydration, "annotateComponentLViewForHydration");
-function annotateLContainerForHydration(lContainer, context2, injector) {
+function annotateLContainerForHydration(lContainer, context, injector) {
   const componentLView = unwrapLView(lContainer[HOST]);
-  const componentLViewNghIndex = annotateComponentLViewForHydration(componentLView, context2);
+  const componentLViewNghIndex = annotateComponentLViewForHydration(componentLView, context);
   if (componentLViewNghIndex === null) {
     return;
   }
   const hostElement = unwrapRNode(componentLView[HOST]);
   const rootLView = lContainer[PARENT];
-  const rootLViewNghIndex = annotateHostElementForHydration(hostElement, rootLView, null, context2);
+  const rootLViewNghIndex = annotateHostElementForHydration(hostElement, rootLView, null, context);
   const renderer = componentLView[RENDERER];
   const finalIndex = `${componentLViewNghIndex}|${rootLViewNghIndex}`;
   renderer.setAttribute(hostElement, NGH_ATTR_NAME, finalIndex);
@@ -31536,7 +27481,7 @@ function annotateForHydration(appRef, doc) {
   for (const viewRef of viewRefs) {
     const lNode = getLNodeForHydration(viewRef);
     if (lNode !== null) {
-      const context2 = {
+      const context = {
         serializedViewCollection,
         corruptedTextNodes,
         isI18nHydrationEnabled: isI18nHydrationEnabledVal,
@@ -31548,9 +27493,9 @@ function annotateForHydration(appRef, doc) {
         deferBlocks
       };
       if (isLContainer(lNode)) {
-        annotateLContainerForHydration(lNode, context2);
+        annotateLContainerForHydration(lNode, context);
       } else {
-        annotateComponentLViewForHydration(lNode, context2);
+        annotateComponentLViewForHydration(lNode, context);
       }
       insertCorruptedTextNodeMarkers(corruptedTextNodes, doc);
     }
@@ -31568,7 +27513,7 @@ function annotateForHydration(appRef, doc) {
   return eventTypesToReplay;
 }
 __name(annotateForHydration, "annotateForHydration");
-function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, context2) {
+function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, context) {
   const views = [];
   let lastViewAsString = "";
   for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
@@ -31580,7 +27525,7 @@ function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, conte
       childLView = childLView[HEADER_OFFSET];
       if (isLContainer(childLView)) {
         numRootNodes = calcNumRootNodesInLContainer(childLView) + 1;
-        annotateLContainerForHydration(childLView, context2);
+        annotateLContainerForHydration(childLView, context);
         const componentLView = unwrapLView(childLView[HOST]);
         serializedView = {
           [TEMPLATE_ID]: componentLView[TVIEW].ssrId,
@@ -31605,8 +27550,8 @@ function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, conte
       if (isDeferBlock(lView[TVIEW], tNode)) {
         const lDetails = getLDeferBlockDetails(lView, tNode);
         const tDetails = getTDeferBlockDetails(lView[TVIEW], tNode);
-        if (context2.isIncrementalHydrationEnabled && tDetails.hydrateTriggers !== null) {
-          const deferBlockId = `d${context2.deferBlocks.size}`;
+        if (context.isIncrementalHydrationEnabled && tDetails.hydrateTriggers !== null) {
+          const deferBlockId = `d${context.deferBlocks.size}`;
           if (tDetails.hydrateTriggers.has(
             7
             /* DeferBlockTrigger.Never */
@@ -31626,7 +27571,7 @@ function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, conte
           if (parentDeferBlockId !== null) {
             deferBlockInfo[DEFER_PARENT_BLOCK_ID] = parentDeferBlockId;
           }
-          context2.deferBlocks.set(deferBlockId, deferBlockInfo);
+          context.deferBlocks.set(deferBlockId, deferBlockInfo);
           const node = unwrapRNode(lContainer);
           if (node !== void 0) {
             if (node.nodeType === Node.COMMENT_NODE) {
@@ -31638,7 +27583,7 @@ function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, conte
             annotateDeferBlockAnchorForHydration(node, deferBlockId);
           }
           if (!isHydrateNeverBlock) {
-            annotateDeferBlockRootNodesWithJsAction(tDetails, rootNodes, deferBlockId, context2);
+            annotateDeferBlockRootNodesWithJsAction(tDetails, rootNodes, deferBlockId, context);
           }
           parentDeferBlockId = deferBlockId;
           serializedView[DEFER_BLOCK_ID] = deferBlockId;
@@ -31646,7 +27591,7 @@ function serializeLContainer(lContainer, tNode, lView, parentDeferBlockId, conte
         serializedView[DEFER_BLOCK_STATE$1] = lDetails[DEFER_BLOCK_STATE];
       }
       if (!isHydrateNeverBlock) {
-        Object.assign(serializedView, serializeLView(lContainer[i], parentDeferBlockId, context2));
+        Object.assign(serializedView, serializeLView(lContainer[i], parentDeferBlockId, context));
       }
     }
     const currentViewAsString = JSON.stringify(serializedView);
@@ -31696,15 +27641,15 @@ function appendDisconnectedNodeIndex(ngh, tNodeOrNoOffsetIndex) {
   }
 }
 __name(appendDisconnectedNodeIndex, "appendDisconnectedNodeIndex");
-function serializeLView(lView, parentDeferBlockId = null, context2) {
+function serializeLView(lView, parentDeferBlockId = null, context) {
   const ngh = {};
   const tView = lView[TVIEW];
-  const i18nChildren = getOrComputeI18nChildren(tView, context2);
-  const nativeElementsToEventTypes = context2.shouldReplayEvents ? collectDomEventsInfo(tView, lView, context2.eventTypesToReplay) : null;
+  const i18nChildren = getOrComputeI18nChildren(tView, context);
+  const nativeElementsToEventTypes = context.shouldReplayEvents ? collectDomEventsInfo(tView, lView, context.eventTypesToReplay) : null;
   for (let i = HEADER_OFFSET; i < tView.bindingStartIndex; i++) {
     const tNode = tView.data[i];
     const noOffsetIndex = i - HEADER_OFFSET;
-    const i18nData = trySerializeI18nBlock(lView, i, context2);
+    const i18nData = trySerializeI18nBlock(lView, i, context);
     if (i18nData) {
       ngh[I18N_DATA] ??= {};
       ngh[I18N_DATA][noOffsetIndex] = i18nData.caseQueue;
@@ -31755,15 +27700,15 @@ function serializeLView(lView, parentDeferBlockId = null, context2) {
       if (Array.isArray(hostNode)) {
         const targetNode = unwrapRNode(hostNode);
         if (!targetNode.hasAttribute(SKIP_HYDRATION_ATTR_NAME)) {
-          annotateHostElementForHydration(targetNode, hostNode, parentDeferBlockId, context2);
+          annotateHostElementForHydration(targetNode, hostNode, parentDeferBlockId, context);
         }
       }
       ngh[CONTAINERS] ??= {};
-      ngh[CONTAINERS][noOffsetIndex] = serializeLContainer(lView[i], tNode, lView, parentDeferBlockId, context2);
+      ngh[CONTAINERS][noOffsetIndex] = serializeLContainer(lView[i], tNode, lView, parentDeferBlockId, context);
     } else if (Array.isArray(lView[i]) && !isLetDeclaration(tNode)) {
       const targetNode = unwrapRNode(lView[i][HOST]);
       if (!targetNode.hasAttribute(SKIP_HYDRATION_ATTR_NAME)) {
-        annotateHostElementForHydration(targetNode, lView[i], parentDeferBlockId, context2);
+        annotateHostElementForHydration(targetNode, lView[i], parentDeferBlockId, context);
       }
     } else {
       if (tNode.type & 8) {
@@ -31779,7 +27724,7 @@ function serializeLView(lView, parentDeferBlockId = null, context2) {
         }
       } else if (tNode.type & 1) {
         const rNode = unwrapRNode(lView[i]);
-        processTextNodeBeforeSerialization(context2, rNode);
+        processTextNodeBeforeSerialization(context, rNode);
       }
     }
     if (nativeElementsToEventTypes && tNode.type & 2) {
@@ -31809,14 +27754,14 @@ function componentUsesShadowDomEncapsulation(lView) {
   return instance?.constructor ? getComponentDef(instance.constructor)?.encapsulation === ViewEncapsulation.ShadowDom : false;
 }
 __name(componentUsesShadowDomEncapsulation, "componentUsesShadowDomEncapsulation");
-function annotateHostElementForHydration(element, lView, parentDeferBlockId, context2) {
+function annotateHostElementForHydration(element, lView, parentDeferBlockId, context) {
   const renderer = lView[RENDERER];
   if (hasI18n(lView) && !isI18nHydrationSupportEnabled() || componentUsesShadowDomEncapsulation(lView)) {
     renderer.setAttribute(element, SKIP_HYDRATION_ATTR_NAME, "");
     return null;
   } else {
-    const ngh = serializeLView(lView, parentDeferBlockId, context2);
-    const index = context2.serializedViewCollection.add(ngh);
+    const ngh = serializeLView(lView, parentDeferBlockId, context);
+    const index = context.serializedViewCollection.add(ngh);
     renderer.setAttribute(element, NGH_ATTR_NAME, index.toString());
     return index;
   }
@@ -31843,10 +27788,10 @@ function isContentProjectedNode(tNode) {
   return false;
 }
 __name(isContentProjectedNode, "isContentProjectedNode");
-function annotateDeferBlockRootNodesWithJsAction(tDetails, rootNodes, parentDeferBlockId, context2) {
+function annotateDeferBlockRootNodesWithJsAction(tDetails, rootNodes, parentDeferBlockId, context) {
   const actionList = convertHydrateTriggersToJsAction(tDetails.hydrateTriggers);
   for (let et of actionList) {
-    context2.eventTypesToReplay.regular.add(et);
+    context.eventTypesToReplay.regular.add(et);
   }
   if (actionList.length > 0) {
     const elementNodes = rootNodes.filter((rn) => rn.nodeType === Node.ELEMENT_NODE);
@@ -31859,7 +27804,6 @@ __name(annotateDeferBlockRootNodesWithJsAction, "annotateDeferBlockRootNodesWith
 var isHydrationSupportEnabled = false;
 var isI18nHydrationRuntimeSupportEnabled = false;
 var isIncrementalHydrationRuntimeSupportEnabled = false;
-var APPLICATION_IS_STABLE_TIMEOUT = 1e4;
 function enableHydrationRuntimeSupport() {
   if (!isHydrationSupportEnabled) {
     isHydrationSupportEnabled = true;
@@ -31890,30 +27834,10 @@ function enableIncrementalHydrationRuntimeSupport() {
   }
 }
 __name(enableIncrementalHydrationRuntimeSupport, "enableIncrementalHydrationRuntimeSupport");
-function printHydrationStats(injector) {
-  const console2 = injector.get(Console);
-  const message = `Angular hydrated ${ngDevMode.hydratedComponents} component(s) and ${ngDevMode.hydratedNodes} node(s), ${ngDevMode.componentsSkippedHydration} component(s) were skipped. ` + (isIncrementalHydrationEnabled(injector) ? `${ngDevMode.deferBlocksWithIncrementalHydration} defer block(s) were configured to use incremental hydration. ` : "") + `Learn more at https://angular.dev/guide/hydration.`;
-  console2.log(message);
-}
-__name(printHydrationStats, "printHydrationStats");
-function whenStableWithTimeout(appRef) {
-  const whenStablePromise = appRef.whenStable();
-  if (typeof ngDevMode !== "undefined" && ngDevMode) {
-    const timeoutTime = APPLICATION_IS_STABLE_TIMEOUT;
-    const console2 = appRef.injector.get(Console);
-    const ngZone = appRef.injector.get(NgZone);
-    const timeoutId = ngZone.runOutsideAngular(() => {
-      return setTimeout(() => logWarningOnStableTimedout(timeoutTime, console2), timeoutTime);
-    });
-    whenStablePromise.finally(() => clearTimeout(timeoutId));
-  }
-  return whenStablePromise;
-}
-__name(whenStableWithTimeout, "whenStableWithTimeout");
 var CLIENT_RENDER_MODE_FLAG = "ngcm";
 function isClientRenderModeEnabled() {
   const doc = getDocument();
-  return doc.body.hasAttribute(CLIENT_RENDER_MODE_FLAG);
+  return false;
 }
 __name(isClientRenderModeEnabled, "isClientRenderModeEnabled");
 function withDomHydration() {
@@ -31922,7 +27846,7 @@ function withDomHydration() {
       provide: IS_HYDRATION_DOM_REUSE_ENABLED,
       useFactory: /* @__PURE__ */ __name(() => {
         let isEnabled = true;
-        if (true) {
+        if (false) {
           const transferState = inject2(TransferState, { optional: true });
           isEnabled = !!transferState?.get(NGH_DATA_KEY, null);
         }
@@ -31936,7 +27860,7 @@ function withDomHydration() {
       provide: ENVIRONMENT_INITIALIZER,
       useValue: /* @__PURE__ */ __name(() => {
         setIsI18nHydrationSupportEnabled(false);
-        if (false) {
+        if (true) {
           return;
         }
         if (inject2(IS_HYDRATION_DOM_REUSE_ENABLED)) {
@@ -31951,7 +27875,7 @@ function withDomHydration() {
       multi: true
     }
   ];
-  if (true) {
+  if (false) {
     providers.push({
       provide: PRESERVE_HOST_CONTENT,
       useFactory: /* @__PURE__ */ __name(() => {
@@ -32024,7 +27948,7 @@ function withIncrementalHydration() {
       multi: true
     }
   ];
-  if (true) {
+  if (false) {
     providers.push({
       provide: APP_BOOTSTRAP_LISTENER,
       useFactory: /* @__PURE__ */ __name(() => {
@@ -32043,11 +27967,6 @@ function withIncrementalHydration() {
   return providers;
 }
 __name(withIncrementalHydration, "withIncrementalHydration");
-function logWarningOnStableTimedout(time, console2) {
-  const message = `Angular hydration expected the ApplicationRef.isStable() to emit \`true\`, but it didn't happen within ${time}ms. Angular hydration logic depends on the application becoming stable as a signal to complete hydration process.`;
-  console2.warn(formatRuntimeError(-506, message));
-}
-__name(logWarningOnStableTimedout, "logWarningOnStableTimedout");
 function booleanAttribute(value) {
   return typeof value === "boolean" ? value : value != null && value !== "false";
 }
@@ -32343,7 +28262,7 @@ function afterRenderEffect(callbackOrSpec, options) {
   if (ngDevMode && !options?.injector) {
     assertInInjectionContext(afterRenderEffect);
   }
-  if (false) {
+  if (true) {
     return NOOP_AFTER_RENDER_REF;
   }
   const injector = options?.injector ?? inject2(Injector);
@@ -32443,58 +28362,8 @@ var REQUEST_CONTEXT = new InjectionToken(typeof ngDevMode === "undefined" || ngD
 });
 
 export {
-  __spreadValues,
-  __spreadProps,
-  __name,
-  __objRest,
-  __publicField,
   setCurrentInjector,
   SIGNAL,
-  Subscription,
-  pipe,
-  Observable,
-  refCount,
-  ConnectableObservable,
-  Subject,
-  BehaviorSubject,
-  queueScheduler,
-  EMPTY,
-  observeOn,
-  from,
-  of,
-  throwError,
-  isObservable,
-  EmptyError,
-  map,
-  combineLatest,
-  mergeMap,
-  mergeAll,
-  concat,
-  defer,
-  forkJoin,
-  merge,
-  filter,
-  catchError,
-  concatMap,
-  defaultIfEmpty,
-  take,
-  ignoreElements,
-  dematerialize,
-  distinctUntilChanged,
-  exhaustMap,
-  finalize,
-  first,
-  groupBy,
-  takeLast,
-  last2 as last,
-  materialize,
-  pluck,
-  scan,
-  startWith,
-  switchMap,
-  takeUntil,
-  tap,
-  withLatestFrom,
   setAlternateWeakRefImpl,
   XSS_SECURITY_URL,
   RuntimeError,
@@ -32561,6 +28430,7 @@ export {
   PendingTasksInternal,
   PendingTasks,
   EffectScheduler,
+  require_operators,
   noSideEffects,
   Inject,
   Optional,
@@ -32714,7 +28584,7 @@ export {
   Testability,
   TestabilityRegistry,
   setTestabilityGetter,
-  isPromise2 as isPromise,
+  isPromise,
   isSubscribable,
   APP_INITIALIZER,
   provideAppInitializer,
@@ -33025,6 +28895,8 @@ export {
    *)
 
 @angular/core/fesm2022/debug_node.mjs:
+@angular/core/fesm2022/debug_node.mjs:
+@angular/core/fesm2022/core.mjs:
   (*!
    * @license
    * Copyright Google LLC All Rights Reserved.
@@ -33033,4 +28905,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-F5JFE4SO.js.map
+//# sourceMappingURL=chunk-ECVEU7WN.js.map

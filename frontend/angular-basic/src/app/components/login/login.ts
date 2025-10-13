@@ -13,9 +13,9 @@ import { AsyncPipe, NgIf } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, AsyncPipe],
+  imports: [FormsModule, AsyncPipe, NgIf],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrls: ['./login.css']
 })
 export class Login {
 
@@ -24,6 +24,8 @@ export class Login {
   loading$!: Observable<boolean>;
   error$!: Observable<string>;
   isAuthenticated$!: Observable<boolean>;
+  email: string ='';
+  password: string = '';
 
    ngOnInit() {
     this.loading$ = this.store.select(selectLoading);
@@ -34,5 +36,6 @@ export class Login {
     onLogin(email: string, password: string) {
     const data: LoginRequest = { email, password };
     this.store.dispatch(AuthActions.login({ data }));
+    
   }
 }

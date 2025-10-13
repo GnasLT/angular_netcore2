@@ -57,6 +57,22 @@ namespace MyAPI.Presentation.Controller
 
             return await Result<object>.SuccessResult(null, result.Message);
         }
+
+        [HttpGet("getme")]
+        public async Task<Result<String>> Getme()
+        {
+            if (!HttpContext.Request.Cookies.TryGetValue("MySession", out var sessionIdString))
+            {
+                return await Result<String>.FailureResult("You're still not logged in");
+            }
+            if (!Guid.TryParse(sessionIdString, out Guid sessionid))
+            {
+                return await Result<String>.FailureResult("Invalid session id");
+            }
+            var result = await _authenService.Getme(sessionid);
+
+            return await Result<String>.SuccessResult(result, "Get me success");
+        }
         
         
 

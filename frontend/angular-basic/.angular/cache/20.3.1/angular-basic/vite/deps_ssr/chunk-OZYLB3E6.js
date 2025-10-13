@@ -17,7 +17,6 @@ import {
   isDevMode,
   makeEnvironmentProviders,
   provideEnvironmentInitializer,
-  require_cjs,
   require_operators,
   setClassMetadata,
   signal,
@@ -27,7 +26,10 @@ import {
   ɵɵdefineNgModule,
   ɵɵgetInheritedFactory,
   ɵɵinject
-} from "./chunk-EA35TMUM.js";
+} from "./chunk-ECVEU7WN.js";
+import {
+  require_cjs
+} from "./chunk-UUOZ4H2G.js";
 import {
   __name,
   __spreadProps,
@@ -1445,4 +1447,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-EW7NHCBQ.js.map
+//# sourceMappingURL=chunk-OZYLB3E6.js.map

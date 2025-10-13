@@ -7,7 +7,7 @@ import {
   StoreFeatureModule,
   StoreRootModule,
   createAction
-} from "./chunk-EW7NHCBQ.js";
+} from "./chunk-OZYLB3E6.js";
 import {
   ErrorHandler,
   Inject,
@@ -18,14 +18,16 @@ import {
   inject,
   makeEnvironmentProviders,
   provideEnvironmentInitializer,
-  require_cjs,
   require_operators,
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-EA35TMUM.js";
+} from "./chunk-ECVEU7WN.js";
+import {
+  require_cjs
+} from "./chunk-UUOZ4H2G.js";
 import {
   __name,
   __spreadValues,

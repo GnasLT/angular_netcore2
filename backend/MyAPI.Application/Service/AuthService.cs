@@ -23,7 +23,7 @@ namespace MyAPI.Application.Service
             if (user == null)
                 return await Result<LoginResponse>.FailureResult("User not found");
             if (user.PasswordHash != request.Password)
-                return await Result<LoginResponse>.FailureResult("Invalid credentials");
+                return await Result<LoginResponse>.FailureResult("Wrong password");
 
             Sessions check = await _sessionRepository.GetByUserIdAsync(user.Id);
             LoginResponse lresponse = new LoginResponse()
@@ -70,6 +70,15 @@ namespace MyAPI.Application.Service
 
 
             return await Result<object>.ReturnMessage(200, "Logout successfully");
+        }
+        
+        public async Task<string> Getme(Guid sessionId)
+        {
+            var session = await _sessionRepository.GetByIdAsync(sessionId);
+            if (session == null) return null;
+            Users? user = await _userRepository.GetByIdAsync(session.UserId);
+            if (user == null) return null;
+            return user.Role; 
         }
     }
 }

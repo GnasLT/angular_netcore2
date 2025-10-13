@@ -7,7 +7,8 @@ import * as UserActions from './auth.action';
 export const initialState: AuthState = {
     loading: false,
     error: '',
-    isAuthenticated: false
+    isAuthenticated: false,
+    role: ''
 };
 
 
@@ -33,6 +34,25 @@ export const authReducer = createReducer(
     loading: false,
     isAuthenticated: false,
     error
-  }))
+  })),
+
+    on(UserActions.getMeSuccess,(state, {myrole}) => ({
+      ...state,
+      role: myrole
+    })),
+
+    on(UserActions.getMe, state =>({
+      ...state,
+      loading: true,
+      error: '',
+      isAuthenticated: false
+  })),
+
+    on(UserActions.getMeFailure, (state, {error}) =>({
+    ...state,
+    loading: false,
+    isAuthenticated: false,
+    error
+  })),
 
 )

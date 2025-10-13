@@ -1,18 +1,17 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   withHttpTransferCache
-} from "./chunk-3AASIUUE.js";
+} from "./chunk-A6X6XTPA.js";
 import {
   CommonModule,
   DomAdapter,
   PLATFORM_BROWSER_ID,
   getDOM,
   setRootDomAdapter
-} from "./chunk-S55DFIHO.js";
+} from "./chunk-KZL27SOF.js";
 import {
   XhrFactory,
   parseCookieValue
-} from "./chunk-KXAFGDSC.js";
+} from "./chunk-ILZ35MBL.js";
 import {
   ANIMATIONS_DISABLED,
   APP_ID,
@@ -76,13 +75,12 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-EA35TMUM.js";
+} from "./chunk-OX2THR5V.js";
 import {
   __name,
   __publicField,
-  __spreadProps,
   __spreadValues
-} from "./chunk-XCKGGG5T.js";
+} from "./chunk-Y3N4JTB5.js";
 
 // node_modules/@angular/platform-browser/fesm2022/dom_renderer.mjs
 var EVENT_MANAGER_PLUGINS = new InjectionToken(ngDevMode ? "EventManagerPlugins" : "");
@@ -311,7 +309,7 @@ var _SharedStylesHost = class _SharedStylesHost {
     if (this.nonce) {
       element.setAttribute("nonce", this.nonce);
     }
-    if (true) {
+    if (false) {
       element.setAttribute(APP_ID_ATTRIBUTE_NAME, this.appId);
     }
     return host.appendChild(element);
@@ -437,14 +435,14 @@ var _DomRendererFactory2 = class _DomRendererFactory2 {
     this.animationDisabled = animationDisabled;
     this.maxAnimationTimeout = maxAnimationTimeout;
     this.tracingService = tracingService;
-    this.platformIsServer = true;
+    this.platformIsServer = false;
     this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.platformIsServer, this.tracingService, this.registry = getAnimationElementRemovalRegistry(), this.maxAnimationTimeout);
   }
   createRenderer(element, type) {
     if (!element || !type) {
       return this.defaultRenderer;
     }
-    if (type.encapsulation === ViewEncapsulation.ShadowDom) {
+    if (false) {
       type = __spreadProps(__spreadValues({}, type), {
         encapsulation: ViewEncapsulation.Emulated
       });
@@ -711,7 +709,7 @@ var _DefaultDomRenderer2 = class _DefaultDomRenderer2 {
       if (event === "__ngUnwrap__") {
         return eventHandler;
       }
-      const allowDefaultBehavior = true ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
+      const allowDefaultBehavior = false ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
       if (allowDefaultBehavior === false) {
         event.preventDefault();
       }
@@ -818,7 +816,7 @@ var _NoneEncapsulationDomRenderer = class _NoneEncapsulationDomRenderer extends 
     if (!this.removeStylesOnCompDestroy) {
       return;
     }
-    if (false) {
+    if (!this._animationDisabled && this.registry.elements) {
       this.ngZone.runOutsideAngular(() => {
         setTimeout(() => {
           this.sharedStylesHost.removeStyles(this.styles, this.styleUrls);
@@ -2158,4 +2156,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-KUGQOLIN.js.map
+//# sourceMappingURL=chunk-MDZAK4YF.js.map
