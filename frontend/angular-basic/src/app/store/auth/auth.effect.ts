@@ -16,7 +16,6 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(AuthActions.login),
       mergeMap(({ data }) => {
-        console.log('Calling authService.login with data =', data, 'authService =', this.authService);
         return this.authService.login(data).pipe(
           map(() => AuthActions.loginSuccess()),
           catchError((err: any) => of(AuthActions.loginFailure({ error: err?.message ?? String(err) })))
@@ -49,8 +48,9 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(AuthActions.getMeSuccess),
         tap(({ myrole }) => {
-          if (myrole === 'Admin') this.router.navigate(['/admin']);
-          else this.router.navigate(['/dashboard']);
+          if (myrole === 'admin') this.router.navigate(['/admin']);
+          else if (myrole === 'seller')this.router.navigate(['/dashboard']);
+          else this.router.navigate(['/home']);
         })
       ),
     { dispatch: false }
